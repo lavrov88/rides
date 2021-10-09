@@ -1,0 +1,134 @@
+.infobar {
+   padding: 10px;
+   max-width: 320px;
+
+   overflow-x: auto;
+}
+.infobar::-webkit-scrollbar {
+   width: 4px;
+   background-color: #fff;
+}
+.infobar::-webkit-scrollbar-thumb {
+   background-color: #2e82ff;
+}
+
+.ride_header {
+   border-bottom: 1px solid #2e82ff;
+   padding-bottom: 10px;
+}
+
+.ride_header__name {
+   margin-bottom: 5px;
+   h2 {
+      font-size: 22px;
+      font-weight: 600;
+   }
+}
+
+.ride_header__subheader {
+   display: flex;
+   justify-content: space-between;
+   font-size: 14px;
+}
+
+.ride_indicators__strava_link {
+   display: flex;
+   align-items: center;
+   width: fit-content;
+
+   text-decoration: none;
+
+   &:hover {
+      text-decoration: underline;
+   }
+}
+
+.strava_logo {
+   width: 16px;
+   height: 16px;
+   margin-right: 5px;
+}
+
+.ride_members {
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+h3 {
+   font-size: 16px;
+   font-weight: 600;
+   margin-bottom: 5px;
+}
+
+.ride_members_items {
+   display: flex;
+   flex-wrap: wrap;
+   padding-top: 5px;
+   padding-bottom: 10px;
+}
+
+.ride_member_item {
+   margin-right: 10px;
+}
+
+.ride_member_item__img {
+   width: 50px;
+   height: 50px;
+   background-color: #ccc;
+   color: #ccc;
+}
+
+.ride_member_item__name {
+   padding-top: 4px;
+   font-weight: 600;
+   font-size: 12px;
+   text-align: center;
+}
+
+.ride_indicators {
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.ride_indicators__group {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   margin-bottom: 15px;
+}
+
+.ride_indicators_item {
+   flex-shrink: 0;
+}
+
+.ride_indicators_item__value {
+   font-size: 22px;
+   text-align: center;
+}
+
+.ride_indicators_item__unit {
+   font-size: 15px;
+   font-weight: 600;
+}
+
+.ride_indicators_item__name {
+   border-top: 1px solid #2e82ff85;
+   padding-top: 2px;
+   font-size: 12px;
+}
+
+.ride_gallery_items {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   margin-top: 10px;
+}
+.photo_item {
+   margin-bottom: 20px;
+}
+
+.photo_item__photo {
+   width: 120px;
+   height: 120px;
+   background-color: #ccc;
+}

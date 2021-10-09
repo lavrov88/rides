@@ -1,0 +1,16 @@
+.map_container {
+   position: relative;
+   background-color: #ECF6DE;
+}
+
+.map_left_gradient {
+   position: absolute;
+   z-index: 500;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 10px;
+
+   background:
+   linear-gradient(90deg, #ffffff 0%, #ffffff00 100%);
+}

@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import NavbarContainer from './components/Navbar/Navbar';
+import InfobarContainer from './components/Infobar/InfobarContainer';
+import MapContainer from './components/Map/MapContainer';
+import store from './store/store';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App(props) {
+   const activeRideUrl =  props.match.params.number
+   const state = store.getState()
+   store.setActiveRide(activeRideUrl)
+
+   return (
+         <div className="App">
+            <div className="rides_menu_container">
+               <NavbarContainer state={state} />
+               <InfobarContainer state={state} />
+            </div>
+               <MapContainer state={state} />
+         </div>
+   );
 }
 
 export default App;
+ 

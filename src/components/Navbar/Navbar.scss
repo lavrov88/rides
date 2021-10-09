@@ -1,0 +1,143 @@
+.navbar {
+   max-width: 360px;
+
+   background:
+   linear-gradient(90deg, #d9e3f5 0%, #ffffff 100%);
+}
+
+.header_logo {
+   padding: 10px 10px 20px;
+
+   h1 {
+      font-size: 30px;
+      font-weight: 600;
+   }
+}
+
+.riders_list_wrapper {
+   height: 100%;
+   overflow-y: auto;
+}
+.riders_list_wrapper::-webkit-scrollbar {
+   width: 4px;
+   background-color: #fff;
+}
+.riders_list_wrapper::-webkit-scrollbar-thumb {
+   background-color: #2e82ff;
+}
+
+.rides_list {
+   height: 100%;
+   border-width: 2px;
+   border-style: solid;
+   border-image: 
+      linear-gradient(
+      180deg, 
+      #fff 5%,
+      #2e82ff 30%,
+      #2e82ff 50%, 
+      #2e82ff 70%,
+      #fff 95%
+      ) 1 100%;
+   border-top: none;
+   border-left: none;
+   border-bottom: none;
+
+}
+
+.rides_list_item__container {
+   display: flex;
+   padding: 5px;
+   padding-left: 7px;
+   border-bottom: 2px transparent solid;
+
+   &:hover {
+      background-color: #2e82ff1f;
+   }
+
+   &.active {
+      position: relative;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #2e82ff;
+      margin-right: -2px;
+
+      background:
+      linear-gradient(0deg, #fff 0%, #fff 50%, #ffffff33 100%);
+      font-weight: 600;
+
+      &:hover {
+         background: #2e82ff1f;
+      }
+
+      &:before {
+         content: '';
+         position: absolute;
+         top: 0px;
+         left: 0px;
+         width: 5px;
+         height: 100%;
+         background-color: #2e82ff;
+      }
+   }
+}
+
+.rides_list_item__left {
+   width: 42px;
+}
+
+.rides_list_item__members {
+   display: flex;
+   flex-wrap: wrap;
+   width: 40px;
+   height: 40px;
+
+   background-color: #2e82ff1f;
+}
+
+.rides_list_item__member_pic {
+   display: block;
+   width: 20px;
+   height: 20px;
+   margin: 0;
+   object-fit: cover;
+
+   &.long {
+      height: 40px;
+   }
+}
+
+.rides_list_item__center{
+   flex-grow: 1;
+   padding: 0px 5px;
+}
+
+.rides_list_item__date {
+   font-size: 11px;
+   text-align: right;
+}
+
+.rides_list_item__right {
+   display: flex;
+   flex-direction: row;
+   flex-shrink: 0;
+   justify-content: center;
+   width: 38px;
+   align-items: center;
+   padding-left: 3px;
+
+   border-left: 1px solid #2e82ff;
+   text-align: center;
+}
+
+.rides_list_item__distance_num {
+   font-size: 18px;
+}
+.rides_list_item__distance_unit {
+   font-size: 12px;
+}
+
+
+
+
+
+
