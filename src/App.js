@@ -4,6 +4,7 @@ import InfobarContainer from './components/Infobar/InfobarContainer';
 import MapContainer from './components/Map/MapContainer';
 import { checkUrlValidity } from './components/Common/utilites';
 import { Redirect } from 'react-router';
+import CollapseInfobarBtn from './components/Infobar/InfobarCollapseBtn/InfobarCollapseBtn';
 
 
 function App(props) {
@@ -34,6 +35,7 @@ function App(props) {
             <div className="rides_menu_container">
                <NavbarContainer state={state} dispatch={dispatch} />
                <InfobarContainer state={state} />
+               <CollapseInfobarBtn isCollapsed={state.infobar.isCollapsed} dispatch={dispatch} />
             </div>
                <MapContainer map={map} />
          </div>

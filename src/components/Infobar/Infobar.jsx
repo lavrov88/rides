@@ -29,8 +29,9 @@ const RideHeader = (props) => {
 }
 
 const Infobar = (props) => {
+   const isCollapsed = props.isCollapsed
    return (
-      <div className="infobar">
+      <div className={'infobar' + (isCollapsed ? ' collapsed' : '')}>
          <RideHeader name={props.ride.name} date={props.ride.startDate} strava={props.ride.stravaLink} />
          <RideMembers members={props.members} />
          <RideIndicators ride={props.ride} />

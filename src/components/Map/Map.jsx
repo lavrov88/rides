@@ -1,13 +1,13 @@
 import React from "react"
 import './Map.scss'
 
-const checkUrl = (url) => {
-   if (url.match(/https:\/\/api-maps\.yandex\.ru.+scroll=true/gm)) {
-      return true
-   } else {
-      return false
-   }
-}
+// const checkUrl = (url) => {
+//    if (url.match(/https:\/\/api-maps\.yandex\.ru.+scroll=true/gm)) {
+//       return true
+//    } else {
+//       return false
+//    }
+// }
 
 const rerenderMap = (props) => {
    const appEl = document.querySelector('.App')

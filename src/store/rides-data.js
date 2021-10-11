@@ -268,6 +268,24 @@ const rides = [
          'url3',
          'url4'
       ]
+   },
+   {
+      name: "Journey to the glory of Chester Bennington",
+      map: `string`,
+      distance: 164.75,
+      climb: 0,
+      startDate: '2017-07-22',
+      startTime: '11:15',
+      fullTime: '10:50:00',
+      cleanTime: '10:50:00',
+      members: ['Lavr', 'Nick'],
+      stravaLink: '',
+      photos: [
+         'url1',
+         'url2',
+         'url3',
+         'url4'
+      ]
    }
 ]
 

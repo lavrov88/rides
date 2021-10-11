@@ -1,10 +1,18 @@
 @import '../../css/colors.scss';
 
 .infobar {
+   position: relative;
    padding: 10px;
    max-width: 320px;
-
    overflow-x: auto;
+
+   &.collapsed {
+      max-width: 0px;
+      padding: 4px;
+      overflow: hidden;
+      opacity: 0;
+   }
+
 }
 .infobar::-webkit-scrollbar {
    width: 4px;

@@ -8,6 +8,9 @@ const store = {
       processedRides: [],
       bikers: [],
       activeRide: null,
+      infobar: {
+         isCollapsed: false
+      },
       navbar: {
          filterMenuIsOpened: false,
          sortMenuIsOpened: false,
@@ -25,25 +28,15 @@ const store = {
    _processRides() {
       let tempArr = [...this._state.rides]
       const output = this._state.navbar.output
+
+      // SORTING
+
       const sortRides = (parameter) => {
          if (output.sortFromBiggest) {
-            tempArr.sort((a, b) => {
-               if (a[parameter] > b[parameter]) {
-                  return -1
-               } else {
-                  return 1
-               }
-            })
+            tempArr.sort((a, b) => a[parameter] > b[parameter] ? -1 : 1)
          } else {
-            tempArr.sort((a, b) => {
-               if (a[parameter] > b[parameter]) {
-                  return 1
-               } else {
-                  return -1
-               }
-            })
+            tempArr.sort((a, b) => a[parameter] > b[parameter] ? 1 : -1)
          }
-         this._state.processedRides = [...tempArr]
       }
 
       switch (output.sortParameter) {
@@ -62,6 +55,19 @@ const store = {
          default:
             sortRides('startDate')
       }
+
+      // FILTERING
+
+      const checkBikers = (ride, bikers) => {
+         for (let biker of bikers) {
+            if (ride.members.find(member => member === biker)) {
+               return true
+            }
+         }
+         return false
+      }
+      tempArr = tempArr.filter(ride => checkBikers(ride, output.filteredBikers))
+      this._state.processedRides = [...tempArr]
    },
 
    getState() {
@@ -87,6 +93,20 @@ const store = {
             }
             this._callSubscriber()
             break
+         case 'TOGGLE-FILTERED-BIKER':
+            const filteredBikers = this._state.navbar.output.filteredBikers
+            const filterIndex = filteredBikers.findIndex(b => b === action.bikerId)
+            if (filterIndex === -1) {
+               filteredBikers.push(action.bikerId)
+               filteredBikers.sort((a, b) => a > b ? 1 : -1)
+            } else {
+               if (filteredBikers.length > 1) {
+                  filteredBikers.splice(filterIndex, 1)
+               }
+            }
+            this._processRides()
+            this._callSubscriber()
+            break
          case 'TOGGLE-SORT-MENU':
             if (this._state.navbar.sortMenuIsOpened) {
                this._state.navbar.sortMenuIsOpened = false
@@ -99,11 +119,18 @@ const store = {
          case 'TOGGLE-RIDES-SORT':
             this._state.navbar.output.sortParameter = action.sortParameter
             this._state.navbar.output.sortFromBiggest = action.sortFromBiggest
+            this._state.navbar.sortMenuIsOpened = false
             this._processRides()
             this._callSubscriber()
             break
-            default:
-            console.error(`unknown action type: ${action.type}`)
+         case 'TOOGLE-INFOBAR-COLLAPSE':
+            this._state.infobar.isCollapsed
+               ? this._state.infobar.isCollapsed = false
+               : this._state.infobar.isCollapsed = true
+            this._callSubscriber()
+            break
+         default:
+         console.error(`unknown action type: ${action.type}`)
       }
    },
 
@@ -124,6 +151,7 @@ const store = {
                return 1
             } else return -1
          })
+         this._state.navbar.output.filteredBikers = [...this._state.bikers.map(b => b.id)]
       }
 
       function initRides() {

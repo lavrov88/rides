@@ -32,7 +32,7 @@ const Navbar = (props) => {
    return (
       <div className="navbar">
          <Logo />
-         <ManageList navbar={props.state.navbar} dispatch={props.dispatch} />
+         <ManageList bikers={props.state.bikers} navbar={props.state.navbar} dispatch={props.dispatch} />
          <div className="riders_list_wrapper">
             <ul className="rides_list">
                <RidesListItems state={props.state} />

@@ -15,15 +15,17 @@
    position: relative;
    display: block;
    flex-grow: 1;
+   height: 20px;
 
    color: #fff;
-   background-color: $blue_semitransparent;
+   background-color: $blue_main;
    font-size: 14px;
    font-weight: 600;
+   line-height: 1;
    cursor: pointer;
 
    &:hover {
-      background-color: $blue_semitransparent_lighter;
+      background-color: $blue_semitransparent;
    }
 }
 .filter_btn {
@@ -51,44 +53,5 @@
 
    &.opened {
       display: block;
-   }
-}
-
-.sort_menu_popup_item {
-   display: flex;
-   justify-content: space-between;
-   padding: 5px 10px;
-
-   font-size: 14px;
-   &:hover {
-      background-color: #e3edff83;
-   }
-
-   &.fromBiggest {
-      & .sort_menu_popup_item__name,
-      & .biggest {
-         font-weight: 600;
-      }
-   }
-   &.fromSmallest {
-      & .sort_menu_popup_item__name,
-      & .smallest {
-         font-weight: 600;
-      }
-   }
-}
-
-.sort_menu_popup_item__name {
-   flex-grow: 1;
-   width: 50%;
-}
-
-.sort_menu_popup_item__btn {
-   width: 25%;
-   cursor: pointer;
-   &:hover {
-      text-decoration: underline;
-      text-decoration-style: dotted;
-      text-decoration-thickness: 1px;
    }
 }

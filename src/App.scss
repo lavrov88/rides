@@ -8,7 +8,9 @@
 }
 
 .rides_menu_container {
+   position: relative;
    display: flex;
+   flex-grow: 0;
 }
 
 .map_container {

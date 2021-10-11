@@ -27,10 +27,9 @@ export const addZero = (num) => {
 export const separateDecimal = (num, accuracy = 1) => {
    let output = []
    output.push(Math.floor(num) + '')
-   output.push((Math.round((num - output[0]) * 100) + '').slice(0, accuracy))
+   output.push((num.toFixed(accuracy) + '').slice(-accuracy))
    return output
 }
-console.log(separateDecimal(2.06));
 
 // OTHER
 
