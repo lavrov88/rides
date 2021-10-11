@@ -8,15 +8,23 @@ import { Route } from 'react-router'
 
 store.initState()
 
-ReactDOM.render(
-  <React.StrictMode>
-     <BrowserRouter>
-         <Switch>
-            <Route exact path='/' component={App} />
-            <Route path='/:number' component={App} />
-         </Switch>
-     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const rerenderEntireTree = () => {
+   ReactDOM.render(
+      <React.StrictMode>
+         <BrowserRouter>
+             <Switch>
+               <Route exact path='/' 
+                  render={({ location }) => <App location={location} store={store} />} />
+               <Route path='/rides/:number' 
+                  render={({ location }) => <App location={location} store={store} />} />
+             </Switch>
+         </BrowserRouter>
+      </React.StrictMode>,
+      document.getElementById('root')
+    );
+}
+
+rerenderEntireTree()
+store.subscribe(rerenderEntireTree)
+
 

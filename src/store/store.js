@@ -5,69 +5,161 @@ import { convertStrToDate, convertStrToMs } from "../components/Common/utilites"
 const store = {
    _state: {
       rides: [],
+      processedRides: [],
       bikers: [],
-      activeRide: null
+      activeRide: null,
+      navbar: {
+         filterMenuIsOpened: false,
+         sortMenuIsOpened: false,
+         output: {
+            sortParameter: 'date',
+            sortFromBiggest: true,
+            filteredBikers: []
+         }
+      }
+   },
+
+   _callSubscriber() {
+   },
+
+   _processRides() {
+      let tempArr = [...this._state.rides]
+      const output = this._state.navbar.output
+      const sortRides = (parameter) => {
+         if (output.sortFromBiggest) {
+            tempArr.sort((a, b) => {
+               if (a[parameter] > b[parameter]) {
+                  return -1
+               } else {
+                  return 1
+               }
+            })
+         } else {
+            tempArr.sort((a, b) => {
+               if (a[parameter] > b[parameter]) {
+                  return 1
+               } else {
+                  return -1
+               }
+            })
+         }
+         this._state.processedRides = [...tempArr]
+      }
+
+      switch (output.sortParameter) {
+         case 'date':
+            sortRides('startDate')
+            break
+         case 'distance':
+            sortRides('distance')
+            break
+         case 'time':
+            sortRides('cleanTime')
+            break
+         case 'speed':
+            sortRides('averageSpeed')
+            break
+         default:
+            sortRides('startDate')
+      }
    },
 
    getState() {
       return this._state
    },
 
-   setActiveRide(input) {
-      const index = this._state.rides.findIndex(el => el.id === input)
-      if (index !== -1) {
-         this._state.activeRide = index
-      } else {
-         this._state.activeRide = 0
+   dispatch(action) {
+      switch (action.type) {
+         case 'SET-ACTIVE-RIDE':
+            const index = this._state.processedRides.findIndex(el => el.url === action.url)
+            if (index !== -1) {
+               this._state.activeRide = index
+            } else {
+               this._state.activeRide = 0
+            }
+            break
+         case 'TOGGLE-FILTER-MENU':
+            if (this._state.navbar.filterMenuIsOpened) {
+               this._state.navbar.filterMenuIsOpened = false
+            } else {
+               this._state.navbar.sortMenuIsOpened = false
+               this._state.navbar.filterMenuIsOpened = true
+            }
+            this._callSubscriber()
+            break
+         case 'TOGGLE-SORT-MENU':
+            if (this._state.navbar.sortMenuIsOpened) {
+               this._state.navbar.sortMenuIsOpened = false
+            } else {
+               this._state.navbar.filterMenuIsOpened = false
+               this._state.navbar.sortMenuIsOpened = true
+            }
+            this._callSubscriber()
+            break
+         case 'TOGGLE-RIDES-SORT':
+            this._state.navbar.output.sortParameter = action.sortParameter
+            this._state.navbar.output.sortFromBiggest = action.sortFromBiggest
+            this._processRides()
+            this._callSubscriber()
+            break
+            default:
+            console.error(`unknown action type: ${action.type}`)
       }
    },
 
    initState() {
-      this._initBikers()
-      this._initRides()
+      initBikers.bind(this)()
+      initRides.bind(this)()
       if (!this._state.activeRide) {
          this._state.activeRide = 0
       }
+
+      function initBikers() {
+         this._state.bikers.length = 0
+         bikers.forEach(biker => {
+            this._state.bikers = [...this._state.bikers, biker]
+         })
+         this._state.bikers.sort((a, b) => {
+            if (a.id > b.id) {
+               return 1
+            } else return -1
+         })
+      }
+
+      function initRides() {
+         this._state.rides.length = 0
+         rides.forEach(el => {
+            let ride = {
+               name: el.name,
+               id: `${el.startDate}T${el.startTime}`.match(/[0-9]/gi).join(''),
+               url: '/rides/' + el.startDate,
+               map: el.map,
+               startDate: convertStrToDate(el.startDate, el.startTime),
+               fullTime: convertStrToMs(el.fullTime),
+               cleanTime: convertStrToMs(el.cleanTime),
+               distance: el.distance,
+               climb: el.climb,
+               averageSpeed: +(el.distance / convertStrToMs(el.cleanTime) * 1000 * 60 * 60).toFixed(1),
+               members: el.members,
+               stravaLink: el.stravaLink,
+               photos: [...el.photos]
+            }
+            this._state.rides = [...this._state.rides, ride]
+         })
+         this._state.rides.sort((a, b) => {
+            if (a.id > b.id) {
+               return -1
+            } else return 1
+         })
+         this._state.processedRides = [...this._state.rides]
+      }
    },
 
-   _initBikers() {
-      this._state.bikers.length = 0
-      bikers.forEach(biker => {
-         this._state.bikers = [...this._state.bikers, biker]
-      })
-      this._state.bikers.sort((a, b) => {
-         if (a.id > b.id) {
-            return 1
-         } else return -1
-      })
-   },
-
-   _initRides() {
-      this._state.rides.length = 0
-      rides.forEach(el => {
-         let ride = {
-            name: el.name,
-            id: `${el.startDate}T${el.startTime}`.match(/[0-9]/gi).join(''),
-            map: el.map,
-            startDate: convertStrToDate(el.startDate, el.startTime),
-            fullTime: convertStrToMs(el.fullTime),
-            cleanTime: convertStrToMs(el.cleanTime),
-            distance: el.distance,
-            climb: el.climb,
-            members: el.members,
-            stravaLink: el.stravaLink,
-            photos: [...el.photos]
-         }
-
-         this._state.rides = [...this._state.rides, ride]
-      })
-      this._state.rides.sort((a, b) => {
-         if (a.id > b.id) {
-            return -1
-         } else return 1
-      })
+   subscribe(observer) {
+      this._callSubscriber = observer
    }
 }
 
-export default store;
-window.store = store;
+export default store
+window.store = store
+window.state = store.getState()

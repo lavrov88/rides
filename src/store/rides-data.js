@@ -1,7 +1,7 @@
 const rides = [
    {
       name: 'Konakovo - Solnechnogorsk',
-      map: 'string',
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A8472ba15980b6a771535d7df0fde7022adbe7e49420c0284e9b5fa633d4e3026&amp;width=100%25&amp;height=507&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 90.61,
       climb: 539,
       startDate: '2021-08-15',
@@ -19,7 +19,7 @@ const rides = [
    },
    {
       name: "Through Malino's jungle",
-      map: 'string',
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A502b1ca7d98ef2d4a8c5a08866594227109af4d9af79bab4d096dbdde10f8025&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 28.37,
       climb: 226,
       startDate: '2021-07-25',
@@ -37,7 +37,7 @@ const rides = [
    },
    {
       name: "To Pyatnitsa through Povarovo",
-      map: 'string',
+      map: `string`,
       distance: 40.27,
       climb: 1541,
       startDate: '2021-06-20',
@@ -55,7 +55,7 @@ const rides = [
    },
    {
       name: "Dirty journey to Pavlovskaya Sloboda",
-      map: 'string',
+      map: `string`,
       distance: 63.97,
       climb: 465,
       startDate: '2021-05-07',
@@ -73,7 +73,7 @@ const rides = [
    },
    {
       name: "Iksha - Pushkino - Dolgoprudniy",
-      map: 'string',
+      map: `string`,
       distance: 87.73,
       climb: 2271,
       startDate: '2021-05-02',
@@ -91,7 +91,7 @@ const rides = [
    },
    {
       name: "Ring through Moscow and Krasnogorsk",
-      map: 'string',
+      map: `string`,
       distance: 150.56,
       climb: 907,
       startDate: '2020-07-25',
@@ -109,7 +109,7 @@ const rides = [
    },
    {
       name: "Solnechnogorsk - Yakhroma - Zelenograd",
-      map: 'string',
+      map: `string`,
       distance: 112.78,
       climb: 1267,
       startDate: '2020-07-05',
@@ -127,7 +127,7 @@ const rides = [
    },
    {
       name: "Klin - Volokolamsk & Snegiri - Zelenograd",
-      map: 'string',
+      map: `string`,
       distance: (77.7 + 14.03),
       climb: (772 + 71),
       startDate: '2020-06-13',
@@ -145,7 +145,7 @@ const rides = [
    },
    {
       name: "From Tver to Konarovo across Saint Places",
-      map: 'string',
+      map: `string`,
       distance: 79.3,
       climb: 225,
       startDate: '2019-08-25',
@@ -163,7 +163,7 @@ const rides = [
    },
    {
       name: "To the back side of Istra",
-      map: 'string',
+      map: `string`,
       distance: 139.65,
       climb: 1141,
       startDate: '2019-05-19',
@@ -180,8 +180,8 @@ const rides = [
       ]
    },
    {
-      name: "Assault attempt of underbuild CKAD",
-      map: 'string',
+      name: "Assault attempt of under constructed CKAD",
+      map: `string`,
       distance: 30.29,
       climb: 297,
       startDate: '2019-04-20',
@@ -190,6 +190,78 @@ const rides = [
       cleanTime: '1:57:31',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472268451',
+      photos: [
+         'url1',
+         'url2',
+         'url3',
+         'url4'
+      ]
+   },
+   {
+      name: "Hike to Yaroslavl, day 2",
+      map: `string`,
+      distance: 48.3,
+      climb: 239,
+      startDate: '2018-07-29',
+      startTime: '08:38',
+      fullTime: '3:16:25',
+      cleanTime: '2:45:08',
+      members: ['Lavr', 'Nick'],
+      stravaLink: 'https://www.strava.com/activities/4472290953',
+      photos: [
+         'url1',
+         'url2',
+         'url3',
+         'url4'
+      ]
+   },
+   {
+      name: "Hike to Yaroslavl, day 1",
+      map: `string`,
+      distance: 143.54,
+      climb: 998,
+      startDate: '2018-07-28',
+      startTime: '10:52',
+      fullTime: '10:09:56',
+      cleanTime: '7:40:36',
+      members: ['Lavr', 'Nick'],
+      stravaLink: 'https://www.strava.com/activities/4472291668',
+      photos: [
+         'url1',
+         'url2',
+         'url3',
+         'url4'
+      ]
+   },
+   {
+      name: "From Zvenigorod to Mozhaysk and Borodino",
+      map: `string`,
+      distance: 100.59,
+      climb: 781,
+      startDate: '2018-07-14',
+      startTime: '09:57',
+      fullTime: '9:09:00',
+      cleanTime: '4:52:07',
+      members: ['Lavr', 'Nick'],
+      stravaLink: 'https://www.strava.com/activities/4472291139',
+      photos: [
+         'url1',
+         'url2',
+         'url3',
+         'url4'
+      ]
+   },
+   {
+      name: "Autumn trip around Moscow",
+      map: `string`,
+      distance: 82.76,
+      climb: 594,
+      startDate: '2017-09-23',
+      startTime: '13:27',
+      fullTime: '6:53:15',
+      cleanTime: '5:27:55',
+      members: ['Lavr', 'Nick'],
+      stravaLink: 'https://www.strava.com/activities/4472343428',
       photos: [
          'url1',
          'url2',

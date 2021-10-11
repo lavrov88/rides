@@ -1,0 +1,33 @@
+@import '../../../css/colors.scss';
+
+.ride_indicators {
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.ride_indicators__group {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   margin-bottom: 20px;
+}
+
+.ride_indicators_item {
+   flex-shrink: 0;
+}
+
+.ride_indicators_item__value {
+   font-size: 22px;
+   text-align: center;
+}
+
+.ride_indicators_item__unit {
+   font-size: 15px;
+   font-weight: 600;
+}
+
+.ride_indicators_item__name {
+   border-top: 1px solid $blue_semitransparent;
+   padding-top: 2px;
+   font-size: 12px;
+}

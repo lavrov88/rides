@@ -1,23 +1,49 @@
 import React from "react"
 import './Map.scss'
 
-class Map extends React.Component {
+const checkUrl = (url) => {
+   if (url.match(/https:\/\/api-maps\.yandex\.ru.+scroll=true/gm)) {
+      return true
+   } else {
+      return false
+   }
+}
+
+const rerenderMap = (props) => {
+   const appEl = document.querySelector('.App')
+   const containerHeight = appEl.scrollHeight
+   const mapWithHeight = props.map.replace(/height=\d+/gm, `height=${containerHeight}`)
+   const mapUrl = mapWithHeight.replace(/.+src="|"><\/script>/gm, '')
+   const mapEl = document.querySelector('.map')
+   mapEl.innerHTML = ''
+
+   // if (checkUrl(mapUrl)) {
+   if (false) {
+      const script = document.createElement('script')
+      script.src = mapUrl
+      script.async = true
+      mapEl.appendChild(script)
+   } else {
+      const errorMessage = document.createElement('div')
+      errorMessage.classList.add('map_error_wrapper')
+      errorMessage.innerHTML = '<div>Map for this ride is not ready yet...</div>'
+      mapEl.appendChild(errorMessage)
+   }
+}
+
+class Map extends React.PureComponent {
    componentDidMount() {
-      // const appEl = document.querySelector('.App')
-      // const mapEl = document.querySelector('.map')
-      // const containerHeight = appEl.scrollHeight
-      // const script = document.createElement('script')
-      // script.src = `https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1f2ac2f9095b3e0ec4d3dc7807579ade02592cb0805ff95d94ccad9cde969999&amp;width=100%25&amp;height=${containerHeight}&amp;lang=ru_RU&amp;scroll=true`
-      // script.async = true
-      // mapEl.appendChild(script)
+      rerenderMap(this.props)
+   }
+   componentDidUpdate() {
+      rerenderMap(this.props)
    }
    
    render() {
       return (
          <div className="map_container">
-            <div className="map">
-               <div className="map_left_gradient"></div>
-            </div>
+            <div className="map_left_gradient"></div>
+            <div className="map"></div>
          </div>
       )
    }

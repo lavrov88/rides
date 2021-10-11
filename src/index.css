@@ -16,6 +16,18 @@ p, h1, h2, h3, h4, h5, h6, ul, li {
    padding: 0;
 }
 
+h2 {
+   font-size: 22px;
+   font-weight: 600;
+}
+
+h3 {
+   font-size: 16px;
+   font-weight: 600;
+   margin-top: 10px;
+   margin-bottom: 5px;
+}
+
 a {
    text-decoration: none;
    color: inherit;
@@ -23,6 +35,17 @@ a {
 
 li {
    list-style-type: none;
+}
+
+button {
+   display: block;
+   border: none;
+   margin: 0;
+   padding: 0;
+   background: none;
+   font-size: inherit;
+   line-height: inherit;
+   font-family: inherit;
 }
 
 code {
