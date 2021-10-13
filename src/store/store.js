@@ -1,6 +1,7 @@
 import bikers from "./bikers-data";
 import rides from "./rides-data";
 import { convertStrToDate, convertStrToMs } from "../components/Common/utilites";
+import checkMobile from "../components/Common/checkMobile";
 
 const store = {
    _state: {
@@ -19,10 +20,18 @@ const store = {
             sortFromBiggest: true,
             filteredBikers: []
          }
+      },
+      layout: {
+         mobileNavbarIsOpen: false,
+         isMobile: false
       }
    },
 
    _callSubscriber() {
+   },
+
+   subscribe(observer) {
+      this._callSubscriber = observer
    },
 
    _processRides() {
@@ -84,6 +93,10 @@ const store = {
                this._state.activeRide = 0
             }
             break
+         case 'TOGGLE-MOBILE-LAYOUT':
+            this._state.layout.isMobile = action.mobile
+            this._callSubscriber()
+            break
          case 'TOGGLE-FILTER-MENU':
             if (this._state.navbar.filterMenuIsOpened) {
                this._state.navbar.filterMenuIsOpened = false
@@ -129,6 +142,13 @@ const store = {
                : this._state.infobar.isCollapsed = true
             this._callSubscriber()
             break
+         case 'TOGGLE-BURGER-BUTTON':
+            this._state.layout.mobileNavbarIsOpen 
+               ? this._state.layout.mobileNavbarIsOpen = false
+               : this._state.layout.mobileNavbarIsOpen = true
+            console.log('mobile navbar opened:', this._state.layout.mobileNavbarIsOpen);
+            this._callSubscriber()
+            break
          default:
          console.error(`unknown action type: ${action.type}`)
       }
@@ -139,6 +159,10 @@ const store = {
       initRides.bind(this)()
       if (!this._state.activeRide) {
          this._state.activeRide = 0
+      }
+      checkMobile(this._state.layout.isMobile, this.dispatch.bind(this))
+      if (this._state.layout.isMobile) {
+         this._state.infobar.isCollapsed = true
       }
 
       function initBikers() {
@@ -181,10 +205,6 @@ const store = {
          })
          this._state.processedRides = [...this._state.rides]
       }
-   },
-
-   subscribe(observer) {
-      this._callSubscriber = observer
    }
 }
 

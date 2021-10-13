@@ -3,7 +3,7 @@ import ManageList from "./ManageList/ManageList"
 import './Navbar.scss'
 import RidesListItem from "./RidesListItem/RidesListItem"
 
-const Logo = (props) => {
+export const Logo = (props) => {
    return (
       <div className="header_logo">
          <h1>Rides history</h1>
@@ -29,12 +29,19 @@ const RidesListItems = (props) => {
 }
 
 const Navbar = (props) => {
+   const closeMobileNavbar = () => {
+      const action = {
+         type: 'TOGGLE-BURGER-BUTTON'
+      }
+      props.dispatch(action)
+   }
+
    return (
       <div className="navbar">
          <Logo />
          <ManageList bikers={props.state.bikers} navbar={props.state.navbar} dispatch={props.dispatch} />
          <div className="riders_list_wrapper">
-            <ul className="rides_list">
+            <ul onClick={closeMobileNavbar} className="rides_list">
                <RidesListItems state={props.state} />
             </ul>
          </div>

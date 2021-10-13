@@ -1,4 +1,4 @@
-@import '../../../css/colors.scss';
+@import '../../../css/variables.scss';
 
 .collapse_btn {
    position: absolute;
@@ -17,9 +17,10 @@
    border-image-slice: 1;
    border-left: none;
 
-
    background-color: #fff;
    cursor: pointer;
+
+   transition: all 0.2s ease-in-out;
 
    &.collapsed .collapse_arrow:after {
       transform:

@@ -1,4 +1,4 @@
-@import '../../css/colors.scss';
+@import '../../css/variables.scss';
 
 .infobar {
    position: relative;
@@ -29,6 +29,8 @@
    height: 95px;
    border-bottom: 1px solid $blue_main;
    padding-bottom: 10px;
+
+   transition: height 0.2s ease-in-out;
 }
 
 .ride_header__subheader {

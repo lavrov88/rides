@@ -2,35 +2,26 @@ import './App.scss';
 import NavbarContainer from './components/Navbar/Navbar';
 import InfobarContainer from './components/Infobar/InfobarContainer';
 import MapContainer from './components/Map/MapContainer';
-import { checkUrlValidity } from './components/Common/utilites';
-import { Redirect } from 'react-router';
 import CollapseInfobarBtn from './components/Infobar/InfobarCollapseBtn/InfobarCollapseBtn';
+import parseUrl from './components/Common/routing';
+import checkMobile from './components/Common/checkMobile';
+import MobileHeader from './components/MobileHeader/MobileHeader';
+import MobileNavbar from './components/MobileNavbar/MobileNavbar';
 
 
 function App(props) {
    const state = props.store.getState()
    const dispatch = props.store.dispatch.bind(props.store)
-
    const url = props.location.pathname
-   const validUrls = state.rides.map(ride => ride.url)
 
-   if (!checkUrlValidity(url, validUrls)) {
-      return <Redirect to={validUrls[0]} />
-   }
-
-   const changeActiveRide = (url) => {
-      const action = {
-         type: 'SET-ACTIVE-RIDE',
-         url: url
-      }
-      dispatch(action)
-   }
-   changeActiveRide(url)
+   parseUrl(url, state.rides, dispatch)
+   window.onresize = (() => checkMobile(state.layout.isMobile, dispatch))
 
    const activeRideIndex = state.activeRide
    const map = state.rides[activeRideIndex].map
 
-   return (
+   if (!state.layout.isMobile) {
+      return (
          <div className="App">
             <div className="rides_menu_container">
                <NavbarContainer state={state} dispatch={dispatch} />
@@ -39,8 +30,25 @@ function App(props) {
             </div>
                <MapContainer map={map} />
          </div>
-   );
+      )
+   } else {
+      return (
+         <div className="App mobile">
+            <MobileHeader dispatch={dispatch} />
+            <div className="mobile_main">
+               <div className="mobile_map">
+                  <MapContainer map={map} />
+               </div>
+               <div className={"mobile_infobar" + (state.infobar.isCollapsed ? ' collapsed' : '')}>
+                  <InfobarContainer state={state} />
+                  <CollapseInfobarBtn isCollapsed={state.infobar.isCollapsed} 
+                     isMobile={true} dispatch={dispatch} />
+               </div>
+               <MobileNavbar state={state} dispatch={dispatch} />
+            </div>
+         </div>
+      )
+   }
 }
 
 export default App;
- 

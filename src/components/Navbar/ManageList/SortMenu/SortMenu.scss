@@ -1,4 +1,4 @@
-@import '../../../../css/colors.scss';
+@import '../../../../css/variables.scss';
 
 .sort_menu_popup_item {
    display: flex;
@@ -27,6 +27,7 @@
 .sort_menu_popup_item__name {
    flex-grow: 1;
    width: 50%;
+   margin: auto;
 }
 
 .sort_menu_popup_item__btn {

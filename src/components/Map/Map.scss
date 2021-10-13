@@ -1,8 +1,16 @@
-@import '../../css/colors.scss';
+@import '../../css/variables.scss';
 
 .map_container {
    position: relative;
+   flex-grow: 1;
+   flex-shrink: 1;
+   height: 100vh;
+
    background-color: $map_background;
+}
+
+.map {
+   height: 100%;
 }
 
 .map_left_gradient {
@@ -18,7 +26,8 @@
 }
 
 .map_error_wrapper {
-   height: 100vh;
+   // height: 100vh;
+   height: 100%;
    width: 100%;
    display: flex;
    justify-content: center;

@@ -1,4 +1,4 @@
-@import '../../../css/colors.scss';
+@import '../../../css/variables.scss';
 
 .rides_list_item__container {
    z-index: 10;
@@ -63,6 +63,9 @@
 }
 
 .rides_list_item__center{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
    flex-grow: 1;
    padding: 0px 8px;
 }
@@ -70,6 +73,7 @@
 .rides_list_item__date {
    font-size: 11px;
    text-align: right;
+   color: #3b3b3b;
 }
 
 .rides_list_item__right {
