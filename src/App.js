@@ -7,14 +7,25 @@ import checkMobile from './components/Common/checkMobile';
 import MobileHeader from './components/MobileHeader/MobileHeader';
 import MobileNavbar from './components/MobileNavbar/MobileNavbar';
 import Map from './components/Map/Map';
+import { Redirect } from 'react-router';
 
 
 function App(props) {
    const state = props.store.getState()
    const dispatch = props.store.dispatch.bind(props.store)
    const url = props.location.pathname
+   const urlIsValid = parseUrl(url, state.rides, dispatch)
+   
+   if (!urlIsValid) {
+      return <Redirect to={state.processedRides[0].url} />
+   } else {
+      const action = {
+         type: 'SET-ACTIVE-RIDE',
+         url: url
+      }
+      dispatch(action)
+   }
 
-   parseUrl(url, state.rides, dispatch)
    window.onresize = (() => checkMobile(state.layout.isMobile, dispatch))
 
    const activeRideIndex = state.activeRide

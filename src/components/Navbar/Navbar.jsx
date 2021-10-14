@@ -12,7 +12,7 @@ export const Logo = (props) => {
 }
 
 const RidesListSeparator = (props) => {
-   const getSeparator = (currEl, prevEl, param) => {
+   const getSeparatorText = (currEl, prevEl, param) => {
       switch (param) {
          case 'date':
             const currElDate = new Date(currEl.startDate)
@@ -25,68 +25,77 @@ const RidesListSeparator = (props) => {
             break
          case 'distance':
             if (!prevEl) {
-               return currEl.distance < 50 ? '<50 km' : '>100 km'
+               return currEl.distance < 50 ? '<50' : '>100'
             }
             if ((prevEl.distance < 50 && currEl.distance > 50) || (prevEl.distance > 100 && currEl.distance < 100)) {
-               return '50 - 100 km'
+               return '50-100'
             }
             if (prevEl.distance > 50 && currEl.distance < 50) {
-               return '<50 km'
+               return '<50'
             }
             if (prevEl.distance < 100 && currEl.distance > 100) {
-               return '>100 km'
+               return '>100'
             }
             break
          case 'speed':
             const currSpeed = currEl.distance / currEl.cleanTime * 1000 * 60 * 60
             const prevSpeed = prevEl ? prevEl.distance / prevEl.cleanTime * 1000 * 60 * 60 : null
             if (!prevEl) {
-               return currSpeed < 15 ? '<15 km/h' : '>18 km/h'
+               return currSpeed < 15 ? '<15' : '>18'
             }
             if ((prevSpeed < 15 && currSpeed > 15) || (prevSpeed > 18 && currSpeed < 18)) {
-               return '15-18 km/h'
+               return '15-18'
             }
             if (prevSpeed > 15 && currSpeed < 15) {
-               return '<15 km/h'
+               return '<15'
             }
             if (prevSpeed < 18 && currSpeed > 18) {
-               return '>18 km/h'
+               return '>18'
             }
             break
          case 'time':
             const currTime = currEl.cleanTime / 1000 / 60 / 60
             const prevTime = prevEl ? prevEl.cleanTime / 1000 / 60 / 60 : null
             if (!prevEl) {
-               return currTime < 4 ? '<4 h' : '>7 h'
+               return currTime < 4 ? '<4' : '>7'
             }
             if ((prevTime < 4 && currTime > 4) || (prevTime > 7 && currTime < 7)) {
-               return '4-7 h'
+               return '4-7'
             }
             if (prevTime > 4 && currTime < 4) {
-               return '<4 h'
+               return '<4'
             }
             if (prevTime < 7 && currTime > 7) {
-               return '>7 h'
+               return '>7'
             }
             break
          default:
             return null
       }
    }
-   const separatorText = getSeparator(props.currEl, props.prevEl, props.sortParameter)
-   
-   return (
-      <div className={separatorText ? 'rides_list_separator' : ''}>
-         {separatorText}
-      </div>
-   )
+   const getSeparatorUnit = (param) => {
+      if (param === 'date') return null
+      if (param === 'distance') return 'km'
+      if (param === 'speed') return 'km/h'
+      if (param === 'time') return 'h'
+   }
+
+   const separatorText = getSeparatorText(props.currEl, props.prevEl, props.sortParameter)
+   const separatorUnit = getSeparatorUnit(props.sortParameter)
+   if (separatorText) {
+      return (
+         <div className='rides_list_separator'>
+            {separatorText} <span className="rides_list_separator__unit">{separatorUnit}</span>
+         </div>
+      )
+   } else return null
 }
 
 const RidesListItems = (props) => {
 
    return props.state.processedRides
       .map((r, i, arr) => {
-         return ( <div key={r.url}>
+         return ( <li key={r.url}>
          <RidesListSeparator 
             currEl={r}
             prevEl={arr[i - 1]}
@@ -105,7 +114,7 @@ const RidesListItems = (props) => {
             allBikers={props.state.bikers}
             sortParameter={props.state.navbar.output.sortParameter}
             active={props.state.activeRide === i ? true : false} />
-         </div>)
+         </li>)
       }
    )
 }

@@ -1,23 +1,21 @@
-import { Redirect } from "react-router"
-import { checkUrlValidity } from "./utilites"
-
-
-const parseUrl = (url, rides, dispatch) => {
+const parseUrl = (url, rides) => {
 
    const validUrls = rides.map(ride => ride.url)
 
-   if (!checkUrlValidity(url, validUrls)) {
-      return <Redirect to={validUrls[0]} />
+   const checkUrlValidity = (url, variants) => {
+      const index = variants.findIndex(item => item === url)
+      if (index === -1) {
+         return false
+      } else {
+         return true
+      }
    }
 
-   const changeActiveRide = (url) => {
-      const action = {
-         type: 'SET-ACTIVE-RIDE',
-         url: url
-      }
-      dispatch(action)
+   if (!checkUrlValidity(url, validUrls)) {
+      return false
+   } else {
+      return true
    }
-   changeActiveRide(url)
 }
 
 export default parseUrl

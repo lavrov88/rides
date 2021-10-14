@@ -6,8 +6,8 @@ const SortMenuItem = (props) => {
       <li>
          <div data-sort-parameter={props.type} className={`sort_menu_popup_item${props.isActive ? ' ' + props.isActive : ''}`}>
             <div className="sort_menu_popup_item__name">{props.name}</div>
-            <button className="sort_menu_popup_item__btn biggest">{props.sort1}</button>
             <button className="sort_menu_popup_item__btn smallest">{props.sort2}</button>
+            <button className="sort_menu_popup_item__btn biggest">{props.sort1}</button>
          </div>
       </li>
    )

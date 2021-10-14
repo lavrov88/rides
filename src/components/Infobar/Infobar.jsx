@@ -15,7 +15,7 @@ export const RideHeader = (props) => {
          if (!props.isMobile) {
             return
          }
-         let action = {
+         const action = {
             type: 'INFOBAR-HEADER-SWIPED',
             dir: eventData.dir
          }

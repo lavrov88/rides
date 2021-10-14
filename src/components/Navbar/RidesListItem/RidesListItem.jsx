@@ -48,7 +48,9 @@ const RideListItemMembersPhotos = (props) => {
 
 const RidesListItem = (props) => {
    const date = new Date(props.date)
-   const dateString = `${addZero(date.getDate())}.${addZero(date.getMonth() + 1)}.${date.getFullYear()}`
+   const dateString = props.sortParameter === 'date'
+   ? `${addZero(date.getDate())}.${addZero(date.getMonth() + 1)}`
+   : `${addZero(date.getDate())}.${addZero(date.getMonth() + 1)}.${date.getFullYear()}`
 
    const returnAdditionalInfo = () => {
       let info = {}
@@ -68,7 +70,7 @@ const RidesListItem = (props) => {
    }
 
    return (
-      <li className="rides_list_item">
+      <div className="rides_list_item">
          <Link to={props.url}>
             <div className={`rides_list_item__container ${props.active ? ' active' : ''}`}>
                <div className="rides_list_item__left">
@@ -92,7 +94,7 @@ const RidesListItem = (props) => {
                </div>
             </div>
          </Link>
-      </li>
+      </div>
    )
 }
 

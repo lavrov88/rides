@@ -36,12 +36,3 @@ export const separateDecimal = (num, accuracy = 1) => {
 export const bikersFilter = (members, allBikers) => {
    return allBikers.filter(b => (members.findIndex(item => item === b.name) >= 0))
 }
-
-export const checkUrlValidity = (url, variants) => {
-   const index = variants.findIndex(item => item === url)
-   if (index === -1) {
-      return false
-   } else {
-      return true
-   }
-}

@@ -60,6 +60,7 @@
    & .rides_list_item__container {
       padding-left: 10px;
       border-bottom: none;
+      box-shadow: none;
 
       &.active {
          background: $blue_semitransparent_lightest;
