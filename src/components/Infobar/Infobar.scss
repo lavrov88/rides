@@ -5,6 +5,11 @@
    max-width: 320px;
    min-width: 320px;
    overflow-x: auto;
+   opacity: 1;
+
+   transition: 
+      padding 0.2s ease, max-width 0.2s ease,
+      min-width 0.2s ease, opacity 0.2s ease 0.15s;
 
    &.collapsed {
       max-width: 0px;
@@ -12,6 +17,10 @@
       padding: 4px;
       overflow: hidden;
       opacity: 0;
+
+      transition: 
+         padding 0.2s ease, max-width 0.2s ease,
+         min-width 0.2s ease, opacity 0.1s ease;
 
       &::-webkit-scrollbar-thumb {
          background-color: transparent;
@@ -56,6 +65,10 @@
 
    &:hover {
       text-decoration: underline;
+   }
+
+   &.disabled {
+      display: none;
    }
 }
 

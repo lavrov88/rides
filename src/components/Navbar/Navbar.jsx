@@ -102,6 +102,7 @@ const RidesListItems = (props) => {
             sortParameter={props.state.navbar.output.sortParameter} />
 
          <RidesListItem 
+            dispatch={props.dispatch}
             id={r.id}
             url={r.url}
             key={r.id} 
@@ -120,20 +121,14 @@ const RidesListItems = (props) => {
 }
 
 const Navbar = (props) => {
-   const closeMobileNavbar = () => {
-      const action = {
-         type: 'TOGGLE-MOBILE-MENU'
-      }
-      props.dispatch(action)
-   }
 
    return (
       <div className="navbar">
          <Logo />
          <ManageList bikers={props.state.bikers} navbar={props.state.navbar} dispatch={props.dispatch} />
          <div className="riders_list_wrapper">
-            <ul onClick={closeMobileNavbar} className="rides_list">
-               <RidesListItems state={props.state} />
+            <ul className="rides_list">
+               <RidesListItems state={props.state} dispatch={props.dispatch} />
             </ul>
          </div>
          <div className="right_border"></div>

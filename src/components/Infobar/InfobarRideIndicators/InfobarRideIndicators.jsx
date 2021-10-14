@@ -52,7 +52,7 @@ const RideIndicators = (props) => {
             <RideIndicatorItem value={convertMsToStr(props.ride.fullTime)}
                name={'Full race time'} />
             <RideIndicatorItem value={convertMsToStr(props.ride.cleanTime)}
-               name={'Only riding time'} />
+               name={'Net riding time'} />
          </ul>
       </div>
    )

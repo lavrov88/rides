@@ -69,8 +69,15 @@ const RidesListItem = (props) => {
       return info
    }
 
+   const closeMobileNavbar = () => {
+      const action = {
+         type: 'TOGGLE-MOBILE-MENU'
+      }
+      props.dispatch(action)
+   }
+
    return (
-      <div className="rides_list_item">
+      <div onClick={closeMobileNavbar} className="rides_list_item">
          <Link to={props.url}>
             <div className={`rides_list_item__container ${props.active ? ' active' : ''}`}>
                <div className="rides_list_item__left">

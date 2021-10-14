@@ -9,7 +9,7 @@ const rides = [
       fullTime: '9:12:25',
       cleanTime: '4:53:44',
       members: ['Lavr', 'Paul', 'Nick', 'Andy'],
-      stravaLink: 'https://strava.com',
+      stravaLink: 'https://www.strava.com/activities/5798918869',
       photos: [
          'url1',
          'url2',
@@ -27,7 +27,7 @@ const rides = [
       fullTime: '3:51:03',
       cleanTime: '2:03:50',
       members: ['Lavr', 'Paul', 'Nick', 'Andy'],
-      stravaLink: 'https://strava.com',
+      stravaLink: 'https://www.strava.com/activities/5686264901',
       photos: [
          'url1',
          'url2',
@@ -37,7 +37,7 @@ const rides = [
    },
    {
       name: "To Pyatnitsa through Povarovo",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9fcf7c4415e26a7daf7ce35c57b326981fb8597413161bfb5613dc8ea337f216&amp;width=100%25&amp;height=368&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 40.27,
       climb: 1541,
       startDate: '2021-06-20',
@@ -45,7 +45,7 @@ const rides = [
       fullTime: '4:04:06',
       cleanTime: '2:16:37',
       members: ['Lavr', 'Nick', 'Andy'],
-      stravaLink: 'https://strava.com',
+      stravaLink: 'https://www.strava.com/activities/5503081364',
       photos: [
          'url1',
          'url2',
@@ -55,7 +55,7 @@ const rides = [
    },
    {
       name: "Dirty journey to Pavlovskaya Sloboda",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A52022963fe77b0760546402b269b136369e1c0eacb2dd1dd4007053064815637&amp;width=100%25&amp;height=484&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 63.97,
       climb: 465,
       startDate: '2021-05-07',
@@ -63,7 +63,7 @@ const rides = [
       fullTime: '8:34:21',
       cleanTime: '5:24:26',
       members: ['Lavr', 'Nick', 'Paul', 'Serg'],
-      stravaLink: 'https://strava.com',
+      stravaLink: 'https://www.strava.com/activities/5257813977',
       photos: [
          'url1',
          'url2',
@@ -73,7 +73,7 @@ const rides = [
    },
    {
       name: "Iksha - Pushkino - Dolgoprudniy",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aded685440c9370e219b6f00f0e09f64afa1c0112185739c43f1140ae63332129&amp;width=100%25&amp;height=476&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 87.73,
       climb: 2271,
       startDate: '2021-05-02',
@@ -81,7 +81,7 @@ const rides = [
       fullTime: '8:16:09',
       cleanTime: '5:45:04',
       members: ['Lavr', 'Nick', 'Serg'],
-      stravaLink: 'https://strava.com',
+      stravaLink: 'https://www.strava.com/activities/5231113160',
       photos: [
          'url1',
          'url2',
@@ -91,7 +91,7 @@ const rides = [
    },
    {
       name: "Ring through Moscow and Krasnogorsk",
-      map: `string`,
+      map: `str<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5ccc2c04f4b0008649f11ff6a5c6342d96fecafed1e74cc76ad27a9afd0234ad&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>ing`,
       distance: 150.56,
       climb: 907,
       startDate: '2020-07-25',
@@ -99,7 +99,7 @@ const rides = [
       fullTime: '12:41:55',
       cleanTime: '9:27:53',
       members: ['Lavr', 'Andy'],
-      stravaLink: 'https://strava.com',
+      stravaLink: 'https://www.strava.com/activities/3813354535',
       photos: [
          'url1',
          'url2',
@@ -109,7 +109,7 @@ const rides = [
    },
    {
       name: "Solnechnogorsk - Yakhroma - Zelenograd",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9c04de5659479fdd8e90aa8a8f67023b92af302dc94f7f1a753d3366ded6375a&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 112.78,
       climb: 1267,
       startDate: '2020-07-05',
@@ -117,7 +117,25 @@ const rides = [
       fullTime: '11:48:59',
       cleanTime: '7:13:28',
       members: ['Lavr', 'Nick', 'Andy'],
-      stravaLink: 'https://strava.com',
+      stravaLink: 'https://www.strava.com/activities/3720632658',
+      photos: [
+         'url1',
+         'url2',
+         'url3',
+         'url4'
+      ]
+   },
+   {
+      name: "Zelenograd - Krasnogorsk - Zvenigorod - Snegiri",
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5b4fb76257fafb94aa5825008dcfd156eb5dbfde22c48ac29423f2717280509d&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
+      distance: 118.46,
+      climb: 837,
+      startDate: '2020-06-27',
+      startTime: '08:51',
+      fullTime: '10:09:56',
+      cleanTime: '7:27:30',
+      members: ['Lavr', 'Andy'],
+      stravaLink: 'https://www.strava.com/activities/4472183662',
       photos: [
          'url1',
          'url2',
@@ -127,7 +145,7 @@ const rides = [
    },
    {
       name: "Klin - Volokolamsk & Snegiri - Zelenograd",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa02aa953e30dd50fc5cc44d6a096a7872681099e94c24a53d15598034cecf512&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: (77.7 + 14.03),
       climb: (772 + 71),
       startDate: '2020-06-13',
@@ -135,7 +153,7 @@ const rides = [
       fullTime: '7:17:26',
       cleanTime: '4:44:47',
       members: ['Lavr', 'Nick', 'Andy'],
-      stravaLink: 'https://strava.com',
+      stravaLink: 'https://www.strava.com/activities/4472192681',
       photos: [
          'url1',
          'url2',
@@ -145,7 +163,7 @@ const rides = [
    },
    {
       name: "From Tver to Konarovo across Saint Places",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Acbbbc2ac8be43ac3fbfc8c431eab02bdd78ddad3260b95cdff55751b6055e3fe&amp;width=100%25&amp;height=336&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 79.3,
       climb: 225,
       startDate: '2019-08-25',
@@ -163,10 +181,10 @@ const rides = [
    },
    {
       name: "To the back side of Istra",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac3065d6bca86923eaba019c7cbbf147e4893ee7916ffd2916768678ce7e3b2a2&amp;width=100%25&amp;height=435&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 139.65,
       climb: 1141,
-      startDate: '2019-05-19',
+      startDate: '2019-05-18',
       startTime: '11:36',
       fullTime: '9:06:00',
       cleanTime: '7:50:59',
@@ -181,7 +199,7 @@ const rides = [
    },
    {
       name: "Assault attempt of under constructed CKAD",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aee161e8614e5dc0dd48abdbe03433229a435d569625634b34fce55080963ebe4&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 30.29,
       climb: 297,
       startDate: '2019-04-20',
@@ -199,7 +217,7 @@ const rides = [
    },
    {
       name: "Hike to Yaroslavl, day 2",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa57658c2eab9be5c2d0e957b80590da7cf282fa40f22463d3ece013d231f6e71&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 48.3,
       climb: 239,
       startDate: '2018-07-29',
@@ -217,7 +235,7 @@ const rides = [
    },
    {
       name: "Hike to Yaroslavl, day 1",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A75a667968ec739763f4972196875bad59d4a75726481572487ad124dad46dbc8&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 143.54,
       climb: 998,
       startDate: '2018-07-28',
@@ -235,7 +253,7 @@ const rides = [
    },
    {
       name: "From Zvenigorod to Mozhaysk and Borodino",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad9e8826de5283c7bb13aabc4e9e7075db6c3109530abe31303defe776ffe776e&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 100.59,
       climb: 781,
       startDate: '2018-07-14',
@@ -253,7 +271,7 @@ const rides = [
    },
    {
       name: "Autumn trip around Moscow",
-      map: `string`,
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae1726821540dbf35a3103ca223a5e129a1c2364c617f972824a3ee1cc8fbee84&amp;width=100%25&amp;height=382&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 82.76,
       climb: 594,
       startDate: '2017-09-23',

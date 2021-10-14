@@ -45,7 +45,7 @@ function App(props) {
    } else {
       return (
          <div className="App mobile">
-            <MobileHeader dispatch={dispatch} />
+            <MobileHeader navbarIsOpen={state.layout.mobileNavbarIsOpen} dispatch={dispatch} />
             <div className="mobile_main">
                <div className="mobile_map">
                   <Map map={map} />

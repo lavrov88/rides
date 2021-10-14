@@ -10,6 +10,8 @@ const checkUrl = (url) => {
 }
 
 const rerenderMap = (props) => {
+   const loadingSpinner = document.querySelector('.map_loading_spinner')
+   loadingSpinner.style.display = ''
    const appEl = document.querySelector('.map_container')
    const containerHeight = appEl.scrollHeight
    const mapWithHeight = props.map.replace(/height=\d+/gm, `height=${containerHeight}`)
@@ -28,6 +30,7 @@ const rerenderMap = (props) => {
       errorMessage.classList.add('map_error_wrapper')
       errorMessage.innerHTML = '<div>Map for this ride is not ready yet...</div>'
       mapEl.appendChild(errorMessage)
+      loadingSpinner.style.display = 'none'
    }
 }
 
@@ -42,6 +45,7 @@ class Map extends React.PureComponent {
    render() {
       return (
          <div className="map_container">
+            <img src="/img/tail-spin.svg" alt="Loading..." className="map_loading_spinner" />
             <div className="map_left_gradient"></div>
             <div className="map"></div>
          </div>

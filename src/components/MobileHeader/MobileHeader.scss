@@ -17,6 +17,12 @@
    & .header_logo {
       padding: 0;
       cursor: pointer;
+
+      transition: transform 0.15s ease;
+
+      &:active {
+         transform: scale(0.95) translateY(10%);
+      }
    }
 }
 
@@ -28,34 +34,43 @@
 
    cursor: pointer;
 
-   & span {
-      position: absolute;
-      top: calc(50% - 3px);
-      left: 10%;
-      width: 80%;
-      height: 6px;
-
-      background-color: $blue_main;
-   }
-   &::before {
-      position: absolute;
-      content: '';
-      top: 15%;
-      left: 10%;
-      width: 80%;
-      height: 6px;
-
-      background-color: $blue_main;
-   }
+   & span,
+   &::before,
    &::after {
       position: absolute;
-      content: '';
-      bottom: 15%;
       left: 10%;
       width: 80%;
       height: 6px;
-
       background-color: $blue_main;
+      transition: all 0.2s ease-in-out;
+   }
+
+   & span {
+      top: calc(50% - 3px);
+   }
+   &::before {
+      content: '';
+      top: 15%;
+   }
+   &::after {
+      content: '';
+      bottom: 15%;
+   }
+
+   &.active span {
+      transform: scaleX(0) translateX(-70%);
+   }
+   &.active::before {
+      transform: rotate(-45deg);
+      width: 50%;
+      top: 29%;
+      left: 20%;
+   }
+   &.active::after {
+      transform: rotate(45deg);
+      width: 50%;
+      bottom: 29%;
+      left: 20%;
    }
 }
 

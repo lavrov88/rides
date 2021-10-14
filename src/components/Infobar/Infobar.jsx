@@ -33,6 +33,7 @@ export const RideHeader = (props) => {
       }
       props.dispatch(action)
    }
+   
    return (
       <div {...handlers} onClick={headerClicked} className="ride_header" >
          <div className="ride_header__name">
@@ -44,7 +45,7 @@ export const RideHeader = (props) => {
             </div>
             <a href={props.strava}
                   target="_blank" rel="noreferrer"
-                  className="strava_link" >
+                  className={"strava_link" + (props.strava ? "" : " disabled")} >
                   <img src="/img/strava.png" alt="strava" className="strava_logo"/>
                   <div className="strava_text">This ride in Strava</div>
             </a>
