@@ -3,23 +3,27 @@ import { Logo } from "../Navbar/Navbar";
 import './MobileHeader.scss';
 
 const BurgerBtn = (props) => {
-   
-   const burgerOnClick = () => {
-      props.dispatch({ type: 'TOGGLE-BURGER-BUTTON' })
-   }
-
    return (
-      <button onClick={burgerOnClick} className="burger_btn">
+      <button className="burger_btn">
          <span className="burger_btn__span"></span>
       </button>
    )
 }
 
 const MobileHeader = (props) => {
+
+   const headerOnClick = () => {
+      props.dispatch({ type: 'TOGGLE-MOBILE-MENU' })
+   }
+
    return (
       <div className="mobile_header">
-         <BurgerBtn dispatch={props.dispatch} />
+         <div onClick={headerOnClick} >
+            <BurgerBtn />
+         </div>
+         <div onClick={headerOnClick} >
          <Logo />
+         </div>
       </div>
    )
 }

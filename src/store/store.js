@@ -140,17 +140,31 @@ const store = {
             this._state.infobar.isCollapsed
                ? this._state.infobar.isCollapsed = false
                : this._state.infobar.isCollapsed = true
+            document.querySelector('.infobar').scrollTop = 0
             this._callSubscriber()
             break
-         case 'TOGGLE-BURGER-BUTTON':
+         case 'INFOBAR-HEADER-SWIPED':
+            if (action.dir === 'Up') {
+               if (this._state.infobar.isCollapsed) {
+                  this._state.infobar.isCollapsed = false
+               }
+            }
+            if (action.dir === 'Down') {
+               if (!this._state.infobar.isCollapsed) {
+                  this._state.infobar.isCollapsed = true
+               }
+            }
+            document.querySelector('.infobar').scrollTop = 0
+            this._callSubscriber()
+            break
+         case 'TOGGLE-MOBILE-MENU':
             this._state.layout.mobileNavbarIsOpen 
                ? this._state.layout.mobileNavbarIsOpen = false
                : this._state.layout.mobileNavbarIsOpen = true
-            console.log('mobile navbar opened:', this._state.layout.mobileNavbarIsOpen);
             this._callSubscriber()
             break
          default:
-         console.error(`unknown action type: ${action.type}`)
+            console.error(`unknown action type: ${action.type}`)
       }
    },
 

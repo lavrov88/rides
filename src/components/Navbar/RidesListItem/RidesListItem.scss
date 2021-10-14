@@ -13,9 +13,9 @@
 
    &.active {
       position: relative;
-      border-right: 2px solid #fff;
+      border-right: 4px solid #fff;
       border-bottom: 2px solid $blue_main;
-      padding-right: 5px;
+      padding-right: 3px;
 
       background:
       linear-gradient(0deg, #fff 0%, #fff 70%, #ffffff00 100%);

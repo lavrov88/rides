@@ -3,26 +3,28 @@
 .mobile_navbar {
    position: absolute;
    top: $mobile_header_height;
-   left: 50%;
+   left: 0px;
    width: 480px;
    max-width: 100%;
    z-index: 900;
 
-   transform: translateY(-100%) translateX(-50%);
    box-shadow: 0px 0px 4px 0px rgba(34, 60, 80, 0.2);
 
+   transform: translateX(-100%);
    transition: transform 0.2s ease-in;
 
    &.opened {
       box-shadow: 0px 0px 16px 4px rgba(34, 60, 80, 0.2);
-      transform: translateX(-50%);
-      transition: transform 0.2s ease-in-out;
+      transform: none;
    }
 
    & .navbar {
       padding-top: 20px;
       max-width: 100%;
       width: 100%;
+      height: calc(100vh - $mobile_header_height);
+
+      background: #fff;
    }
 
    & .header_logo {
@@ -34,6 +36,10 @@
       font-size: 16px;
    }
 
+   & .navbar_menu_popup {
+      background-color: $blue_hover;
+   }
+
    & .filter_menu_item__name {
       font-size: 12px;
    }
@@ -43,13 +49,20 @@
       font-size: 16px;
    }
 
+   & .riders_list_wrapper::-webkit-scrollbar {
+      width: 4px;
+   }
+   & .riders_list_wrapper::-webkit-scrollbar-thumb {
+      width: 4px;
+      background-color: $blue_semitransparent_lighter;
+   }
+
    & .rides_list_item__container {
-      margin-right: 2px;
       padding-left: 10px;
+      border-bottom: none;
 
       &.active {
-         background:
-            linear-gradient(0deg, #fff 0%, #fff 90%, #ffffff00 100%);
+         background: $blue_semitransparent_lightest;
          border-right: none;
 
          & .rides_list_item__right {
@@ -61,5 +74,9 @@
    & .rides_list_item__right {
       width: 48px;
       max-width: 48px;
+   }
+
+   & .right_border {
+      display: none;
    }
 }

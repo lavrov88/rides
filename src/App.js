@@ -1,12 +1,12 @@
 import './App.scss';
 import NavbarContainer from './components/Navbar/Navbar';
 import InfobarContainer from './components/Infobar/InfobarContainer';
-import MapContainer from './components/Map/MapContainer';
 import CollapseInfobarBtn from './components/Infobar/InfobarCollapseBtn/InfobarCollapseBtn';
 import parseUrl from './components/Common/routing';
 import checkMobile from './components/Common/checkMobile';
 import MobileHeader from './components/MobileHeader/MobileHeader';
 import MobileNavbar from './components/MobileNavbar/MobileNavbar';
+import Map from './components/Map/Map';
 
 
 function App(props) {
@@ -18,7 +18,7 @@ function App(props) {
    window.onresize = (() => checkMobile(state.layout.isMobile, dispatch))
 
    const activeRideIndex = state.activeRide
-   const map = state.rides[activeRideIndex].map
+   const map = state.processedRides[activeRideIndex].map
 
    if (!state.layout.isMobile) {
       return (
@@ -28,7 +28,7 @@ function App(props) {
                <InfobarContainer state={state} />
                <CollapseInfobarBtn isCollapsed={state.infobar.isCollapsed} dispatch={dispatch} />
             </div>
-               <MapContainer map={map} />
+               <Map map={map} />
          </div>
       )
    } else {
@@ -37,12 +37,10 @@ function App(props) {
             <MobileHeader dispatch={dispatch} />
             <div className="mobile_main">
                <div className="mobile_map">
-                  <MapContainer map={map} />
+                  <Map map={map} />
                </div>
                <div className={"mobile_infobar" + (state.infobar.isCollapsed ? ' collapsed' : '')}>
-                  <InfobarContainer state={state} />
-                  <CollapseInfobarBtn isCollapsed={state.infobar.isCollapsed} 
-                     isMobile={true} dispatch={dispatch} />
+                  <InfobarContainer state={state} dispatch={dispatch} />
                </div>
                <MobileNavbar state={state} dispatch={dispatch} />
             </div>

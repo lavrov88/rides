@@ -1,7 +1,6 @@
 @import '../../css/variables.scss';
 
 .infobar {
-   position: relative;
    padding: 10px;
    max-width: 320px;
    overflow-x: auto;
@@ -11,19 +10,22 @@
       padding: 4px;
       overflow: hidden;
       opacity: 0;
-   }
 
+      &::-webkit-scrollbar-thumb {
+         background-color: transparent;
+      }
+   }
 }
 .infobar::-webkit-scrollbar {
    width: 4px;
    background-color: #fff;
 }
 .infobar::-webkit-scrollbar-thumb {
-   background-color: $blue_main;
+   background-color: $blue_semitransparent_lighter;
 }
 
 .ride_header {
-   display: flex;
+   display: none;
    flex-direction: column;
    justify-content: space-between;
    height: 95px;
@@ -31,6 +33,10 @@
    padding-bottom: 10px;
 
    transition: height 0.2s ease-in-out;
+}
+
+.infobar .ride_header {
+   display: flex;
 }
 
 .ride_header__subheader {

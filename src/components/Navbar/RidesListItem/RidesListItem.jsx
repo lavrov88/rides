@@ -48,7 +48,7 @@ const RideListItemMembersPhotos = (props) => {
 
 const RidesListItem = (props) => {
    const date = new Date(props.date)
-   const dateString = `${addZero(date.getDate())}.${addZero(date.getMonth() + 1)}.${addZero(date.getFullYear())}`
+   const dateString = `${addZero(date.getDate())}.${addZero(date.getMonth() + 1)}.${date.getFullYear()}`
 
    const returnAdditionalInfo = () => {
       let info = {}

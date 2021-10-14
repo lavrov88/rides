@@ -34,46 +34,10 @@
    & .map_container {
       height: 100%;
    }
-
-   & .collapse_btn {
-      top: -30px;
-      right: 50%;
-      height: 32px;
-      width: 128px;
-
-      border: 2px #fff solid;
-      border-image: 
-         linear-gradient(
-            0deg, 
-            #fff, 
-            $blue_main);
-      border-image-slice: 1;
-      border-bottom: none;
-      transform: translateX(50%);
-
-      box-shadow: 0px -4px 8px 0px rgba(34, 60, 80, 0.2);
-
-   }
-   .collapse_arrow {
-      &:after {
-         position: absolute;
-         content: '';
-         top: 50%;
-         left: 50%;
-         width: 0;
-         height: 0;
-         transform: translate(-50%, -50%);
-   
-         border-style: solid;
-         border-width: 8px 8px 0px 8px;
-         border-color: #007bff transparent transparent transparent;
-      }
-   }
-
 }
 
 .mobile_map {
-   padding-bottom: $mobile_infobar_collapsed - 32px;
+   padding-bottom: $mobile_infobar_collapsed;
    min-height: 100%;
 
    & .map_left_gradient {
@@ -84,45 +48,68 @@
 .mobile_infobar {
    position: absolute;
    display: flex;
+   flex-direction: column;
    left: 0;
    bottom: 0px;
    width: 100%;
-   max-height: 80%;
+   max-height: calc(100% - $mobile_header_height * 2);
    z-index: 650;
 
    background-color: #fff;
    box-shadow: 0px -2px 8px 0px rgba(34, 60, 80, 0.2);
 
-
    transition: transform 0.3s ease-in-out;
+
+   &::before {
+      position: absolute;
+      content: '';
+      top: 7px;
+      left: 50%;
+      z-index: 700;
+      width: 70px;
+      height: 4px;
+      border-radius: 2px;
+
+      background-color: $blue_semitransparent_lighter;
+      transform: translateX(-50%);
+   }
+
    &.collapsed {
       transform: translateY(calc(100% - $mobile_infobar_collapsed));
+   }
+
+   & .ride_header {
+      display: flex;
+      height: 105px;
+      padding-top: 28px;
+      margin: 0 15px;
+
+      background-color: #fff;
+      cursor: pointer;
+   }
+
+   & h2 {
+      font-size: 18px;
    }
 
    & .infobar {
       min-width: 100%;
       max-width: 100%;
       max-height: 100%;
-      padding: 20px 15px;
+      padding: 0 15px;
+      overflow-x: hidden;
+      overflow-y: scroll;
       scroll-behavior: smooth;
 
-      & h2 {
-         transition: all 0.2s ease-in-out;
+      & .ride_header {
+         display: none;
       }
 
       &.collapsed {
          max-width: 100%;
-         padding: 20px 15px;
-         padding-right: 19px;
-         overflow-y: hidden;
+         overflow-y: scroll;
          opacity: 1;
-
-         & .ride_header {
-            height: 75px;
-            & h2 {
-               font-size: 18px;
-            }
-         }
+         padding: 20px 15px;
       }
    }
 }

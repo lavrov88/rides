@@ -4,12 +4,37 @@ import { addZero } from "../Common/utilites"
 import RideMembers from "./InfobarRideMembers/InfobarRideMembers"
 import RideIndicators from "./InfobarRideIndicators/InfobarRideIndicators"
 import InfobarGallery from "./InfobarGallery/InfobarGallery"
+import { useSwipeable } from "react-swipeable"
 
-const RideHeader = (props) => {
+export const RideHeader = (props) => {
    const date = new Date(props.date)
    const dateString = `${addZero(date.getDate())}.${addZero(date.getMonth() + 1)}.${date.getFullYear()}`
+
+   const handlers = useSwipeable({
+      onSwiped: (eventData) => {
+         if (!props.isMobile) {
+            return
+         }
+         let action = {
+            type: 'INFOBAR-HEADER-SWIPED',
+            dir: eventData.dir
+         }
+         props.dispatch(action)
+      },
+      preventDefaultTouchmoveEvent: true
+   })
+
+   const headerClicked = (e) => {
+      if (e.target.closest('a') || !props.isMobile) {
+         return
+      }
+      const action = {
+         type: 'TOOGLE-INFOBAR-COLLAPSE',
+      }
+      props.dispatch(action)
+   }
    return (
-      <div className="ride_header">
+      <div {...handlers} onClick={headerClicked} className="ride_header" >
          <div className="ride_header__name">
             <h2>{props.name}</h2>
          </div>
@@ -31,12 +56,17 @@ const RideHeader = (props) => {
 const Infobar = (props) => {
    const isCollapsed = props.isCollapsed
    return (
-      <div className={'infobar' + (isCollapsed ? ' collapsed' : '')}>
-         <RideHeader name={props.ride.name} date={props.ride.startDate} strava={props.ride.stravaLink} />
-         <RideMembers members={props.members} />
-         <RideIndicators ride={props.ride} />
-         <InfobarGallery photos={props.ride.photos}/>
-      </div>
+      <>
+         <RideHeader name={props.ride.name} date={props.ride.startDate} isMobile={props.isMobile}
+               strava={props.ride.stravaLink} dispatch={props.dispatch} />
+         <div className={'infobar' + (isCollapsed ? ' collapsed' : '')}>
+            <RideHeader name={props.ride.name} date={props.ride.startDate} isMobile={props.isMobile}
+               strava={props.ride.stravaLink} dispatch={props.dispatch} />
+            <RideMembers members={props.members} />
+            <RideIndicators ride={props.ride} />
+            <InfobarGallery photos={props.ride.photos}/>
+         </div>
+      </>
    )
 }
 
