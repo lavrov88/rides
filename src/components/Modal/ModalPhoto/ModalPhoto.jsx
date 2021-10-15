@@ -23,7 +23,8 @@ const ModalPhoto = (props) => {
             }
             props.dispatch(action)
          }
-      }
+      },
+      preventDefaultTouchmoveEvent: true
    })
    
    if (props.isOpened) {
