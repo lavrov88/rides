@@ -10,10 +10,29 @@ const RideMemberItem = (props) => {
    )
 }
 
+
+
 const RideMembers = (props) => {
    const rideMembersItems = props.members.map(m => <RideMemberItem key={m.id} name={m.name} photoSmall={m.photoSmall} />)
+   
+   const openMemberPhoto = (e) => {
+      if (!e.target.classList.contains('ride_member_item__img')) {
+         return
+      }
+      const alt = e.target.alt
+      const memberId = alt.slice(4)
+      const src = props.members.find(m => m.name === memberId).photoLarge
+
+      const action = {
+         type: 'OPEN-MODAL-PHOTO',
+         src: src,
+         alt: alt
+      }
+      props.dispatch(action)
+   }
+   
    return (
-      <div className="ride_members">
+      <div onClick={openMemberPhoto} className="ride_members">
          <h3>Members:</h3>
          <ul className="ride_members_items">
             {rideMembersItems}

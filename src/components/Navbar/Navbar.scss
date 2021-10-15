@@ -27,6 +27,8 @@
    position: relative;
    overflow-x: hidden;
    overflow-y: scroll;
+
+   scrollbar-width: none;
 }
 .riders_list_wrapper::-webkit-scrollbar {
    width: 0px;

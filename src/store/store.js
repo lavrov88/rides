@@ -22,7 +22,12 @@ const store = {
          }
       },
       layout: {
-         mobileNavbarIsOpen: false,
+         modal: {
+            isOpened: false,
+            src: null,
+            alt: null
+         },
+         mobileNavbarIsOpen: true,
          isMobile: false
       }
    },
@@ -94,8 +99,10 @@ const store = {
             }
             break
          case 'TOGGLE-MOBILE-LAYOUT':
-            this._state.layout.isMobile = action.mobile
-            this._callSubscriber()
+            if (this._state.layout.isMobile !== action.mobile) {
+               this._state.layout.isMobile = action.mobile
+               this._callSubscriber()
+            }
             break
          case 'TOGGLE-FILTER-MENU':
             if (this._state.navbar.filterMenuIsOpened) {
@@ -161,6 +168,18 @@ const store = {
             this._state.layout.mobileNavbarIsOpen 
                ? this._state.layout.mobileNavbarIsOpen = false
                : this._state.layout.mobileNavbarIsOpen = true
+            this._callSubscriber()
+            break
+         case 'OPEN-MODAL-PHOTO':
+            this._state.layout.modal.src = action.src
+            this._state.layout.modal.alt = action.alt
+            this._state.layout.modal.isOpened = true
+            this._callSubscriber()
+            break
+         case 'CLOSE-MODAL-PHOTO':
+            this._state.layout.modal.src = null
+            this._state.layout.modal.alt = null
+            this._state.layout.modal.isOpened = false
             this._callSubscriber()
             break
          default:

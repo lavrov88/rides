@@ -7,9 +7,20 @@
    overflow-x: auto;
    opacity: 1;
 
+   scrollbar-width: thin;
+   scrollbar-color: $blue_semitransparent_lighter transparent;
    transition: 
       padding 0.2s ease, max-width 0.2s ease,
       min-width 0.2s ease, opacity 0.2s ease 0.15s;
+
+   &::-webkit-scrollbar {
+      width: 4px;
+      background-color: #fff;
+   }
+
+   &::-webkit-scrollbar-thumb {
+      background-color: $blue_semitransparent_lighter;
+   }
 
    &.collapsed {
       max-width: 0px;
@@ -26,13 +37,6 @@
          background-color: transparent;
       }
    }
-}
-.infobar::-webkit-scrollbar {
-   width: 4px;
-   background-color: #fff;
-}
-.infobar::-webkit-scrollbar-thumb {
-   background-color: $blue_semitransparent_lighter;
 }
 
 .ride_header {

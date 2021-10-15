@@ -53,6 +53,11 @@
       font-size: 16px;
    }
 
+   & .riders_list_wrapper {
+      scrollbar-width: thin;
+      scrollbar-color: $blue_semitransparent_lighter transparent;
+   }
+
    & .riders_list_wrapper::-webkit-scrollbar {
       width: 4px;
    }

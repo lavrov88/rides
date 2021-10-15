@@ -8,6 +8,7 @@ import MobileHeader from './components/MobileHeader/MobileHeader';
 import MobileNavbar from './components/MobileNavbar/MobileNavbar';
 import Map from './components/Map/Map';
 import { Redirect } from 'react-router';
+import ModalPhoto from './components/Modal/ModalPhoto/ModalPhoto';
 
 
 function App(props) {
@@ -36,10 +37,12 @@ function App(props) {
          <div className="App">
             <div className="rides_menu_container">
                <NavbarContainer state={state} dispatch={dispatch} />
-               <InfobarContainer state={state} />
+               <InfobarContainer state={state} dispatch={dispatch} />
                <CollapseInfobarBtn isCollapsed={state.infobar.isCollapsed} dispatch={dispatch} />
             </div>
                <Map map={map} />
+               <ModalPhoto src={state.layout.modal.src} alt={state.layout.modal.alt}
+                  isOpened={state.layout.modal.isOpened} dispatch={dispatch} />
          </div>
       )
    } else {
@@ -55,6 +58,8 @@ function App(props) {
                </div>
                <MobileNavbar state={state} dispatch={dispatch} />
             </div>
+            <ModalPhoto src={state.layout.modal.src} alt={state.layout.modal.alt}
+               isOpened={state.layout.modal.isOpened} dispatch={dispatch} />
          </div>
       )
    }

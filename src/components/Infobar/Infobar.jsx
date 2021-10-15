@@ -63,7 +63,7 @@ const Infobar = (props) => {
          <div className={'infobar' + (isCollapsed ? ' collapsed' : '')}>
             <RideHeader name={props.ride.name} date={props.ride.startDate} isMobile={props.isMobile}
                strava={props.ride.stravaLink} dispatch={props.dispatch} />
-            <RideMembers members={props.members} />
+            <RideMembers dispatch={props.dispatch} members={props.members} />
             <RideIndicators ride={props.ride} />
             <InfobarGallery photos={props.ride.photos}/>
          </div>
