@@ -33,6 +33,10 @@
    height: 64px;
    
    transform: translate(-50%, -50%);
+
+   &.hide {
+      display: none;
+   }
 }
 
 .map_error_wrapper {

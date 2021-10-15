@@ -27,7 +27,7 @@ const bikers = [
       name: 'Serg',
       id: 'Serg',
       photoSmall: '/img/bikers/Serg.jpg',
-      photoLarge: '/img/bikers/Serg.jpg'
+      photoLarge: '/img/bikers/SergLarge.jpg'
    }
 ]
 

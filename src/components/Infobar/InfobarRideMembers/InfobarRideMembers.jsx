@@ -2,6 +2,8 @@ import React from "react"
 import './InfobarRideMembers.scss'
 
 const RideMemberItem = (props) => {
+   const img = new Image()
+   img.src = props.photoLarge
    return (
       <div className="ride_member_item">
          <img src={props.photoSmall} alt={`Mr. ${props.name}`} className="ride_member_item__img" />
@@ -13,8 +15,9 @@ const RideMemberItem = (props) => {
 
 
 const RideMembers = (props) => {
-   const rideMembersItems = props.members.map(m => <RideMemberItem key={m.id} name={m.name} photoSmall={m.photoSmall} />)
-   
+   const rideMembersItems = props.members
+      .map(m => <RideMemberItem key={m.id} name={m.name}
+         photoSmall={m.photoSmall} photoLarge={m.photoLarge} />)
    const openMemberPhoto = (e) => {
       if (!e.target.classList.contains('ride_member_item__img')) {
          return
