@@ -4,6 +4,8 @@ import './ModalPhoto.scss'
 
 const ModalPhoto = (props) => {
 
+
+
    const closeModal = () => {
       const modal = document.querySelector('.modal')
       modal.classList.add('fading')
@@ -18,10 +20,7 @@ const ModalPhoto = (props) => {
    const swipeClose = useSwipeable({
       onSwiped: (e) => {
          if (e.dir === 'Up' || e.dir === 'Down') {
-            const action = {
-               type: 'CLOSE-MODAL-PHOTO'
-            }
-            props.dispatch(action)
+            closeModal()
          }
       },
       preventDefaultTouchmoveEvent: true
