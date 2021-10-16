@@ -104,7 +104,13 @@ const rides = [
       cleanTime: '7:13:28',
       members: ['Lavr', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/3720632658',
-      photos: []
+      photos: [
+         'IMG_20200705_114925.jpg',
+         'IMG_20200705_130908.jpg',
+         'IMG_20200705_175028.jpg',
+         'IMG_20200705_183124.jpg',
+         'IMG_20200705_193859.jpg'
+      ]
    },
    {
       name: "Zelenograd - Krasnogorsk - Zvenigorod - Snegiri",
@@ -117,7 +123,11 @@ const rides = [
       cleanTime: '7:27:30',
       members: ['Lavr', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/4472183662',
-      photos: []
+      photos: [
+         'IMG_20200627_125001.jpg',
+         'IMG_20200627_154630.jpg',
+         'IMG_20200627_194504.jpg',
+      ]
    },
    {
       name: "Klin - Volokolamsk & Snegiri - Zelenograd",
@@ -130,7 +140,13 @@ const rides = [
       cleanTime: '4:44:47',
       members: ['Lavr', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/4472192681',
-      photos: []
+      photos: [
+         'IMG_20200613_140625.jpg',
+         'IMG_20200613_144021.jpg',
+         'IMG_20200613_144505.jpg',
+         'IMG_20200613_150446.jpg',
+         'IMG_20200613_153716.jpg'
+      ]
    },
    {
       name: "From Tver to Konarovo across Saint Places",
@@ -143,7 +159,16 @@ const rides = [
       cleanTime: '4:36:11',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472204842',
-      photos: []
+      photos: [
+         'PANO_20190825_130807.vr.jpg',
+         'PANO_20190825_153818.vr.jpg',
+         'IMG_20190825_102814.jpg',
+         'IMG_20190825_111512.jpg',
+         'IMG_20190825_123343.jpg',
+         'IMG_20190825_134116.jpg',
+         'IMG_20190825_140057.jpg',
+         'IMG_20190825_141326.jpg'
+      ]
    },
    {
       name: "To the back side of Istra",
@@ -169,7 +194,9 @@ const rides = [
       cleanTime: '1:57:31',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472268451',
-      photos: []
+      photos: [
+         'IMG_20190420_141426.jpg'
+      ]
    },
    {
       name: "Hike to Yaroslavl, day 2",
@@ -182,7 +209,11 @@ const rides = [
       cleanTime: '2:45:08',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472290953',
-      photos: []
+      photos: [
+         'IMG_20180729_110602.jpg',
+         'IMG_20180729_115906.jpg',
+         'IMG_20180729_121151.jpg'
+      ]
    },
    {
       name: "Hike to Yaroslavl, day 1",
@@ -195,7 +226,14 @@ const rides = [
       cleanTime: '7:40:36',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472291668',
-      photos: []
+      photos: [
+         'IMG_20180728_082637.jpg',
+         'IMG_20180728_130220_01.jpg',
+         'IMG_20180728_145607.jpg',
+         'IMG_20180728_170859.jpg',
+         'IMG_20180728_193500.jpg',
+         'IMG_20180728_194927.jpg'
+      ]
    },
    {
       name: "From Zvenigorod to Mozhaysk and Borodino",
@@ -208,7 +246,11 @@ const rides = [
       cleanTime: '4:52:07',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472291139',
-      photos: []
+      photos: [
+         'IMG_20180714_171055.jpg',
+         'IMG_20180714_192138.jpg'
+
+      ]
    },
    {
       name: "Autumn trip around Moscow",
@@ -234,7 +276,14 @@ const rides = [
       cleanTime: '10:50:00',
       members: ['Lavr', 'Nick'],
       stravaLink: '',
-      photos: []
+      photos: [
+         'IMG_20170722_082508.jpg',
+         'IMG_20170722_110859.jpg',
+         'IMG_20170722_143709.jpg',
+         'IMG_20170722_174029.jpg',
+         'IMG_20170722_202800.jpg',
+         'IMG_20170723_004534.jpg'
+      ]
    }
 ]
 
