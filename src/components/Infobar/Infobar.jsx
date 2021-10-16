@@ -65,7 +65,7 @@ const Infobar = (props) => {
                strava={props.ride.stravaLink} dispatch={props.dispatch} />
             <RideMembers dispatch={props.dispatch} members={props.members} />
             <RideIndicators ride={props.ride} />
-            <InfobarGallery photos={props.ride.photos}/>
+            <InfobarGallery photos={props.ride.photos} dispatch={props.dispatch} />
          </div>
       </>
    )

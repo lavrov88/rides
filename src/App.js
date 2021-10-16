@@ -41,7 +41,7 @@ function App(props) {
                <CollapseInfobarBtn isCollapsed={state.infobar.isCollapsed} dispatch={dispatch} />
             </div>
                <Map map={map} />
-               <ModalPhoto src={state.layout.modal.src} alt={state.layout.modal.alt}
+               <ModalPhoto src={state.layout.modal.src} number={state.layout.modal.number}
                   isOpened={state.layout.modal.isOpened} dispatch={dispatch} />
          </div>
       )
@@ -58,7 +58,7 @@ function App(props) {
                </div>
                <MobileNavbar state={state} dispatch={dispatch} />
             </div>
-            <ModalPhoto src={state.layout.modal.src} alt={state.layout.modal.alt}
+            <ModalPhoto src={state.layout.modal.src} number={state.layout.modal.number}
                isOpened={state.layout.modal.isOpened} dispatch={dispatch} />
          </div>
       )

@@ -11,10 +11,10 @@ const rides = [
       members: ['Lavr', 'Paul', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/5798918869',
       photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
+         'PXL_20210815_134724022.jpg',
+         'PXL_20210815_135331511.jpg',
+         'PXL_20210815_153251515.jpg',
+         'PXL_20210815_174156622.jpg'
       ]
    },
    {
@@ -28,12 +28,7 @@ const rides = [
       cleanTime: '2:03:50',
       members: ['Lavr', 'Paul', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/5686264901',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "To Pyatnitsa through Povarovo",
@@ -47,10 +42,8 @@ const rides = [
       members: ['Lavr', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/5503081364',
       photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
+         'IMG_20210620_173603.jpg',
+         'IMG_20210620_183839.jpg'
       ]
    },
    {
@@ -65,10 +58,9 @@ const rides = [
       members: ['Lavr', 'Nick', 'Paul', 'Serg'],
       stravaLink: 'https://www.strava.com/activities/5257813977',
       photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
+         'IMG_20210507_114057.jpg',
+         'IMG_20210507_132101.jpg',
+         'IMG_20210507_160611.jpg'
       ]
    },
    {
@@ -83,10 +75,9 @@ const rides = [
       members: ['Lavr', 'Nick', 'Serg'],
       stravaLink: 'https://www.strava.com/activities/5231113160',
       photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
+         'IMG_20210502_094313.jpg',
+         'IMG_20210502_112101.jpg',
+         'IMG_20210502_113245.jpg'
       ]
    },
    {
@@ -100,12 +91,7 @@ const rides = [
       cleanTime: '9:27:53',
       members: ['Lavr', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/3813354535',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "Solnechnogorsk - Yakhroma - Zelenograd",
@@ -118,12 +104,7 @@ const rides = [
       cleanTime: '7:13:28',
       members: ['Lavr', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/3720632658',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "Zelenograd - Krasnogorsk - Zvenigorod - Snegiri",
@@ -136,12 +117,7 @@ const rides = [
       cleanTime: '7:27:30',
       members: ['Lavr', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/4472183662',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "Klin - Volokolamsk & Snegiri - Zelenograd",
@@ -154,12 +130,7 @@ const rides = [
       cleanTime: '4:44:47',
       members: ['Lavr', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/4472192681',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "From Tver to Konarovo across Saint Places",
@@ -172,12 +143,7 @@ const rides = [
       cleanTime: '4:36:11',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472204842',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "To the back side of Istra",
@@ -190,12 +156,7 @@ const rides = [
       cleanTime: '7:50:59',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472205448',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "Assault attempt of under constructed CKAD",
@@ -208,12 +169,7 @@ const rides = [
       cleanTime: '1:57:31',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472268451',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "Hike to Yaroslavl, day 2",
@@ -226,12 +182,7 @@ const rides = [
       cleanTime: '2:45:08',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472290953',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "Hike to Yaroslavl, day 1",
@@ -244,12 +195,7 @@ const rides = [
       cleanTime: '7:40:36',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472291668',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "From Zvenigorod to Mozhaysk and Borodino",
@@ -262,12 +208,7 @@ const rides = [
       cleanTime: '4:52:07',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472291139',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "Autumn trip around Moscow",
@@ -280,12 +221,7 @@ const rides = [
       cleanTime: '5:27:55',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472343428',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    },
    {
       name: "Journey to the glory of Chester Bennington",
@@ -298,12 +234,7 @@ const rides = [
       cleanTime: '10:50:00',
       members: ['Lavr', 'Nick'],
       stravaLink: '',
-      photos: [
-         'url1',
-         'url2',
-         'url3',
-         'url4'
-      ]
+      photos: []
    }
 ]
 

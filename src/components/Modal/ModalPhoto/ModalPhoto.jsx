@@ -4,8 +4,6 @@ import './ModalPhoto.scss'
 
 const ModalPhoto = (props) => {
 
-
-
    const closeModal = () => {
       const modal = document.querySelector('.modal')
       modal.classList.add('fading')
@@ -25,12 +23,15 @@ const ModalPhoto = (props) => {
       },
       preventDefaultTouchmoveEvent: true
    })
-   
+
+   const img = new Image()
    if (props.isOpened) {
       const spinner = document.querySelector('.modal').querySelector('.map_loading_spinner')
       const imgEl = document.querySelector('.modal_photo_img')
-      const img = new Image()
-      img.src = props.src
+      const num = props.number
+
+      img.src = props.src[num].url
+      img.alt = props.src[num].alt
       img.onload = () => {
          spinner.classList.add('hide')
          imgEl.classList.remove('hide')
@@ -41,7 +42,7 @@ const ModalPhoto = (props) => {
       <div {...swipeClose} onClick={closeModal} className={"modal" + (props.isOpened ? " opened" : "")}>
          <div className="modal_photo_container">
             <img src="/img/tail-spin.svg" alt="Loading..." className="map_loading_spinner" />
-            <img className="modal_photo_img hide" src={props.src} alt={props.alt} />
+            <img className="modal_photo_img hide" src={img.src} alt={img.alt} />
          </div>
       </div>
    )

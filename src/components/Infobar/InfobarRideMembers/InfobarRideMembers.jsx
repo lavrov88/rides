@@ -12,8 +12,6 @@ const RideMemberItem = (props) => {
    )
 }
 
-
-
 const RideMembers = (props) => {
    const rideMembersItems = props.members
       .map(m => <RideMemberItem key={m.id} name={m.name}
@@ -24,12 +22,14 @@ const RideMembers = (props) => {
       }
       const alt = e.target.alt
       const memberId = alt.slice(4)
-      const src = props.members.find(m => m.name === memberId).photoLarge
+      const url = props.members.find(m => m.name === memberId).photoLarge
 
       const action = {
          type: 'OPEN-MODAL-PHOTO',
-         src: src,
-         alt: alt
+         src: [{
+            url: url,
+            alt: alt
+         }]
       }
       props.dispatch(action)
    }

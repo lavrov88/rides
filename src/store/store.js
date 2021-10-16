@@ -25,7 +25,7 @@ const store = {
          modal: {
             isOpened: false,
             src: null,
-            alt: null
+            number: null
          },
          mobileNavbarIsOpen: true,
          isMobile: false
@@ -172,7 +172,9 @@ const store = {
             break
          case 'OPEN-MODAL-PHOTO':
             this._state.layout.modal.src = action.src
-            this._state.layout.modal.alt = action.alt
+            action.number 
+               ? this._state.layout.modal.number =  action.number
+               : this._state.layout.modal.number = 0
             this._state.layout.modal.isOpened = true
             this._callSubscriber()
             break
@@ -227,7 +229,12 @@ const store = {
                averageSpeed: +(el.distance / convertStrToMs(el.cleanTime) * 1000 * 60 * 60).toFixed(1),
                members: el.members,
                stravaLink: el.stravaLink,
-               photos: [...el.photos]
+               photos: [...el.photos].map((p) => {
+                  return {
+                     url: `/img/photos/${p}`,
+                     alt: `Photo from ${el.name} ride`
+                  }
+               })
             }
             this._state.rides = [...this._state.rides, ride]
          })
