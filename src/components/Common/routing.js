@@ -1,21 +1,24 @@
-const parseUrl = (url, rides) => {
-
+const checkUrlValidity = (url, rides) => {
    const validUrls = rides.map(ride => ride.url)
-
-   const checkUrlValidity = (url, variants) => {
-      const index = variants.findIndex(item => item === url)
-      if (index === -1) {
-         return false
-      } else {
-         return true
-      }
-   }
-
-   if (!checkUrlValidity(url, validUrls)) {
+   const index = validUrls.findIndex(item => item === url)
+   if (index === -1) {
       return false
    } else {
       return true
    }
 }
 
-export default parseUrl
+const routeWithUrl = (url, rides, dispatch) => {
+   const urlValidity = checkUrlValidity(url, rides)
+   if (urlValidity) {
+      const action = {
+         type: 'SET-ACTIVE-RIDE',
+         url: url
+      }
+      dispatch(action)
+   } else {
+      return 'invalid'
+   }
+}
+
+export default routeWithUrl

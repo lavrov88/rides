@@ -113,6 +113,23 @@ const rides = [
       ]
    },
    {
+      name: "Manikhino - Istra - Reconstructed darky CKAD - Zelenograd",
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3a8223fd337d72848efb864c9e24f9ad07b2ece458bdb19ec2edbf53305bfffd&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
+      distance: 82,
+      climb: 183,
+      startDate: '2020-06-20',
+      startTime: '14:40',
+      fullTime: '8:20:00',
+      cleanTime: '8:20:00',
+      members: ['Lavr', 'Nick', 'Paul', 'Andy'],
+      stravaLink: 'https://www.strava.com/activities/3645623919',
+      photos: [
+         'IMG_20200620_134513.jpg',
+         'IMG_20200620_154818.jpg',
+         '0DjnlAYpoj0.jpg'
+      ]
+   },
+   {
       name: "Zelenograd - Krasnogorsk - Zvenigorod - Snegiri",
       map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5b4fb76257fafb94aa5825008dcfd156eb5dbfde22c48ac29423f2717280509d&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 118.46,

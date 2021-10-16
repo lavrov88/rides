@@ -48,6 +48,10 @@
       font-size: 12px;
    }
 
+   & .filter_menu_item:hover {
+      background-color: transparent;
+   }
+
    & .sort_menu_popup_item {
       height: 40px;
       font-size: 16px;

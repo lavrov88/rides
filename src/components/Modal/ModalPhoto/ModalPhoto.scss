@@ -16,11 +16,10 @@
       background-color: #ffffff00;
 
       & .modal_photo_container {
-         transform: scale(0.5);
+         transform: scale(0.6);
          opacity: 0;
       }
    }
-
 
    &.opened {
       display: flex;
@@ -45,7 +44,7 @@
 
          @keyframes fade-in-photo {
             from {
-               transform: scale(0.5);
+               transform: scale(0.6);
             }
 
             to {
@@ -60,12 +59,12 @@
 
    width: 90%;
    height: 90%;
-   overflow: hidden;
 
    transition: all 0.2s;
 }
 
 .modal_photo_img {
+   display: block;
    width: 100%;
    height: 100%;
    object-fit: contain;
@@ -75,3 +74,9 @@
    }
 }
 
+// MOBILE
+
+.App.mobile .modal_photo_container {
+   width: 100%;
+   height: 100%;
+}

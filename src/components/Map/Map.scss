@@ -40,11 +40,25 @@
 }
 
 .map_error_wrapper {
-   // height: 100vh;
    height: 100%;
    width: 100%;
    display: flex;
    justify-content: center;
    align-items: center;
    color: #6b6b6b;
+}
+
+// MOBILE
+
+.mobile_main .map_container {
+   height: 100%;
+}
+
+.mobile_map {
+   padding-bottom: $mobile_infobar_collapsed;
+   min-height: 100%;
+
+   & .map_left_gradient {
+      display: none;
+   }
 }

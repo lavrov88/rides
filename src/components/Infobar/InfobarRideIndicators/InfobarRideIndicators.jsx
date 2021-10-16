@@ -38,8 +38,8 @@ const RideIndicators = (props) => {
                decimal={2}
                unit={'km'}
                name={'Total distance'}/>
-            <RideIndicatorItem value={props.ride.climb}
-               unit={'m'}
+            <RideIndicatorItem value={props.ride.climb ? props.ride.climb : 'n/a'}
+               unit={props.ride.climb ? 'm' : ''}
                name={'Climb'} />
             <RideIndicatorItem value={props.ride.averageSpeed}
                decimal={1}

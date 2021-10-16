@@ -2,35 +2,28 @@ import './App.scss';
 import NavbarContainer from './components/Navbar/Navbar';
 import InfobarContainer from './components/Infobar/InfobarContainer';
 import CollapseInfobarBtn from './components/Infobar/InfobarCollapseBtn/InfobarCollapseBtn';
-import parseUrl from './components/Common/routing';
 import checkMobile from './components/Common/checkMobile';
 import MobileHeader from './components/MobileHeader/MobileHeader';
 import MobileNavbar from './components/MobileNavbar/MobileNavbar';
 import Map from './components/Map/Map';
 import { Redirect } from 'react-router';
 import ModalPhoto from './components/Modal/ModalPhoto/ModalPhoto';
+import routeWithUrl from './components/Common/routing';
 
 
 function App(props) {
    const state = props.store.getState()
    const dispatch = props.store.dispatch.bind(props.store)
    const url = props.location.pathname
-   const urlIsValid = parseUrl(url, state.rides, dispatch)
-   
-   if (!urlIsValid) {
-      return <Redirect to={state.processedRides[0].url} />
-   } else {
-      const action = {
-         type: 'SET-ACTIVE-RIDE',
-         url: url
-      }
-      dispatch(action)
-   }
 
-   window.onresize = (() => checkMobile(state.layout.isMobile, dispatch))
+   const urlValidity = routeWithUrl(url, state.rides, dispatch, state.processedRides)
+   if (urlValidity === 'invalid') {
+      return <Redirect to={state.processedRides[0].url} />
+   }
 
    const activeRideIndex = state.activeRide
    const map = state.processedRides[activeRideIndex].map
+   window.onresize = (() => checkMobile(state.layout.isMobile, dispatch))
 
    if (!state.layout.isMobile) {
       return (
