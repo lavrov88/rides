@@ -15,6 +15,7 @@
    position: relative;
    display: block;
    flex-grow: 1;
+   max-width: 50%;
    height: 20px;
 
    color: #fff;
@@ -28,9 +29,15 @@
       background-color: $blue_semitransparent;
    }
 }
+
 .filter_btn {
    border-right-width: 1px;
+   & span {
+      font-size: 13px;
+      font-weight: 400;
+   }
 }
+
 .sort_btn {
    border-left-width: 1px;
    &:before {

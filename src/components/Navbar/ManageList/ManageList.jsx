@@ -7,6 +7,21 @@ const ManageList = (props) => {
    const filterMenuIsOpened = props.navbar.filterMenuIsOpened
    const sortMenuIsOpened = props.navbar.sortMenuIsOpened
 
+   const filterAdditionalInfo = () => {
+      const bikers = props.bikers
+      const filteredBikers = props.navbar.output.filteredBikers
+      
+      if (filteredBikers.length === bikers.length 
+            || filteredBikers.length === 0 
+            || props.navbar.filterMenuIsOpened) {
+         return null
+      }
+      if (props.navbar.output.filteredBikers.length === 1) {
+         return `(Mr. ${props.navbar.output.filteredBikers[0]} only)`
+      }
+      return `(${filteredBikers.length}/${bikers.length})`
+   }
+
    const toggleFilterMenu = () => {
       const action = {type: 'TOGGLE-FILTER-MENU'}
       props.dispatch(action)
@@ -20,8 +35,10 @@ const ManageList = (props) => {
       <>
          <div className="manage_list">
             <div className="manage_list__global_buttons">
-               <button onClick={toggleFilterMenu} className="manage_list__btn filter_btn">Filter</button>
-               <button onClick={toggleSortMenu} className="manage_list__btn sort_btn">Sort</button>
+               <button onClick={toggleFilterMenu} 
+                  className="manage_list__btn filter_btn">Filter <span>{filterAdditionalInfo()}</span></button>
+               <button onClick={toggleSortMenu} 
+                  className="manage_list__btn sort_btn">Sort</button>
             </div>
             <div className="manage_list__submenu">
                <div className={"navbar_menu_popup filter_menu" + (filterMenuIsOpened ? " opened" : "")}>

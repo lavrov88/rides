@@ -25,7 +25,7 @@ const RidesListSeparator = (props) => {
             break
          case 'distance':
             if (!prevEl) {
-               return currEl.distance < 50 ? '<50' : '>100'
+               return currEl.distance < 50 ? '<50' : (currEl > 100 ? '>100' : '50-100')
             }
             if ((prevEl.distance < 50 && currEl.distance > 50) || (prevEl.distance > 100 && currEl.distance < 100)) {
                return '50-100'
@@ -41,7 +41,7 @@ const RidesListSeparator = (props) => {
             const currSpeed = currEl.distance / currEl.cleanTime * 1000 * 60 * 60
             const prevSpeed = prevEl ? prevEl.distance / prevEl.cleanTime * 1000 * 60 * 60 : null
             if (!prevEl) {
-               return currSpeed < 15 ? '<15' : '>18'
+               return currSpeed < 15 ? '<15' : ( currSpeed > 18 ? '>18' : '15-18')
             }
             if ((prevSpeed < 15 && currSpeed > 15) || (prevSpeed > 18 && currSpeed < 18)) {
                return '15-18'
@@ -57,7 +57,7 @@ const RidesListSeparator = (props) => {
             const currTime = currEl.cleanTime / 1000 / 60 / 60
             const prevTime = prevEl ? prevEl.cleanTime / 1000 / 60 / 60 : null
             if (!prevEl) {
-               return currTime < 4 ? '<4' : '>7'
+               return currTime < 4 ? '<4' : (currTime > 7 ? '>7' : '4-7')
             }
             if ((prevTime < 4 && currTime > 4) || (prevTime > 7 && currTime < 7)) {
                return '4-7'

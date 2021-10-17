@@ -56,11 +56,26 @@ export const RideHeader = (props) => {
 
 const Infobar = (props) => {
    const isCollapsed = props.isCollapsed
+   const infobarEl = document.querySelector('.infobar')
+   const infobarSwipe = useSwipeable({
+      onSwipeStart: (eventData) => {
+         if (!props.isMobile || infobarEl.scrollTop > 0 || eventData.dir !== 'Down') {
+            return
+         }
+         
+         const action = {
+            type: 'INFOBAR-HEADER-SWIPED',
+            dir: 'Down'
+         }
+         props.dispatch(action)
+      },
+   })
+
    return (
       <>
          <RideHeader name={props.ride.name} date={props.ride.startDate} isMobile={props.isMobile}
                strava={props.ride.stravaLink} dispatch={props.dispatch} />
-         <div className={'infobar' + (isCollapsed ? ' collapsed' : '')}>
+         <div {...infobarSwipe} className={'infobar' + (isCollapsed ? ' collapsed' : '')}>
             <RideHeader name={props.ride.name} date={props.ride.startDate} isMobile={props.isMobile}
                strava={props.ride.stravaLink} dispatch={props.dispatch} />
             <RideMembers dispatch={props.dispatch} members={props.members} />

@@ -80,8 +80,13 @@ const store = {
          }
          return false
       }
-      tempArr = tempArr.filter(ride => checkBikers(ride, output.filteredBikers))
-      this._state.processedRides = [...tempArr]
+
+      const tempArrFiltered = tempArr.filter(ride => checkBikers(ride, output.filteredBikers))
+      if (tempArrFiltered.length > 0) {
+         this._state.processedRides = [...tempArrFiltered]
+      } else {
+         this._state.processedRides = [...tempArr]
+      }
    },
 
    getState() {
@@ -120,9 +125,7 @@ const store = {
                filteredBikers.push(action.bikerId)
                filteredBikers.sort((a, b) => a > b ? 1 : -1)
             } else {
-               if (filteredBikers.length > 1) {
                   filteredBikers.splice(filterIndex, 1)
-               }
             }
             this._processRides()
             this._callSubscriber()
@@ -210,7 +213,6 @@ const store = {
                return 1
             } else return -1
          })
-         this._state.navbar.output.filteredBikers = [...this._state.bikers.map(b => b.id)]
       }
 
       function initRides() {

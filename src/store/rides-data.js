@@ -113,7 +113,7 @@ const rides = [
       ]
    },
    {
-      name: "Manikhino - Istra - Reconstructed darky CKAD - Zelenograd",
+      name: "Manikhino - Istra - darky CKAD - Zelenograd",
       map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3a8223fd337d72848efb864c9e24f9ad07b2ece458bdb19ec2edbf53305bfffd&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 82,
       climb: 183,
