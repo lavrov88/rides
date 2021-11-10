@@ -1,5 +1,22 @@
 const rides = [
    {
+      name: 'Zavidovo - Konakovo - Rogachevo - Klin',
+      map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aea221697762f0a4e2c085d935376ee568ae63f758e80d361680811e38059591c&amp;width=100%25&amp;height=562&amp;lang=ru_RU&amp;scroll=true"></script>`,
+      distance: 116.61,
+      climb: 459,
+      startDate: '2021-10-31',
+      startTime: '10:18',
+      fullTime: '10:51:17',
+      cleanTime: '7:15:08',
+      members: ['Lavr', 'Nick', 'Andy'],
+      stravaLink: 'https://www.strava.com/activities/6193953195',
+      photos: [
+         'IMG_20211031_121053.jpg',
+         'IMG_20211031_122024.jpg',
+         'IMG_20211031_183920.jpg'
+      ]
+   },
+   {
       name: 'Konakovo - Solnechnogorsk',
       map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A8472ba15980b6a771535d7df0fde7022adbe7e49420c0284e9b5fa633d4e3026&amp;width=100%25&amp;height=507&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 90.61,
@@ -82,7 +99,7 @@ const rides = [
    },
    {
       name: "Ring through Moscow and Krasnogorsk",
-      map: `str<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5ccc2c04f4b0008649f11ff6a5c6342d96fecafed1e74cc76ad27a9afd0234ad&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>ing`,
+      map: `str<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5ccc2c04f4b0008649f11ff6a5c6342d96fecafed1e74cc76ad27a9afd0234ad&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
       distance: 150.56,
       climb: 907,
       startDate: '2020-07-25',
