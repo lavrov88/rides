@@ -89,7 +89,7 @@
    position: absolute;
    display: flex;
    flex-direction: column;
-   left: 0;
+   left: 0px;
    bottom: 0px;
    width: 100%;
    max-height: calc(100% - $mobile_header_height * 2);
@@ -100,7 +100,7 @@
 
    transition: transform 0.3s ease-in-out;
 
-   &::before {
+   & .ride_header__expand_btn {
       position: absolute;
       content: '';
       top: 7px;
@@ -136,7 +136,7 @@
       min-width: 100%;
       max-width: 100%;
       max-height: 100%;
-      padding: 0 15px;
+      padding: 0 15px 100px;
       overflow-x: hidden;
       overflow-y: scroll;
       scroll-behavior: smooth;

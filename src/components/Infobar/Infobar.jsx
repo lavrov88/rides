@@ -36,6 +36,7 @@ export const RideHeader = (props) => {
    
    return (
       <div {...handlers} onClick={headerClicked} className="ride_header" >
+         <div className="ride_header__expand_btn"></div>
          <div className="ride_header__name">
             <h2>{props.name}</h2>
          </div>
