@@ -25,7 +25,7 @@ const RidesListSeparator = (props) => {
             break
          case 'distance':
             if (!prevEl) {
-               return currEl.distance < 50 ? '<50' : (currEl > 100 ? '>100' : '50-100')
+               return currEl.distance < 50 ? '<50' : (currEl.distance > 100 ? '>100' : '50-100')
             }
             if ((prevEl.distance < 50 && currEl.distance > 50) || (prevEl.distance > 100 && currEl.distance < 100)) {
                return '50-100'
