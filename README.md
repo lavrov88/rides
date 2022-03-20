@@ -17,4 +17,4 @@ Catalog of my group of friend's bicycle rides. Every ride has a data set consist
 - Yandex Maps constructor
 
 
-[Deployed project](https://rides-history.herokuapp.com/)
+[Deployed project](https://lavrov88.github.io/rides/)

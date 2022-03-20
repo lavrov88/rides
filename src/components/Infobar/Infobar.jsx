@@ -47,7 +47,7 @@ export const RideHeader = (props) => {
             <a href={props.strava}
                   target="_blank" rel="noreferrer"
                   className={"strava_link" + (props.strava ? "" : " disabled")} >
-                  <img src="/img/strava.png" alt="strava" className="strava_logo"/>
+                  <img src="./img/strava.png" alt="strava" className="strava_logo"/>
                   <div className="strava_text">This ride in Strava</div>
             </a>
          </div>

@@ -233,7 +233,7 @@ const store = {
                stravaLink: el.stravaLink,
                photos: [...el.photos].map((p) => {
                   return {
-                     url: `/img/photos/${p}`,
+                     url: `./img/photos/${p}`,
                      alt: `Photo from ${el.name} ride`
                   }
                })
