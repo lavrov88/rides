@@ -120,18 +120,55 @@ const RidesListItems = (props) => {
    )
 }
 
+const ScrollButton = ({ direction, display, handleFunction }) => {
+   return (
+      <div className={`to_${direction}_btn_wrapper${display ? "" : " hide"}`}>
+         <button onClick={handleFunction} className={`to_${direction}_btn`}></button>
+      </div>
+   )
+}
+
 const Navbar = (props) => {
+   const [isTop, setIsTop] = React.useState(true)
+   const [isBottom, setIsBottom] = React.useState(false)
+   const isMobile = props.state.layout.isMobile
+   const ridesListWrapper = React.useRef(null)
+   const scrollHandler = (e) => {
+      if (isMobile) return
+      const checkTop = e.nativeEvent.target.scrollTop < 50
+      const checkBottom = e.nativeEvent.target.scrollTop === e.nativeEvent.target.scrollTopMax
+      checkTop ? setIsTop(true) : setIsTop(false)
+      checkBottom ? setIsBottom(true) : setIsBottom(false)
+   }
+
+   const scrollUp = () => {
+      if (ridesListWrapper.current.scrollTop < ridesListWrapper.current.offsetHeight) {
+         ridesListWrapper.current.scrollTop = 0
+      } else {
+         ridesListWrapper.current.scrollTop = ridesListWrapper.current.scrollTop - ridesListWrapper.current.offsetHeight + 80
+      }
+   }
+   const scrollDown = () => {
+      if (ridesListWrapper.current.scrollTop + ridesListWrapper.current.offsetHeight > ridesListWrapper.current.scrollTopMax) {
+         ridesListWrapper.current.scrollTop = ridesListWrapper.current.scrollTopMax
+      } else {
+         ridesListWrapper.current.scrollTop += ridesListWrapper.current.offsetHeight - 80
+      }
+   }
+
 
    return (
       <div className="navbar">
          <Logo />
          <ManageList bikers={props.state.bikers} navbar={props.state.navbar} dispatch={props.dispatch} />
-         <div className="riders_list_wrapper">
+         <div onScroll={scrollHandler} ref={ridesListWrapper} className="riders_list_wrapper">
+            <ScrollButton direction="top" display={!isTop && !isMobile} handleFunction={scrollUp} />
             <ul className="rides_list">
                <RidesListItems state={props.state} dispatch={props.dispatch} />
             </ul>
          </div>
          <div className="right_border"></div>
+         <ScrollButton direction="bottom" display={!isBottom && !isMobile} handleFunction={scrollDown} />
       </div>
    )
 }

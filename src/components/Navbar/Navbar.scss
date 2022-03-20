@@ -16,6 +16,7 @@
 
 .header_logo {
    padding: 10px 10px 20px;
+   text-align: center;
 
    h1 {
       font-size: 30px;
@@ -29,6 +30,7 @@
    overflow-y: scroll;
 
    scrollbar-width: none;
+   scroll-behavior: smooth;
 }
 .riders_list_wrapper::-webkit-scrollbar {
    width: 0px;
@@ -71,4 +73,63 @@
       );
 
    transform: translateX(0px);
+}
+
+.to_top_btn_wrapper,
+.to_bottom_btn_wrapper {
+   position: sticky;
+   top: 0px;
+   left: 0;
+   height: 30px;
+   width: calc(100% - 4px);
+   z-index: 500;
+
+   background: rgb(255,255,255);
+   background: linear-gradient(90deg, #e5ebf7 0%, #e5ebf7 70%, #ffffff 100%);
+
+
+   &.hide {
+      display: none;
+   }
+}
+
+.to_top_btn,
+.to_bottom_btn {
+   position: relative;
+   margin: 0 auto;
+   height: 100%;
+   width: 100%;
+
+   background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 20%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0) 100%);
+   cursor: pointer;
+   transform: translateX(2px);
+   transition: background-color 0.5s ease;
+
+   &:hover {
+      background-color: #fff;
+   }
+
+   &::after {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      transform: translate(-50%, -50%);
+      border-style: solid;
+      border-width: 0px 10px 10px 10px;
+      border-color: transparent transparent #2e82ff transparent;
+   }
+}
+
+.to_bottom_btn_wrapper {
+   position: absolute;
+   z-index: 500;
+   left: 0;
+   top: auto;
+   bottom: 0px;
+
+   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 70%, rgba(255,255,255,0) 100%);
+   transform: rotate(180deg);
 }

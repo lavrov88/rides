@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import store from './store/store';
-import { BrowserRouter, HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Route } from 'react-router'
 
 store.initState()
@@ -11,10 +11,10 @@ store.initState()
 const rerenderEntireTree = () => {
    ReactDOM.render(
       <React.StrictMode>
-         <HashRouter>
+         <BrowserRouter>
             <Route path='/' 
                render={({ location }) => <App location={location} store={store} />} />
-         </HashRouter>
+         </BrowserRouter>
       </React.StrictMode>,
       document.getElementById('root')
     );

@@ -1,4 +1,5 @@
 import './App.scss';
+import React from 'react'
 import NavbarContainer from './components/Navbar/Navbar';
 import InfobarContainer from './components/Infobar/InfobarContainer';
 import CollapseInfobarBtn from './components/Infobar/InfobarCollapseBtn/InfobarCollapseBtn';
@@ -16,6 +17,12 @@ function App(props) {
    const dispatch = props.store.dispatch.bind(props.store)
    const url = props.location.pathname
 
+   const onResise = () => {checkMobile(state.layout.isMobile, dispatch)}
+   React.useEffect(() => {
+      window.addEventListener('resize', onResise)
+      return window.removeEventListener('resize', onResise)
+   }, [])
+
    const urlValidity = routeWithUrl(url, state.rides, dispatch, state.processedRides)
    if (urlValidity === 'invalid') {
       return <Redirect to={state.processedRides[0].url} />
@@ -23,7 +30,6 @@ function App(props) {
 
    const activeRideIndex = state.activeRide
    const map = state.processedRides[activeRideIndex].map
-   window.onresize = (() => checkMobile(state.layout.isMobile, dispatch))
 
    if (!state.layout.isMobile) {
       return (
