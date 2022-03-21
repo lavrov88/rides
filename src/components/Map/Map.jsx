@@ -45,7 +45,7 @@ class Map extends React.PureComponent {
    render() {
       return (
          <div className="map_container">
-            <img src="/img/tail-spin.svg" alt="Loading..." className="map_loading_spinner" />
+            <img src="./img/tail-spin.svg" alt="Loading..." className="map_loading_spinner" />
             <div className="map_left_gradient"></div>
             <div className="map"></div>
          </div>

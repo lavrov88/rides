@@ -10,6 +10,7 @@ const rides = [
       cleanTime: '7:15:08',
       members: ['Lavr', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/6193953195',
+      searchWords: `Zavidovo Novozavidovo Konakovo Selihovo aerodrome Krutets Krutez Ruchyi Aleksandrovo Yahroma Yakhroma Rogachevo Rogachovo Betonka A-108 Porkovskoe Shevlyakovo Novoshchapovo Klin night`,
       photos: [
          'IMG_20211031_121053.jpg',
          'IMG_20211031_122024.jpg',
@@ -27,6 +28,7 @@ const rides = [
       cleanTime: '4:53:44',
       members: ['Lavr', 'Paul', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/5798918869',
+      searchWords: `Konakovo Selihovo Krutets Ruchyi Pustyn Alexandrovo Yahroma Yakhroma Rogachevo Rogachovo Rogachovskoe highway Tarakanovo pond Tolstyakovo Leningradskoy highway Solnechnogorsk Senej Senezh Podsolnechnaya`,
       photos: [
          'PXL_20210815_134724022.jpg',
          'PXL_20210815_135331511.jpg',
@@ -45,6 +47,7 @@ const rides = [
       cleanTime: '2:03:50',
       members: ['Lavr', 'Paul', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/5686264901',
+      searchWords: `Zelenograd Malino Firsanovka Mtsyri Mtsiri Mziri Mzyru Serednikovo Serednyakovo Brehovo Brekhovo Bryokhovo Bryohovo Brohovo Pyatnitskoe Pyatnickoe Ruzino CIE `,
       photos: []
    },
    {
@@ -58,6 +61,7 @@ const rides = [
       cleanTime: '2:16:37',
       members: ['Lavr', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/5503081364',
+      searchWords: `Zelenograd Alabushevo Dedeshino Dedyoshino CKAD Depo Povarovo Povarovka wheel punkture Berezki Beryozki Alekseevskoe Kurilovo Pyatnitsa Pyatnica Shevlino Istra pond swimming`,
       photos: [
          'IMG_20210620_173603.jpg',
          'IMG_20210620_183839.jpg'
@@ -74,6 +78,7 @@ const rides = [
       cleanTime: '5:24:26',
       members: ['Lavr', 'Nick', 'Paul', 'Serg'],
       stravaLink: 'https://www.strava.com/activities/5257813977',
+      searchWords: `Zelenograd Pyatnitskoe Pyatnickoe Vianor Krankino Nefedyevo Dedovsk Burger King Lobanovo Leshkovo Pavlovsaya Sloboda Istra river swimming Rozhdesteveno Rojdestveno Snegiri Selivaniha Dedovo Talyzino Bakeevo Goretovka Georgievskoe`,
       photos: [
          'IMG_20210507_114057.jpg',
          'IMG_20210507_132101.jpg',
@@ -91,6 +96,7 @@ const rides = [
       cleanTime: '5:45:04',
       members: ['Lavr', 'Nick', 'Serg'],
       stravaLink: 'https://www.strava.com/activities/5231113160',
+      searchWords: `Morozki A-107 Betonka gas station Iksha Rozhdestvenno Rojdestvenno Tishkovo Pushkino Mamontovskaya Mamontovka Klyazma Boltino Dolgopurdniy Dolgoprudnaya Moscow channel Khimki Levoberezhnaya Levoberejnaya`,
       photos: [
          'IMG_20210502_094313.jpg',
          'IMG_20210502_112101.jpg',
@@ -108,6 +114,7 @@ const rides = [
       cleanTime: '9:27:53',
       members: ['Lavr', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/3813354535',
+      searchWords: `Zelenograd Vostochka Firsanovskoe highway Firsanovka Shodnya Skhodnya Podrezkovo Cherkizovo Cherkizovskiy pond Klyazma river Novoe highway Dolgoprudniy Hlebnikovo Khlebnikovo Dmitrovskoe Afanasovo Belyaninovo Ostashkovskoe Moscow Medvedkovo Yauza Sviblovo Botanicheskiy garden VDNH Timiryazevskiy Krasniy Krasnyj Baltiets Baltiec Strogino Myakinino Crocus Krokus Pavshino Krasnogorsk Snejkom Ilyinskoe Ilinskoe Arhangelskoe Arkhangelskoe Lohin ostrov Lokhin island Krasnogorskaya Volokolamskoe Saburovo Pyatnitskoe Pyatnickoe Yurlovo Brehovo Brekhovo Bryohovo Bryokhovo Kutuzovskoe night`,
       photos: []
    },
    {
@@ -121,6 +128,7 @@ const rides = [
       cleanTime: '7:13:28',
       members: ['Lavr', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/3720632658',
+      searchWords: `Solnechnogorsk Podsolnechnaya Senej Senezh Timonovo Kalina Zaovrazhye Zaovrajye Rogachevskoe highway Arbuzovo Olgovo Apraskinyh manor Yahroma Yakhroma Dmitrovskoe Dedenevo Shukolovo Varvarino wheel puncture Morozki CKAD Kholmy Porkov Lyalovo Mendeleevo Lyalovskoe Rjavki Rzhavki`,
       photos: [
          'IMG_20200705_114925.jpg',
          'IMG_20200705_130908.jpg',
@@ -140,6 +148,7 @@ const rides = [
       cleanTime: '8:20:00',
       members: ['Lavr', 'Nick', 'Paul', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/3645623919',
+      searchWords: `Manihino Manikhino Volokolamskoy highway Istra town Tesla towers New Herusalem Lamishino pond swim CKAD Betonka Pyatnitskoe Pyatnickoe Zhilino Jilino Andreevka Zelenograd`,
       photos: [
          'IMG_20200620_134513.jpg',
          'IMG_20200620_154818.jpg',
@@ -157,6 +166,7 @@ const rides = [
       cleanTime: '7:27:30',
       members: ['Lavr', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/4472183662',
+      searchWords: `Zelenograd Malino Mtsyri Mcyri Mciri Mtsiri Pyatnickoe Pyatnitskoe Yurlovo Saburovo Volokolamskoe Krasnogorskaya Ilinskoe Ilyinskoe Arhangelskoe Arkhangelskoe Mechnikovo Nikolina gora mountain Ivanovka Maslich Slavich dacha Moscow river Zvenigorod Savvino Storojevskiy Storozhevskiy monastery Savvinskaya Sloboda CKAD Betonka Porkovskoe Pavlovskaya Istra river Rojdestveno Rozhdestveno Snegiri Selivaniha`,
       photos: [
          'IMG_20200627_125001.jpg',
          'IMG_20200627_154630.jpg',
@@ -174,6 +184,7 @@ const rides = [
       cleanTime: '4:44:47',
       members: ['Lavr', 'Nick', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/4472192681',
+      searchWords: `Klin Pershutino Vysokovsk Kalistovo Volokolamsk Panfolovtsi Panfilovci museum Dubosekovo train Snegiri Volokolamskoe Selivaniha Bakeevo Goretovka Pyatnitskoe Georgievskoe`,
       photos: [
          'IMG_20200613_140625.jpg',
          'IMG_20200613_144021.jpg',
@@ -193,6 +204,7 @@ const rides = [
       cleanTime: '4:36:11',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472204842',
+      searchWords: `Tver Savvatyevskoe highway Zaborovye Volga river swim Vidogoshchi Edimonovo Yuryevo-Devichye Toporok ferry Konakovo`,
       photos: [
          'PANO_20190825_130807.vr.jpg',
          'PANO_20190825_153818.vr.jpg',
@@ -215,6 +227,7 @@ const rides = [
       cleanTime: '7:50:59',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472205448',
+      searchWords: `Zelenograd Georgievskoe highway Goretovka Bakeevo Selivaniha Snegiri Volokolamskoe Istra New Herusalem Buzharovo Bujarovo Betonka A-108 Tiliktino Kuznetsovo Kuznecovo Shchekino Dron Andy dacha Ozhogino Ojogino Pyatnitskoe Pyatnickoe Podsolnechnaya Solnechnogorsk`,
       photos: []
    },
    {
@@ -228,6 +241,7 @@ const rides = [
       cleanTime: '1:57:31',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472268451',
+      searchWords: `Zelenogradskiy CKAD Podosinki Morozki`,
       photos: [
          'IMG_20190420_141426.jpg'
       ]
@@ -243,6 +257,7 @@ const rides = [
       cleanTime: '2:45:08',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472290953',
+      searchWords: `tent palatka bushcraft night Ustye river Ustie Yaroslavskoe highway Semibratovo Yaroslavl`,
       photos: [
          'IMG_20180729_110602.jpg',
          'IMG_20180729_115906.jpg',
@@ -260,6 +275,7 @@ const rides = [
       cleanTime: '7:40:36',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472291668',
+      searchWords: `Naugolniy Sergiev Posad Yaroslavskoe highway Svatkovo Glebovskoe Pereslavl Zalesskiy Pereslavl-Zalesskiy Nero lake Varus bay Rostov Ustye Ustie river tent palatka bushcraft night`,
       photos: [
          'IMG_20180728_082637.jpg',
          'IMG_20180728_130220_01.jpg',
@@ -280,6 +296,7 @@ const rides = [
       cleanTime: '4:52:07',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472291139',
+      searchWords: `Zvenigorod Savvinskaya Sloboda Tuchkovo Mars Moscow river mouth swim A-108 Betonka Mojaysk Mozhaysk Borodino Borodinskoe pole field museum`,
       photos: [
          'IMG_20180714_171055.jpg',
          'IMG_20180714_192138.jpg'
@@ -297,6 +314,7 @@ const rides = [
       cleanTime: '5:27:55',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472343428',
+      searchWords: `Moscow Strogino Krylatskoe Fili Phili Poklonnaya gora Victory park Gorky Gorkogo`,
       photos: []
    },
    {
@@ -310,6 +328,7 @@ const rides = [
       cleanTime: '10:50:00',
       members: ['Lavr', 'Nick'],
       stravaLink: '',
+      searchWords: `Zelenograd Lyalovskoe highway Mendeleevo Lyalovo Pokrov Sergiev Posad Bogorodskoe Saburnovo Verbilki Novonikolskoe Zaprudnya Dmitrovskoe Tempy Moscow channel Meldino ferry Spridovo Nizhnie Nijnie Vyselki Staroe Domlino Konakovo night`,
       photos: [
          'IMG_20170722_082508.jpg',
          'IMG_20170722_110859.jpg',
