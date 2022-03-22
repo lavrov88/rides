@@ -25,6 +25,11 @@ const rerenderMap = (props) => {
       script.src = mapUrl
       script.async = true
       mapEl.appendChild(script)
+      script.onload = () => {
+        setTimeout(() => {
+          loadingSpinner.style.display = 'none'
+        }, 1000)
+      }
    } else {
       const errorMessage = document.createElement('div')
       errorMessage.classList.add('map_error_wrapper')

@@ -2,6 +2,7 @@ import bikers from "./bikers-data";
 import rides from "./rides-data";
 import { convertStrToDate, convertStrToMs } from "../components/Common/utilites";
 import checkMobile from "../components/Common/checkMobile";
+import { createKeywords } from "../components/Common/search";
 
 const store = {
    _state: {
@@ -231,6 +232,7 @@ const store = {
                averageSpeed: +(el.distance / convertStrToMs(el.cleanTime) * 1000 * 60 * 60).toFixed(1),
                members: el.members,
                stravaLink: el.stravaLink,
+               keywords: createKeywords(el.searchWords, el.name, el.startDate, el.members),
                photos: [...el.photos].map((p) => {
                   return {
                      url: `./img/photos/${p}`,
