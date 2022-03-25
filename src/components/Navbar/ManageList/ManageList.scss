@@ -15,8 +15,8 @@
    position: relative;
    display: block;
    flex-grow: 1;
-   max-width: 50%;
-   height: 20px;
+   max-width: 43%;
+   height: 24px;
 
    color: #fff;
    background-color: $blue_main;
@@ -32,13 +32,34 @@
 
 .filter_btn {
    border-right-width: 1px;
-   & span {
-      font-size: 13px;
-      font-weight: 400;
-   }
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
-.sort_btn {
+.search_btn {
+  max-width: 14%;
+}
+
+.manage_list__btn__search_icon {
+  width: 12px;
+  height: 12px;
+}
+
+.manage_list_btn__text {
+  transform: translateY(-5%);
+}
+
+.filter_btn__description {
+  margin-left: 5px;
+  font-weight: 400;
+  font-size: 11px;
+
+  transform: translateY(-7%);
+}
+
+.sort_btn,
+.filter_btn {
    border-left-width: 1px;
    &:before {
       position: absolute;

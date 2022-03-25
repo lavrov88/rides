@@ -15,11 +15,13 @@ const store = {
       },
       navbar: {
          filterMenuIsOpened: false,
+         searchMenuIsOpened: false,
          sortMenuIsOpened: false,
          output: {
+            filteredBikers: [],
+            searchValue: '',
             sortParameter: 'date',
-            sortFromBiggest: true,
-            filteredBikers: []
+            sortFromBiggest: true
          }
       },
       layout: {
@@ -29,6 +31,7 @@ const store = {
             number: null
          },
          mobileNavbarIsOpen: true,
+         mobileNavbarWasTouched: false,
          isMobile: false
       }
    },
@@ -96,100 +99,119 @@ const store = {
 
    dispatch(action) {
       switch (action.type) {
-         case 'SET-ACTIVE-RIDE':
-            const index = this._state.processedRides.findIndex(el => el.url === action.url)
-            if (index !== -1) {
-               this._state.activeRide = index
-            } else {
-               this._state.activeRide = 0
-            }
-            break
-         case 'TOGGLE-MOBILE-LAYOUT':
-            if (this._state.layout.isMobile !== action.mobile) {
-               this._state.layout.isMobile = action.mobile
-               this._callSubscriber()
-            }
-            break
-         case 'TOGGLE-FILTER-MENU':
-            if (this._state.navbar.filterMenuIsOpened) {
-               this._state.navbar.filterMenuIsOpened = false
-            } else {
-               this._state.navbar.sortMenuIsOpened = false
-               this._state.navbar.filterMenuIsOpened = true
-            }
-            this._callSubscriber()
-            break
-         case 'TOGGLE-FILTERED-BIKER':
-            const filteredBikers = this._state.navbar.output.filteredBikers
-            const filterIndex = filteredBikers.findIndex(b => b === action.bikerId)
-            if (filterIndex === -1) {
-               filteredBikers.push(action.bikerId)
-               filteredBikers.sort((a, b) => a > b ? 1 : -1)
-            } else {
-                  filteredBikers.splice(filterIndex, 1)
-            }
-            this._processRides()
-            this._callSubscriber()
-            break
-         case 'TOGGLE-SORT-MENU':
+        case 'SET-ACTIVE-RIDE':
+          const index = this._state.processedRides.findIndex(el => el.url === action.url)
+          if (index !== -1) {
+              this._state.activeRide = index
+          } else {
+              this._state.activeRide = 0
+          }
+          break
+        case 'TOGGLE-MOBILE-LAYOUT':
+          if (this._state.layout.isMobile !== action.mobile) {
+              this._state.layout.isMobile = action.mobile
+              this._callSubscriber()
+          }
+          break
+        case 'TOGGLE-FILTER-MENU':
+          if (this._state.navbar.filterMenuIsOpened) {
+              this._state.navbar.filterMenuIsOpened = false
+          } else {
+              this._state.navbar.sortMenuIsOpened = false
+              this._state.navbar.searchMenuIsOpened = false
+              this._state.navbar.filterMenuIsOpened = true
+          }
+          this._callSubscriber()
+          break
+        case 'TOGGLE-FILTERED-BIKER':
+          const filteredBikers = this._state.navbar.output.filteredBikers
+          const filterIndex = filteredBikers.findIndex(b => b === action.bikerId)
+          if (filterIndex === -1) {
+              filteredBikers.push(action.bikerId)
+              filteredBikers.sort((a, b) => a > b ? 1 : -1)
+          } else {
+                filteredBikers.splice(filterIndex, 1)
+          }
+          this._processRides()
+          this._callSubscriber()
+          break
+        case 'TOGGLE-SORT-MENU':
             if (this._state.navbar.sortMenuIsOpened) {
                this._state.navbar.sortMenuIsOpened = false
             } else {
                this._state.navbar.filterMenuIsOpened = false
+               this._state.navbar.searchMenuIsOpened = false
                this._state.navbar.sortMenuIsOpened = true
             }
             this._callSubscriber()
             break
-         case 'TOGGLE-RIDES-SORT':
-            this._state.navbar.output.sortParameter = action.sortParameter
-            this._state.navbar.output.sortFromBiggest = action.sortFromBiggest
-            this._state.navbar.sortMenuIsOpened = false
-            this._processRides()
-            this._callSubscriber()
-            break
-         case 'TOOGLE-INFOBAR-COLLAPSE':
-            this._state.infobar.isCollapsed
-               ? this._state.infobar.isCollapsed = false
-               : this._state.infobar.isCollapsed = true
-            document.querySelector('.infobar').scrollTop = 0
-            this._callSubscriber()
-            break
-         case 'INFOBAR-HEADER-SWIPED':
-            if (action.dir === 'Up') {
-               if (this._state.infobar.isCollapsed) {
-                  this._state.infobar.isCollapsed = false
-               }
-            }
-            if (action.dir === 'Down') {
-               if (!this._state.infobar.isCollapsed) {
-                  this._state.infobar.isCollapsed = true
-               }
-            }
-            document.querySelector('.infobar').scrollTop = 0
-            this._callSubscriber()
-            break
-         case 'TOGGLE-MOBILE-MENU':
-            this._state.layout.mobileNavbarIsOpen 
-               ? this._state.layout.mobileNavbarIsOpen = false
-               : this._state.layout.mobileNavbarIsOpen = true
-            this._callSubscriber()
-            break
-         case 'OPEN-MODAL-PHOTO':
-            this._state.layout.modal.src = action.src
-            action.number 
-               ? this._state.layout.modal.number =  action.number
-               : this._state.layout.modal.number = 0
-            this._state.layout.modal.isOpened = true
-            this._callSubscriber()
-            break
-         case 'CLOSE-MODAL-PHOTO':
+        case 'TOGGLE-RIDES-SORT':
+          this._state.navbar.output.sortParameter = action.sortParameter
+          this._state.navbar.output.sortFromBiggest = action.sortFromBiggest
+          this._state.navbar.sortMenuIsOpened = false
+          this._processRides()
+          this._callSubscriber()
+          break
+        case 'TOGGLE-SEARCH-MENU':
+          if (this._state.navbar.searchMenuIsOpened) {
+              this._state.navbar.searchMenuIsOpened = false
+          } else {
+              this._state.navbar.filterMenuIsOpened = false
+              this._state.navbar.sortMenuIsOpened = false
+              this._state.navbar.searchMenuIsOpened = true
+          }
+          this._callSubscriber()
+          break
+        case 'SET-SEARCH-VALUE':
+          this._state.navbar.output.searchValue = action.payload
+          this._callSubscriber()
+          break
+        case 'TOOGLE-INFOBAR-COLLAPSE':
+          this._state.infobar.isCollapsed
+              ? this._state.infobar.isCollapsed = false
+              : this._state.infobar.isCollapsed = true
+          document.querySelector('.infobar').scrollTop = 0
+          this._callSubscriber()
+          break
+        case 'INFOBAR-HEADER-SWIPED':
+          if (action.dir === 'Up') {
+              if (this._state.infobar.isCollapsed) {
+                this._state.infobar.isCollapsed = false
+              }
+          }
+          if (action.dir === 'Down') {
+              if (!this._state.infobar.isCollapsed) {
+                this._state.infobar.isCollapsed = true
+              }
+          }
+          document.querySelector('.infobar').scrollTop = 0
+          this._callSubscriber()
+          break
+        case 'TOGGLE-MOBILE-MENU':
+          this._state.layout.mobileNavbarIsOpen 
+              ? this._state.layout.mobileNavbarIsOpen = false
+              : this._state.layout.mobileNavbarIsOpen = true
+          this._callSubscriber()
+          break
+        case 'TOGGLE-NAVBAR-TOUCHED':
+          this._state.layout.mobileNavbarWasTouched = true
+          break
+        case 'OPEN-MODAL-PHOTO':
+          this._state.layout.modal.src = action.src
+          action.number 
+              ? this._state.layout.modal.number =  action.number
+              : this._state.layout.modal.number = 0
+          this._state.layout.modal.isOpened = true
+          this._callSubscriber()
+          break
+        case 'CLOSE-MODAL-PHOTO':
             this._state.layout.modal.src = null
             this._state.layout.modal.alt = null
             this._state.layout.modal.isOpened = false
             this._callSubscriber()
             break
-         default:
-            console.error(`unknown action type: ${action.type}`)
+        default:
+          console.error(`unknown action type: ${action.type}`)
       }
    },
 

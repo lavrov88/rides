@@ -26,9 +26,7 @@ const rerenderMap = (props) => {
       script.async = true
       mapEl.appendChild(script)
       script.onload = () => {
-        setTimeout(() => {
-          loadingSpinner.style.display = 'none'
-        }, 1000)
+        loadingSpinner.style.display = 'none'
       }
    } else {
       const errorMessage = document.createElement('div')

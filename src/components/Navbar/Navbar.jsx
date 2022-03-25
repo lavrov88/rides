@@ -93,6 +93,16 @@ const RidesListSeparator = (props) => {
 
 const RidesListItems = (props) => {
 
+  const activeStatus = (i) => {
+    if (props.state.activeRide !== i) return false
+
+    if (props.state.layout.isMobile) {
+      return props.state.layout.mobileNavbarWasTouched ? true : false
+    } else {
+      return true
+    }
+  }
+
    return props.state.processedRides
       .map((r, i, arr) => {
          return ( <li key={r.url}>
@@ -114,7 +124,9 @@ const RidesListItems = (props) => {
             members={r.members}
             allBikers={props.state.bikers}
             sortParameter={props.state.navbar.output.sortParameter}
-            active={props.state.activeRide === i ? true : false} />
+            // active={props.state.activeRide === i ? true : false}
+            active={activeStatus(i)}
+         />
          </li>)
       }
    )
@@ -135,10 +147,11 @@ const Navbar = (props) => {
    const ridesListWrapper = React.useRef(null)
    const scrollHandler = (e) => {
       if (isMobile) return
-      const checkTop = e.nativeEvent.target.scrollTop < 50
-      const checkBottom = e.nativeEvent.target.scrollTop === e.nativeEvent.target.scrollTopMax
+      const checkTop = ridesListWrapper.current.scrollTop < 50
+      const checkBottom = ridesListWrapper.current.scrollTop + ridesListWrapper.current.offsetHeight > ridesListWrapper.current.scrollHeight - 50
       checkTop ? setIsTop(true) : setIsTop(false)
       checkBottom ? setIsBottom(true) : setIsBottom(false)
+
    }
 
    const scrollUp = () => {
@@ -156,6 +169,12 @@ const Navbar = (props) => {
       }
    }
 
+   const listClickHandler = (e) => {
+     if (e.target.closest('.rides_list_item')) {
+       const action = { type: 'TOGGLE-NAVBAR-TOUCHED' }
+       props.dispatch(action)
+     }
+   }
 
    return (
       <div className="navbar">
@@ -163,7 +182,7 @@ const Navbar = (props) => {
          <ManageList bikers={props.state.bikers} navbar={props.state.navbar} dispatch={props.dispatch} />
          <div onScroll={scrollHandler} ref={ridesListWrapper} className="riders_list_wrapper">
             <ScrollButton direction="top" display={!isTop && !isMobile} handleFunction={scrollUp} />
-            <ul className="rides_list">
+            <ul onClick={listClickHandler} className="rides_list">
                <RidesListItems state={props.state} dispatch={props.dispatch} />
             </ul>
          </div>
