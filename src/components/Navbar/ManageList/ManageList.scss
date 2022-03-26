@@ -1,40 +1,44 @@
 @import '../../../css/variables.scss';
 
 .manage_list {
-   width: 95%;
-   margin: 0 auto;
-   margin-bottom: 10px;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 .manage_list__global_buttons {
-   display: flex;
-   justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .manage_list__btn {
-   position: relative;
-   display: block;
-   flex-grow: 1;
-   max-width: 43%;
-   height: 24px;
+  position: relative;
+  display: block;
+  flex-grow: 1;
+  max-width: 43%;
+  height: 24px;
 
-   color: #fff;
-   background-color: $blue_main;
-   font-size: 14px;
-   font-weight: 600;
-   line-height: 1;
-   cursor: pointer;
+  color: #fff;
+  background-color: $blue_main;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
 
-   &:hover {
-      background-color: $blue_semitransparent;
-   }
+  &:hover {
+    background-color: $blue_semitransparent;
+  }
+
+  &.active {
+    background-color: $blue_dark;
+  }
 }
 
 .filter_btn {
-   border-right-width: 1px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+  border-right-width: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search_btn {
@@ -60,26 +64,27 @@
 
 .sort_btn,
 .filter_btn {
-   border-left-width: 1px;
-   &:before {
-      position: absolute;
-      content: '';
-      top: 10%;
-      left: 0;
-      width: 2px;
-      height: 80%;
+  border-left-width: 1px;
 
-      background-color: #fff;
-   }
+  &:before {
+    position: absolute;
+    content: '';
+    top: 10%;
+    left: 0;
+    width: 2px;
+    height: 80%;
+
+    background-color: #fff;
+  }
 }
 
 .navbar_menu_popup {
-   display: none;
-   border: 0px $blue_main solid;
+  display: none;
+  border: 0px $blue_main solid;
 
-   background-color: #fff;
+  background-color: #fff;
 
-   &.opened {
-      display: block;
-   }
+  &.opened {
+    display: block;
+  }
 }

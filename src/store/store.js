@@ -125,12 +125,13 @@ const store = {
       switch (action.type) {
         case 'SET-ACTIVE-RIDE':
           const index = this._state.processedRides.findIndex(el => el.url === action.url)
-          this._state.nextRenderUrl = null
           if (index !== -1) {
               this._state.activeRide = index
           } else {
               this._state.activeRide = 0
           }
+          this._state.nextRenderUrl = null
+          // this._state.infobar.isCollapsed = true
           break
         case 'TOGGLE-MOBILE-LAYOUT':
           if (this._state.layout.isMobile !== action.mobile) {
@@ -193,9 +194,7 @@ const store = {
           this._callSubscriber()
           break
         case 'TOOGLE-INFOBAR-COLLAPSE':
-          this._state.infobar.isCollapsed
-              ? this._state.infobar.isCollapsed = false
-              : this._state.infobar.isCollapsed = true
+          this._state.infobar.isCollapsed = !this._state.infobar.isCollapsed
           document.querySelector('.infobar').scrollTop = 0
           this._callSubscriber()
           break
@@ -214,9 +213,7 @@ const store = {
           this._callSubscriber()
           break
         case 'TOGGLE-MOBILE-MENU':
-          this._state.layout.mobileNavbarIsOpen 
-              ? this._state.layout.mobileNavbarIsOpen = false
-              : this._state.layout.mobileNavbarIsOpen = true
+          this._state.layout.mobileNavbarIsOpen = !this._state.layout.mobileNavbarIsOpen
           this._callSubscriber()
           break
         case 'TOGGLE-NAVBAR-TOUCHED':

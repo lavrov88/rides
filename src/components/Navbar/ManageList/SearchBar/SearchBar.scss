@@ -1,3 +1,5 @@
+@import '../../../../css/variables.scss';
+
 .search_input__wrapper {
   position: relative;
   padding: 5px;
@@ -44,7 +46,7 @@
     width: 3px;
     height: 70%;
 
-    background-color: rgb(201, 0, 0);
+    background-color: #2e82ff;
     transition: all 0.2s ease;
   }
 
@@ -62,6 +64,7 @@
     &::after {
       height: 80%;
       width: 4px;
+      background-color: $blue_dark;
     }
   }
 }

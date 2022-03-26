@@ -40,24 +40,25 @@ const ManageList = (props) => {
         <div className="manage_list__global_buttons">
           <button
             onClick={toggleSearchMenu}
-            className="manage_list__btn search_btn">
+            className={"manage_list__btn search_btn" + (searchMenuIsOpened ? " active" : "")}>
             <img src="./img/magnifying-glass.png" className="manage_list__btn__search_icon" alt="S" />
           </button>
           <button
             onClick={toggleFilterMenu}
-            className="manage_list__btn filter_btn">
+            className={"manage_list__btn filter_btn" + (filterMenuIsOpened ? " active" : "")}>
             <div className="manage_list_btn__text">Filter{filterAdditionalInfo() && ':'}</div>
             <div className="filter_btn__description">{filterAdditionalInfo()}</div>
           </button>
           <button
             onClick={toggleSortMenu}
-            className="manage_list__btn sort_btn">
+            className={"manage_list__btn sort_btn" + (sortMenuIsOpened ? " active" : "")}>
             <div className="manage_list_btn__text">Sort</div>
           </button>
         </div>
         <div className="manage_list__submenu">
           <div className={"navbar_menu_popup search_menu" + (searchMenuIsOpened && " opened")}>
             <SearchBar
+              key="search_bar"
               searchValue={props.navbar.output.searchValue}
               dispatch={props.dispatch}
             />

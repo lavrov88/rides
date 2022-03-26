@@ -27,6 +27,7 @@ const rerenderMap = (props) => {
     script.onload = () => {
       const observer = new MutationObserver(() => {
         mapEl.firstChild.style.height = '100%'
+        observer.disconnect()
         setTimeout(() => {
           loadingSpinner.style.display = 'none'
         }, 1000)

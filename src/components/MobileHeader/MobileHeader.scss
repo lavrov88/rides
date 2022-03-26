@@ -40,7 +40,7 @@
       position: absolute;
       left: 10%;
       width: 80%;
-      height: 6px;
+      height: 5px;
       background-color: $blue_main;
       transition: all 0.2s ease-in-out;
    }
@@ -50,11 +50,11 @@
    }
    &::before {
       content: '';
-      top: 15%;
+      top: 20%;
    }
    &::after {
       content: '';
-      bottom: 15%;
+      bottom: 20%;
    }
 
    &.active span {
