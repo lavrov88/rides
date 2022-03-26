@@ -40,6 +40,11 @@
       }
    }
 
+   & .manage_list__btn__search_icon {
+     width: 14px;
+     height: 14px;
+   }
+
    & .navbar_menu_popup {
       background-color: $blue_hover;
    }
@@ -50,6 +55,11 @@
 
    & .filter_menu_item:hover {
       background-color: transparent;
+   }
+
+   & .search_input__wrapper {
+     padding-top: 10px;
+     padding-bottom: 10px;
    }
 
    & .sort_menu_popup_item {

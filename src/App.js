@@ -43,7 +43,7 @@ function App(props) {
                <InfobarContainer state={state} dispatch={dispatch} />
                <CollapseInfobarBtn isCollapsed={state.infobar.isCollapsed} dispatch={dispatch} />
             </div>
-               <Map map={map} />
+               <Map map={map} isMobile={state.layout.isMobile} />
                <ModalPhoto src={state.layout.modal.src} number={state.layout.modal.number}
                   isOpened={state.layout.modal.isOpened} dispatch={dispatch} />
          </div>
@@ -54,7 +54,7 @@ function App(props) {
             <MobileHeader navbarIsOpen={state.layout.mobileNavbarIsOpen} dispatch={dispatch} />
             <div className="mobile_main">
                <div className="mobile_map">
-                  <Map map={map} />
+                  <Map map={map} isMobile={state.layout.isMobile} />
                </div>
                <div className={"mobile_infobar" + (state.infobar.isCollapsed ? ' collapsed' : '')}>
                   <InfobarContainer state={state} dispatch={dispatch} />

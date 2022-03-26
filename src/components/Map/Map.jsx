@@ -12,8 +12,8 @@ const checkUrl = (url) => {
 const rerenderMap = (props) => {
   const loadingSpinner = document.querySelector('.map_loading_spinner')
   loadingSpinner.style.display = ''
-  const appEl = document.querySelector('.map_container')
-  const containerHeight = appEl.scrollHeight
+
+  let containerHeight = document.documentElement.clientHeight  
   const mapWithHeight = props.map.replace(/height=\d+/gm, `height=${containerHeight}`)
   const mapUrl = mapWithHeight.replace(/.+src="|"><\/script>/gm, '')
   const mapEl = document.querySelector('.map')
@@ -25,8 +25,15 @@ const rerenderMap = (props) => {
     script.async = true
     mapEl.appendChild(script)
     script.onload = () => {
-      loadingSpinner.style.display = 'none'
+      const observer = new MutationObserver(() => {
+        mapEl.firstChild.style.height = '100%'
+        setTimeout(() => {
+          loadingSpinner.style.display = 'none'
+        }, 1000)
+      })
+      observer.observe(mapEl, { childList: true })
     }
+
   } else {
     const errorMessage = document.createElement('div')
     errorMessage.classList.add('map_error_wrapper')
