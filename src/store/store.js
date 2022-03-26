@@ -2,96 +2,120 @@ import bikers from "./bikers-data";
 import rides from "./rides-data";
 import { convertStrToDate, convertStrToMs } from "../components/Common/utilites";
 import checkMobile from "../components/Common/checkMobile";
-import { createKeywords } from "../components/Common/search";
+import { createKeywords, findSeveralWords } from "../components/Common/search";
 
 const store = {
-   _state: {
-      rides: [],
-      processedRides: [],
-      bikers: [],
-      activeRide: null,
-      infobar: {
-         isCollapsed: false
+  _state: {
+    rides: [],
+    processedRides: [],
+    bikers: [],
+    activeRide: null,
+    nextRenderUrl: null,
+    infobar: {
+      isCollapsed: false
+    },
+    navbar: {
+      filterMenuIsOpened: false,
+      lastSuccededSearchActiveFirstIndex: null,
+      noResultsFound: false,
+      searchMenuIsOpened: false,
+      sortMenuIsOpened: false,
+      output: {
+        filteredBikers: [],
+        searchValue: '',
+        sortParameter: 'date',
+        sortFromBiggest: true
+      }
+    },
+    layout: {
+      modal: {
+        isOpened: false,
+        src: null,
+        number: null
       },
-      navbar: {
-         filterMenuIsOpened: false,
-         searchMenuIsOpened: false,
-         sortMenuIsOpened: false,
-         output: {
-            filteredBikers: [],
-            searchValue: '',
-            sortParameter: 'date',
-            sortFromBiggest: true
-         }
-      },
-      layout: {
-         modal: {
-            isOpened: false,
-            src: null,
-            number: null
-         },
-         mobileNavbarIsOpen: true,
-         mobileNavbarWasTouched: false,
-         isMobile: false
-      }
-   },
+      mobileNavbarIsOpen: true,
+      mobileNavbarWasTouched: false,
+      isMobile: false
+    }
+  },
 
-   _callSubscriber() {
-   },
+  _callSubscriber() {
+  },
 
-   subscribe(observer) {
-      this._callSubscriber = observer
-   },
+  subscribe(observer) {
+    this._callSubscriber = observer
+  },
 
-   _processRides() {
-      let tempArr = [...this._state.rides]
-      const output = this._state.navbar.output
+  _processRides() {
+    let tempArr = [...this._state.rides]
+    const output = this._state.navbar.output
 
-      // SORTING
+    // SORTING
 
-      const sortRides = (parameter) => {
-         if (output.sortFromBiggest) {
-            tempArr.sort((a, b) => a[parameter] > b[parameter] ? -1 : 1)
-         } else {
-            tempArr.sort((a, b) => a[parameter] > b[parameter] ? 1 : -1)
-         }
-      }
-
-      switch (output.sortParameter) {
-         case 'date':
-            sortRides('startDate')
-            break
-         case 'distance':
-            sortRides('distance')
-            break
-         case 'time':
-            sortRides('cleanTime')
-            break
-         case 'speed':
-            sortRides('averageSpeed')
-            break
-         default:
-            sortRides('startDate')
-      }
-
-      // FILTERING
-
-      const checkBikers = (ride, bikers) => {
-         for (let biker of bikers) {
-            if (ride.members.find(member => member === biker)) {
-               return true
-            }
-         }
-         return false
-      }
-
-      const tempArrFiltered = tempArr.filter(ride => checkBikers(ride, output.filteredBikers))
-      if (tempArrFiltered.length > 0) {
-         this._state.processedRides = [...tempArrFiltered]
+    const sortRides = (parameter) => {
+      if (output.sortFromBiggest) {
+        tempArr.sort((a, b) => a[parameter] > b[parameter] ? -1 : 1)
       } else {
-         this._state.processedRides = [...tempArr]
+        tempArr.sort((a, b) => a[parameter] > b[parameter] ? 1 : -1)
       }
-   },
+    }
+
+    switch (output.sortParameter) {
+      case 'date':
+        sortRides('startDate')
+        break
+      case 'distance':
+        sortRides('distance')
+        break
+      case 'time':
+        sortRides('cleanTime')
+        break
+      case 'speed':
+        sortRides('averageSpeed')
+        break
+      default:
+        sortRides('startDate')
+    }
+
+    // FILTERING
+
+    const checkBikers = (ride, bikers) => {
+      for (let biker of bikers) {
+        if (ride.members.find(member => member === biker)) {
+          return true
+        }
+      }
+      return false
+    }
+
+    const tempArrFiltered = tempArr.filter(ride => checkBikers(ride, output.filteredBikers))
+    if (tempArrFiltered.length > 0) {
+      this._state.processedRides = [...tempArrFiltered]
+      this._state.activeRide = 0
+    } else {
+      this._state.processedRides = [...tempArr]
+    }
+
+    // SEARCHING
+
+    const searchQuery = this._state.navbar.output.searchValue
+    const tempArrWithSearch = [...this._state.processedRides]
+    const searchResults = findSeveralWords(searchQuery, tempArrWithSearch)
+    let lastSuccededSearchActiveFirstIndex = null
+
+    if (searchResults.length) {
+      this._state.navbar.lastSuccededSearchActiveFirstIndex = searchResults[0].id
+      this._state.processedRides = [...searchResults]
+      this._state.nextRenderUrl = this._state.processedRides[0].url
+      this._state.navbar.noResultsFound = false
+    } else {
+      lastSuccededSearchActiveFirstIndex = this._state.navbar.lastSuccededSearchActiveFirstIndex
+      const lastActiveRideIndex = this._state.rides.findIndex(ride => ride.id === lastSuccededSearchActiveFirstIndex)
+      this._state.processedRides = [...this._state.rides]
+      this._state.nextRenderUrl = this._state.processedRides[lastActiveRideIndex].url
+      this._state.navbar.noResultsFound = true
+    }
+  },
 
    getState() {
       return this._state
@@ -101,6 +125,7 @@ const store = {
       switch (action.type) {
         case 'SET-ACTIVE-RIDE':
           const index = this._state.processedRides.findIndex(el => el.url === action.url)
+          this._state.nextRenderUrl = null
           if (index !== -1) {
               this._state.activeRide = index
           } else {
@@ -164,6 +189,7 @@ const store = {
           break
         case 'SET-SEARCH-VALUE':
           this._state.navbar.output.searchValue = action.payload
+          this._processRides()
           this._callSubscriber()
           break
         case 'TOOGLE-INFOBAR-COLLAPSE':
@@ -270,6 +296,7 @@ const store = {
             } else return 1
          })
          this._state.processedRides = [...this._state.rides]
+         this._state.navbar.lastSuccededSearchActiveFirstIndex = this._state.processedRides[0].id
       }
    }
 }

@@ -15,15 +15,19 @@ import routeWithUrl from './components/Common/routing';
 function App(props) {
    const state = props.store.getState()
    const dispatch = props.store.dispatch.bind(props.store)
-   const url = props.location.pathname
-
+   const url = state.nextRenderUrl || props.location.pathname
    const onResise = () => {checkMobile(state.layout.isMobile, dispatch)}
-   React.useEffect(() => {
-      window.addEventListener('resize', onResise)
-      return window.removeEventListener('resize', onResise)
-   }, [])
 
-   const urlValidity = routeWithUrl(url, state.rides, dispatch, state.processedRides)
+   React.useEffect(() => {
+    window.addEventListener('resize', onResise)
+    return window.removeEventListener('resize', onResise)
+ }, [])
+
+  if (url !== props.location.pathname) {
+    return <Redirect to={url} />
+  }
+
+   const urlValidity = routeWithUrl(url, state.rides, dispatch)
    if (urlValidity === 'invalid') {
       return <Redirect to={state.processedRides[0].url} />
    }

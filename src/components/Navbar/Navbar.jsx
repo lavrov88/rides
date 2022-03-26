@@ -103,33 +103,41 @@ const RidesListItems = (props) => {
     }
   }
 
-   return props.state.processedRides
-      .map((r, i, arr) => {
-         return ( <li key={r.url}>
-         <RidesListSeparator 
-            currEl={r}
-            prevEl={arr[i - 1]}
-            sortParameter={props.state.navbar.output.sortParameter} />
+  if (props.state.navbar.noResultsFound) {
+    return (
+      <div className="rides_list__no_results">
+        No results found...
+      </div>
+    )
+  }
 
-         <RidesListItem 
-            dispatch={props.dispatch}
-            id={r.id}
-            url={r.url}
-            key={r.id} 
-            name={r.name}
-            date={r.startDate}
-            distance={r.distance}
-            speed={r.averageSpeed}
-            time={r.cleanTime}
-            members={r.members}
-            allBikers={props.state.bikers}
-            sortParameter={props.state.navbar.output.sortParameter}
-            // active={props.state.activeRide === i ? true : false}
-            active={activeStatus(i)}
-         />
-         </li>)
-      }
-   )
+  return props.state.processedRides
+    .map((r, i, arr) => {
+      return ( <li key={r.url}>
+      <RidesListSeparator 
+        currEl={r}
+        prevEl={arr[i - 1]}
+        sortParameter={props.state.navbar.output.sortParameter} />
+
+      <RidesListItem 
+        dispatch={props.dispatch}
+        id={r.id}
+        url={r.url}
+        key={r.id} 
+        name={r.name}
+        date={r.startDate}
+        distance={r.distance}
+        speed={r.averageSpeed}
+        time={r.cleanTime}
+        members={r.members}
+        allBikers={props.state.bikers}
+        sortParameter={props.state.navbar.output.sortParameter}
+        // active={props.state.activeRide === i ? true : false}
+        active={activeStatus(i)}
+      />
+      </li>)
+    }
+  )
 }
 
 const ScrollButton = ({ direction, display, handleFunction }) => {

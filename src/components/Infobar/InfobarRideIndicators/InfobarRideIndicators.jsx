@@ -7,6 +7,7 @@ const RideIndicatorItem = (props) => {
    if (props.decimal) {
       integer = separateDecimal(props.value, props.decimal)[0] + '.'
       decimal = separateDecimal(props.value, props.decimal)[1]
+      decimal = integer.length > 3 ? decimal[1] : decimal // cut decimal to 1 digit if integer > 99
    } else {
       integer = props.value
       decimal = ''
