@@ -9,6 +9,7 @@
 .manage_list__global_buttons {
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .manage_list__btn {
@@ -29,8 +30,16 @@
     background-color: $blue_semitransparent;
   }
 
-  &.active {
-    background-color: $blue_dark;
+  &.active::after {
+    position: absolute;
+    content: "";
+    left: 0px;
+    right: -2px;
+    bottom: 0;
+    height: 4px;
+    z-index: 1;
+
+    background-color: $blue_light;
   }
 }
 
@@ -73,6 +82,7 @@
     left: 0;
     width: 2px;
     height: 80%;
+    z-index: 5;
 
     background-color: #fff;
   }

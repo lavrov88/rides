@@ -38,6 +38,10 @@
       &:hover {
          background-color: $blue_main;
       }
+
+      &.active::after {
+        height: 6px;
+      }
    }
 
    & .manage_list__btn__search_icon {
@@ -71,6 +75,12 @@
       scrollbar-width: thin;
       scrollbar-color: $blue_semitransparent_lighter transparent;
    }
+
+   & .rides_list {
+    & li:last-of-type {
+       padding-bottom: 50px;
+    }
+ }
 
    & .riders_list_wrapper::-webkit-scrollbar {
       width: 4px;

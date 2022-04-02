@@ -5,6 +5,7 @@ import RideMembers from "./InfobarRideMembers/InfobarRideMembers"
 import RideIndicators from "./InfobarRideIndicators/InfobarRideIndicators"
 import InfobarGallery from "./InfobarGallery/InfobarGallery"
 import { useSwipeable } from "react-swipeable"
+import InfobarRiderCardContainer from "./InfobarRiderCard/InfobarRiderCardContainer"
 
 export const RideHeader = (props) => {
    const date = new Date(props.date)
@@ -72,19 +73,36 @@ const Infobar = (props) => {
       },
    })
 
-   return (
-      <>
-         <RideHeader name={props.ride.name} date={props.ride.startDate} isMobile={props.isMobile}
-               strava={props.ride.stravaLink} dispatch={props.dispatch} />
-         <div {...infobarSwipe} className={'infobar' + (isCollapsed ? ' collapsed' : '')}>
-            <RideHeader name={props.ride.name} date={props.ride.startDate} isMobile={props.isMobile}
-               strava={props.ride.stravaLink} dispatch={props.dispatch} />
-            <RideMembers dispatch={props.dispatch} members={props.members} />
-            <RideIndicators ride={props.ride} />
-            <InfobarGallery photos={props.ride.photos} dispatch={props.dispatch} />
-         </div>
-      </>
-   )
+  return (
+    <>
+      <RideHeader 
+        name={props.ride.name} 
+        date={props.ride.startDate} 
+        isMobile={props.isMobile}
+        strava={props.ride.stravaLink} 
+        dispatch={props.dispatch} />
+      <div {...infobarSwipe} className={'infobar' + (isCollapsed ? ' collapsed' : '')}>
+        <RideHeader 
+          name={props.ride.name} 
+          date={props.ride.startDate} 
+          isMobile={props.isMobile}
+          strava={props.ride.stravaLink} 
+          dispatch={props.dispatch} />
+        <RideMembers 
+          dispatch={props.dispatch} 
+          members={props.members} />
+        <RideIndicators ride={props.ride} />
+        <InfobarGallery 
+          photos={props.ride.photos} 
+          dispatch={props.dispatch} />
+        <InfobarRiderCardContainer 
+          rides={props.rides} 
+          allBikers={props.allBikers}
+          riderCard={props.riderCard}
+          dispatch={props.dispatch} />
+      </div>
+    </>
+  )
 }
 
 export default Infobar;

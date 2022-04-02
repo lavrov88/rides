@@ -8,9 +8,18 @@ const InfobarContainer = (props) => {
    const members = bikersFilter(membersNames, allBikers)
    const isMobile = props.state.layout.isMobile
    const isCollapsed = props.state.infobar.isCollapsed
+   const rides = props.state.rides
+   const riderCard = props.state.infobar.riderCard
 
-   return <Infobar ride={activeRide} members={members} dispatch={props.dispatch}
-      isCollapsed={isCollapsed} isMobile={isMobile} />
+   return <Infobar 
+            ride={activeRide} 
+            allBikers={allBikers}
+            members={members} 
+            rides={rides}
+            riderCard={riderCard}
+            dispatch={props.dispatch}
+            isCollapsed={isCollapsed} 
+            isMobile={isMobile} />
 }
 
 export default InfobarContainer;

@@ -12,7 +12,11 @@ const store = {
     activeRide: null,
     nextRenderUrl: null,
     infobar: {
-      isCollapsed: false
+      isCollapsed: false,
+      riderCard: {
+        isOpened: false,
+        rider: null
+      },
     },
     navbar: {
       filterMenuIsOpened: false,
@@ -191,6 +195,16 @@ const store = {
         case 'SET-SEARCH-VALUE':
           this._state.navbar.output.searchValue = action.payload
           this._processRides()
+          this._callSubscriber()
+          break
+        case 'OPEN-RIDER-CARD':
+          this._state.infobar.riderCard.isOpened = true
+          this._state.infobar.riderCard.rider = action.payload
+          this._callSubscriber()
+          break
+        case 'CLOSE-RIDER-CARD':
+          this._state.infobar.riderCard.isOpened = false
+          this._state.infobar.riderCard.rider = null
           this._callSubscriber()
           break
         case 'TOOGLE-INFOBAR-COLLAPSE':

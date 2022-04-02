@@ -1,0 +1,154 @@
+@import '../../../css/variables.scss';
+
+.rider_card {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 95%;
+  padding: 15px;
+
+  background-color: #fff;
+
+  box-shadow: 0px 4px 16px 5px rgba(34, 60, 80, 0.3);
+  transform: translateX(-50%);
+
+  transition: transform 0.1s ease;
+
+  &.opened {
+    display: block;
+  }
+
+  &.fading {
+    transform: translateX(-50%) scale(0.1);
+  }
+}
+
+.rider_card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rider_card_header_photo {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+
+  &:hover {
+    .rider_card_header_photo__img {
+      filter: brightness(120%);
+    }
+  }
+}
+
+.rider_card_header_photo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.2s ease;
+}
+
+.rider_card_header__name {
+  flex-grow: 1;
+  text-align: center;
+
+  & h3 {
+    font-size: 28px;
+  }
+}
+
+.rider_card_main {
+  margin-top: 20px;
+  text-align: center;
+
+  & h4 {
+    margin-bottom: 10px;
+
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.stats_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  height: 32px;
+}
+
+.stats_item__item_name,
+.stats_item__item_value {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.stats_item__item_name {
+  padding-right: 10px;
+  justify-content: flex-end;
+
+  text-align: right;
+}
+
+.stats_item__item_value {
+  padding-left: 10px;  
+  border-left: 3px $blue_main solid;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.stats_item__item_value_unit {
+  vertical-align: baseline;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.close_rider_card_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+
+    background-color: $blue_main;
+    transition: all 0.2s ease;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%)
+               rotate(45deg);
+  }
+  &::after {
+    transform: translate(-50%, -50%)
+               rotate(-45deg);
+  }
+
+  &:hover {
+    transform: scale(1.2);
+
+    &::before,
+    &::after {
+      background-color: $red;
+    }
+  }
+}

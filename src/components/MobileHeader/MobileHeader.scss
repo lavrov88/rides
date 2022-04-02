@@ -40,13 +40,13 @@
       position: absolute;
       left: 10%;
       width: 80%;
-      height: 5px;
+      height: 4px;
       background-color: $blue_main;
       transition: all 0.2s ease-in-out;
    }
 
    & span {
-      top: calc(50% - 3px);
+      top: calc(50% - 2px);
    }
    &::before {
       content: '';
@@ -63,13 +63,13 @@
    &.active::before {
       transform: rotate(-45deg);
       width: 50%;
-      top: 29%;
+      top: 30%;
       left: 20%;
    }
    &.active::after {
       transform: rotate(45deg);
       width: 50%;
-      bottom: 29%;
+      bottom: 30%;
       left: 20%;
    }
 }

@@ -1,31 +1,47 @@
 .ride_members {
-   padding-top: 10px;
-   padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .ride_members_items {
-   display: flex;
-   flex-wrap: wrap;
-   padding-top: 5px;
-   padding-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 
 .ride_member_item {
-   margin-right: 10px;
+  margin-right: 10px;
+
+  cursor: pointer;
+
+  &:hover {
+    .ride_member_item__photo_img {
+      scale: 1.25;
+    }
+    .ride_member_item__name {
+      text-decoration: underline dotted 1px;
+    }
+  }
 }
 
-.ride_member_item__img {
-   width: 50px;
-   height: 50px;
+.ride_member_item__photo {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
 
-   background-color: #ccc;
-   color: #ccc;
-   cursor: pointer;
+.ride_member_item__photo_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: all 0.2s ease;
 }
 
 .ride_member_item__name {
-   padding-top: 4px;
-   font-weight: 600;
-   font-size: 12px;
-   text-align: center;
+  padding-top: 4px;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
 }
