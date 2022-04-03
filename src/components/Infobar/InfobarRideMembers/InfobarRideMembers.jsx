@@ -1,5 +1,6 @@
 import React from "react"
 import './InfobarRideMembers.scss'
+import InfobarRiderCardContainer from '../InfobarRiderCard/InfobarRiderCardContainer'
 
 const RideMemberItem = (props) => {
   const img = new Image()
@@ -39,6 +40,11 @@ const RideMembers = (props) => {
       <ul className="ride_members_items">
         {rideMembersItems}
       </ul>
+      <InfobarRiderCardContainer 
+          rides={props.rides} 
+          allBikers={props.allBikers}
+          riderCard={props.riderCard}
+          dispatch={props.dispatch} /> 
     </div>
   )
 }

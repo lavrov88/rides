@@ -89,12 +89,14 @@
 }
 
 .navbar_menu_popup {
-  display: none;
   border: 0px $blue_main solid;
+  max-height: 0;
+  overflow: hidden;
 
   background-color: #fff;
+  transition: max-height 0.2s ease;
 
   &.opened {
-    display: block;
+    max-height: 180px;
   }
 }

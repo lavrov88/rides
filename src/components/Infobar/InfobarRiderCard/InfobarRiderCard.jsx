@@ -16,8 +16,9 @@ const InfobarRiderCardStatsItem = ({ name, value, unit }) => {
   )
 }
 
-const InfobarRiderCard = ({ isOpened, photoSmall, photoLarge, name, period, 
-                          ridesCount, totalDistance, averageSpeed, closeRiderCard, dispatch } ) => {
+const InfobarRiderCard = ({ isOpened, photoSmall, photoLarge, name,
+                           period, riderCardElement, ridesCount, totalDistance,
+                           isFading, averageSpeed, closeRiderCard, dispatch } ) => {
 
   let outputPeriod = null
   if (period[0] === period[1]) {
@@ -38,10 +39,13 @@ const InfobarRiderCard = ({ isOpened, photoSmall, photoLarge, name, period,
   }
 
   return (
-    <div className={"rider_card" + (isOpened ? " opened" : "")}>
+    <div 
+      ref={riderCardElement} 
+      className={"rider_card" + (isOpened ? " opened" : "") + (isFading ? " fading" : "")} >
       <div className="rider_card_header">
         <div onClick={openLargePhoto} className="rider_card_header_photo">
           <img src={photoSmall} alt={`Mr. ${name}`} className="rider_card_header_photo__img" />
+          <img src="./img/zoom_in.svg" alt="zoom_in" className="rider_card_header_photo__img_zoom" />
         </div>
         <div className="rider_card_header__name">
           <h3>Mr. {name}</h3>

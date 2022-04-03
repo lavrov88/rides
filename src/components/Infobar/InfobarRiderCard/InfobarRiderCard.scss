@@ -3,24 +3,37 @@
 .rider_card {
   display: none;
   position: absolute;
-  top: 0;
-  left: 50%;
-  width: 95%;
+  top: 5px;
+  left: 2%;
+  width: 96%;
   padding: 15px;
 
   background-color: #fff;
-
   box-shadow: 0px 4px 16px 5px rgba(34, 60, 80, 0.3);
-  transform: translateX(-50%);
 
-  transition: transform 0.1s ease;
+  transition: transform 0.2s ease,
+              opacity 0.1s linear;
+
+  animation-duration: 0.2s;
+    animation-name: fade-in-card;
+
+    @keyframes fade-in-card {
+      from {
+          transform: scale(0.7);
+      }
+
+      to {
+          transform: scale(1);
+      }
+    }
 
   &.opened {
     display: block;
   }
 
   &.fading {
-    transform: translateX(-50%) scale(0.1);
+    transform: scale(0.5);
+    opacity: 0;
   }
 }
 
@@ -31,6 +44,7 @@
 }
 
 .rider_card_header_photo {
+  position: relative;
   width: 100px;
   height: 100px;
   overflow: hidden;
@@ -40,7 +54,10 @@
 
   &:hover {
     .rider_card_header_photo__img {
-      filter: brightness(120%);
+      scale: 1.2;
+    }
+    .rider_card_header_photo__img_zoom {
+      opacity: 1;
     }
   }
 }
@@ -50,6 +67,17 @@
   height: 100%;
   object-fit: contain;
   transition: all 0.2s ease;
+}
+
+.rider_card_header_photo__img_zoom {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 25px;
+  height: 25px;
+  
+  opacity: 0;
+  transition: opacity 0.2s linear;
 }
 
 .rider_card_header__name {
@@ -98,7 +126,7 @@
 
 .stats_item__item_value {
   padding-left: 10px;  
-  border-left: 3px $blue_main solid;
+  border-left: 2px $blue_main solid;
 
   font-size: 20px;
   font-weight: 600;
@@ -113,13 +141,13 @@
 
 .close_rider_card_btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 25px;
-  height: 25px;
+  top: 0px;
+  right: 0px;
+  width: 40px;
+  height: 40px;
 
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: background-color 0.1s linear;
 
   &::before,
   &::after {
@@ -128,7 +156,7 @@
     top: 50%;
     left: 50%;
     width: 4px;
-    height: 100%;
+    height: 70%;
 
     background-color: $blue_main;
     transition: all 0.2s ease;
@@ -144,11 +172,13 @@
   }
 
   &:hover {
-    transform: scale(1.2);
-
-    &::before,
-    &::after {
-      background-color: $red;
-    }
+    background-color: $blue_semitransparent_lightest;
   }
+}
+
+// MOBILE
+
+.mobile_infobar .close_rider_card_btn {
+  width: 50px;
+  height: 50px;
 }

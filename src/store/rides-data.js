@@ -148,7 +148,7 @@ const rides = [
       cleanTime: '8:20:00',
       members: ['Lavr', 'Nick', 'Paul', 'Andy'],
       stravaLink: 'https://www.strava.com/activities/3645623919',
-      searchWords: `Manihino Manikhino Volokolamskoy highway Istra town Tesla towers New Herusalem Lamishino pond swim CKAD Betonka Pyatnitskoe Pyatnickoe Zhilino Jilino Andreevka Zelenograd`,
+      searchWords: `Manihino Manikhino Volokolamskoy highway Istra town Tesla towers New Herusalem Lamishino pond swimming CKAD Betonka Pyatnitskoe Pyatnickoe Zhilino Jilino Andreevka Zelenograd`,
       photos: [
          'IMG_20200620_134513.jpg',
          'IMG_20200620_154818.jpg',
@@ -204,7 +204,7 @@ const rides = [
       cleanTime: '4:36:11',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472204842',
-      searchWords: `Tver Savvatyevskoe highway Zaborovye Volga river swim Vidogoshchi Edimonovo Yuryevo-Devichye Toporok ferry Konakovo`,
+      searchWords: `Tver Savvatyevskoe highway Zaborovye Volga river swimming Vidogoshchi Edimonovo Yuryevo-Devichye Toporok ferry Konakovo`,
       photos: [
          'PANO_20190825_130807.vr.jpg',
          'PANO_20190825_153818.vr.jpg',
@@ -296,7 +296,7 @@ const rides = [
       cleanTime: '4:52:07',
       members: ['Lavr', 'Nick'],
       stravaLink: 'https://www.strava.com/activities/4472291139',
-      searchWords: `Zvenigorod Savvinskaya Sloboda Tuchkovo Mars Moscow river mouth swim A-108 Betonka Mojaysk Mozhaysk Borodino Borodinskoe pole field museum`,
+      searchWords: `Zvenigorod Savvinskaya Sloboda Tuchkovo Mars Moscow river mouth swimming A-108 Betonka Mojaysk Mozhaysk Borodino Borodinskoe pole field museum`,
       photos: [
          'IMG_20180714_171055.jpg',
          'IMG_20180714_192138.jpg'

@@ -3,17 +3,15 @@ import InfobarRiderCard from "./InfobarRiderCard"
 
 const InfobarRiderCardContainer = ({ allBikers, rides, riderCard, dispatch }) => {
 
-  React.useEffect(() => {
-    const infobarHeight = document.querySelector('.infobar .ride_header').offsetHeight
-    const riderCardElement = document.querySelector('.rider_card')
-    riderCardElement.style.top = (infobarHeight + 30) + 'px'
+  const [isFading, setIsFading] = React.useState(false)
+  const riderCardElement = React.useRef(null)
 
+  React.useEffect(() => {
     const riderCardCloseHandler = ((e) => {
       if (!e.target.closest('.rider_card') && !e.target.closest('.modal') && isOpened) {
         closeRiderCard()
       }
     })
-
     document.addEventListener('click', riderCardCloseHandler)
 
     return () => {
@@ -25,7 +23,14 @@ const InfobarRiderCardContainer = ({ allBikers, rides, riderCard, dispatch }) =>
     const action = {
       type: 'CLOSE-RIDER-CARD'
     }
-    dispatch(action)
+
+    setIsFading(true)
+    riderCardElement.current.ontransitionend = (e) => {
+      if (e.target === riderCardElement.current) {
+        dispatch(action)
+        setIsFading(false)
+      }
+    }
   }
 
   const isOpened = riderCard.isOpened
@@ -59,6 +64,7 @@ const InfobarRiderCardContainer = ({ allBikers, rides, riderCard, dispatch }) =>
   return (
     <InfobarRiderCard
       isOpened={isOpened}
+      isFading={isFading}
       photoSmall={photoSmall}
       photoLarge={photoLarge}
       name={name}
@@ -68,6 +74,7 @@ const InfobarRiderCardContainer = ({ allBikers, rides, riderCard, dispatch }) =>
       averageSpeed={averageSpeed}
       closeRiderCard={closeRiderCard}
       dispatch={dispatch}
+      riderCardElement={riderCardElement}
     />
   )
 }
