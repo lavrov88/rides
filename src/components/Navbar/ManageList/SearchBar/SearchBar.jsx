@@ -29,7 +29,10 @@ const SearchBar = (props) => {
         value={props.searchValue}
         onChange={handleSearchValueChange} />
       <div className="search_input__clear_btn_wrapper">
-        <button onClick={handleSearchClearBtn} className="search_input__clear_btn"></button>
+        <button 
+          onClick={handleSearchClearBtn} 
+          className="search_input__clear_btn">
+        </button>
       </div>
     </div>
   )

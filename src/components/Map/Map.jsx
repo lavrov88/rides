@@ -2,18 +2,18 @@ import React from "react"
 import './Map.scss'
 
 const checkUrl = (url) => {
-   if (url.match(/https:\/\/api-maps\.yandex\.ru.+scroll=true/gm)) {
-      return true
-   } else {
-      return false
-   }
+  if (url.match(/https:\/\/api-maps\.yandex\.ru.+scroll=true/gm)) {
+    return true
+  } else {
+    return false
+  }
 }
 
 const rerenderMap = (props) => {
   const loadingSpinner = document.querySelector('.map_loading_spinner')
   loadingSpinner.style.display = ''
 
-  let containerHeight = document.documentElement.clientHeight  
+  let containerHeight = document.documentElement.clientHeight
   const mapWithHeight = props.map.replace(/height=\d+/gm, `height=${containerHeight}`)
   const mapUrl = mapWithHeight.replace(/.+src="|"><\/script>/gm, '')
   const mapEl = document.querySelector('.map')
@@ -45,23 +45,23 @@ const rerenderMap = (props) => {
 }
 
 class Map extends React.PureComponent {
-   componentDidMount() {
-      rerenderMap(this.props)
-   }
-   componentDidUpdate() {
-      rerenderMap(this.props)
-   }
-   
-   render() {
-      return (
-         <div className="map_container">
-            <img src="./img/tail-spin.svg" alt="Loading..." className="map_loading_spinner" />
-            <div className="map_left_gradient"></div>
-            <div className="map"></div>
-         </div>
-      )
-   }
-   
+  componentDidMount() {
+    rerenderMap(this.props)
+  }
+  componentDidUpdate() {
+    rerenderMap(this.props)
+  }
+
+  render() {
+    return (
+      <div className="map_container">
+        <img src="./img/tail-spin.svg" alt="Loading..." className="map_loading_spinner" />
+        <div className="map_left_gradient"></div>
+        <div className="map"></div>
+      </div>
+    )
+  }
+
 }
 
 export default Map;

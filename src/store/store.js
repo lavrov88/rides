@@ -135,7 +135,6 @@ const store = {
               this._state.activeRide = 0
           }
           this._state.nextRenderUrl = null
-          // this._state.infobar.isCollapsed = true
           break
         case 'TOGGLE-MOBILE-LAYOUT':
           if (this._state.layout.isMobile !== action.mobile) {

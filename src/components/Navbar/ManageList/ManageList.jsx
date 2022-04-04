@@ -40,8 +40,13 @@ const ManageList = (props) => {
         <div className="manage_list__global_buttons">
           <button
             onClick={toggleSearchMenu}
-            className={"manage_list__btn search_btn" + (searchMenuIsOpened ? " active" : "")}>
-            <img src="./img/magnifying-glass.png" className="manage_list__btn__search_icon" alt="S" />
+            className={"manage_list__btn search_btn" + (searchMenuIsOpened ? " active" : "")}
+          >
+            <img 
+              src="./img/magnifying-glass.png"
+              className="manage_list__btn__search_icon" 
+              alt="S" 
+            />
           </button>
           <button
             onClick={toggleFilterMenu}

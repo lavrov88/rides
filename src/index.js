@@ -9,15 +9,16 @@ import { Route } from 'react-router'
 store.initState()
 
 const rerenderEntireTree = () => {
-   ReactDOM.render(
-      <React.StrictMode>
-         <HashRouter>
-            <Route path='/' 
-               render={({ location }) => <App location={location} store={store} />} />
-         </HashRouter>
-      </React.StrictMode>,
-      document.getElementById('root')
-    );
+  ReactDOM.render(
+    <React.StrictMode>
+      <HashRouter>
+        <Route 
+          path='/' 
+          render={({ location }) => <App location={location} store={store} />} />
+      </HashRouter>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
 }
 
 rerenderEntireTree()
