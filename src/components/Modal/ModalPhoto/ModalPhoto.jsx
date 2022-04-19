@@ -49,8 +49,9 @@ const ModalPhoto = (props) => {
     }
   }
 
-  const swipeClose = useSwipeable({
+  const swipeActions = useSwipeable({
     onSwiped: (e) => {
+      console.log(e)
       if (e.dir === 'Up' || e.dir === 'Down') {
         closeModal()
       } else if (e.dir === 'Right' && num > 0) {
@@ -73,11 +74,11 @@ const ModalPhoto = (props) => {
   }
 
   return (
-    <div {...swipeClose} 
+    <div 
       onClick={modalClick} 
       ref={modalElement}
       className={"modal" + (props.isOpened ? " opened" : "")} >
-      <div className="modal_photo_container">
+      <div className="modal_photo_container" {...swipeActions} >
         <img src="/img/tail-spin.svg" alt="Loading..." ref={spinnerElement} className="map_loading_spinner" />
         <img className="modal_photo_img hide" ref={imgElement} src={img.src} alt={img.alt} />
       </div>
