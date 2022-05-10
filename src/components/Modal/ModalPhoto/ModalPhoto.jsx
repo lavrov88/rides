@@ -51,7 +51,6 @@ const ModalPhoto = (props) => {
 
   const swipeActions = useSwipeable({
     onSwiped: (e) => {
-      console.log(e)
       if (e.dir === 'Up' || e.dir === 'Down') {
         closeModal()
       } else if (e.dir === 'Right' && num > 0) {
