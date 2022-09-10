@@ -1,4 +1,69 @@
 const rides = [
+  {
+    name: 'Joinery along Volga',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0a70db1f4771f4d6082776e0b82c3172732a69cc1c0d3eda6c5f8278e9dc394a&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 43.88 + 30.73,
+    climb: 98 + 108,
+    startDate: '2022-06-30',
+    startTime: '18:31',
+    fullTime: '6:21:06',
+    cleanTime: '4:48:03',
+    members: ['Lavr', 'Nick', 'Andy'],
+    stravaLink: 'https://www.strava.com/activities/7590449274',
+    searchWords: `Tver Savvatyevo Kablukovo Zaborovye Lisitskiy bor Volga night camp swimming Vidogoschi Edimonovo Yuryevo-Devichye Konakovo ferry Toporok`,
+    photos: [
+      'IMG_20220730_202338.jpg',
+      'IMG_20220731_104758.jpg',
+      'IMG_20220731_111546.jpg'
+    ]
+  },
+  {
+    name: 'Konakovo - Dubna - Dmitrov',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A563ab8f8d719a4058ac82d15bf2a61944e1923ffaaf3e2b89d30793897b15d3a&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 99.22,
+    climb: 177,
+    startDate: '2022-06-25',
+    startTime: '12:14',
+    fullTime: '9:40:24',
+    cleanTime: '5:29:34',
+    members: ['Lavr', 'Nick', 'Andy'],
+    stravaLink: 'https://www.strava.com/activities/7378308366',
+    searchWords: `Konakovo Dmitrova gora Dubna Velo1 Velo-1 Moscow channel Kanal imeni Moskvy Meldino swimming Melchovka Dmitrov`,
+    photos: [
+      'IMG_20220625_133855.jpg',
+      'IMG_20220625_155711.jpg',
+      'IMG_20220625_180446.jpg',
+      'IMG_20220625_180711.jpg'
+    ]
+  },
+  {
+    name: 'To Moscow through Krasnogorsk',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aee887284ae725f8e4980e6a9c39a4607b80bf194bf51dba6d51553c7423913cd&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 75,
+    climb: 432,
+    startDate: '2022-06-04',
+    startTime: '12:51',
+    fullTime: '7:32:00',
+    cleanTime: '4:58:47',
+    members: ['Lavr', 'Nick'],
+    stravaLink: 'https://www.strava.com/activities/7255433930',
+    searchWords: `Zelenograd Ruzino Pyatnitskoe highway Pyatnickoe Brehovo Brekhovo Bryokhovo Yurlovo Saburovo Opaliha Opalikha Volokolamskoe Krasnogorsk Penyagino Pavshino Crocus Myakinino Strogino Moscow Schukino Sokol Dinamo Leningradskiy prospekt Tverskaya Okhotniy Ryad Ohotniy Red Square Krasnaya Ploschad Bolotnaya Park Gorkogo Khamovniki Savvinskaya Krasnopresnenskaya naberezhnaya City`,
+    photos: []
+  },
+  {
+    name: 'Road to Krivtsovo',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Afff3a7eed3a9dec745b597a68630cedbaaa3caf41460c22b7c69ffdd4dda0062&amp;width=100%25&amp;height=480&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 38.62,
+    climb: 240,
+    startDate: '2022-05-28',
+    startTime: '11:04',
+    fullTime: '2:22:48',
+    cleanTime: '2:02:11',
+    members: ['Lavr', 'Nick', 'Andy'],
+    stravaLink: 'https://www.strava.com/activities/7225401824https://www.strava.com/activities/7225401824',
+    searchWords: `Zelenograd Alabushevo CKAD Povarovo Povarovka Berezki Beryozki Pyatnitskoe highway Krivtsovo Krivcovo`,
+    photos: []
+  },
     {
       name: 'Journey to the abandoned bridge',
       map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A2359cae0b5db8438c647c878ca30ca669718c0b4ea89b8adf25f656c89de78fb&amp;width=100%25&amp;height=536&amp;lang=ru_RU&amp;scroll=true"></script>`,
