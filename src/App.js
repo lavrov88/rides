@@ -19,8 +19,8 @@ function App(props) {
   const onResise = () => {checkMobile(state.layout.isMobile, dispatch)}
 
   React.useEffect(() => {
-  window.addEventListener('resize', onResise)
-  return window.removeEventListener('resize', onResise)
+    window.addEventListener('resize', onResise)
+    return window.removeEventListener('resize', onResise)
 }, [])
 
   if (url !== props.location.pathname) {

@@ -1,6 +1,6 @@
 const rides = [
   {
-    name: 'Joinery along Volga',
+    name: 'Journey along Volga',
     map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0a70db1f4771f4d6082776e0b82c3172732a69cc1c0d3eda6c5f8278e9dc394a&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
     distance: 43.88 + 30.73,
     climb: 98 + 108,

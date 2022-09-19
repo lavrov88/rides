@@ -5,7 +5,6 @@ import RideMembers from "./InfobarRideMembers/InfobarRideMembers"
 import RideIndicators from "./InfobarRideIndicators/InfobarRideIndicators"
 import InfobarGallery from "./InfobarGallery/InfobarGallery"
 import { useSwipeable } from "react-swipeable"
-import InfobarRiderCardContainer from "./InfobarRiderCard/InfobarRiderCardContainer"
 
 export const RideHeader = (props) => {
   const date = new Date(props.date)
