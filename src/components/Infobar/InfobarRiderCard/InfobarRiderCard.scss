@@ -6,7 +6,7 @@
   top: 5px;
   left: 2%;
   width: 96%;
-  padding: 15px;
+  padding: 15px 3px;
 
   background-color: #fff;
   box-shadow: 0px 4px 16px 5px rgba(34, 60, 80, 0.3);
@@ -35,6 +35,11 @@
     transform: scale(0.5);
     opacity: 0;
   }
+}
+
+.rider_card_inner {
+  padding: 0 12px;
+  overflow: auto;
 }
 
 .rider_card_header {
@@ -101,12 +106,56 @@
   }
 }
 
-.stats_item {
+.stats_item_collapsed {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   margin: 10px 0;
   height: 32px;
+}
+
+.stats_item__collapse_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 32px;
+  width: 32px;
+}
+
+.stats_item_collapsed,
+.stats_item__collapse_btn {
+  transition: background-color 0.2s linear;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $blue_semitransparent_lightest;
+  }
+}
+
+.stats_item__collapse_arrow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease;
+
+  &:after {
+     position: absolute;
+     content: '';
+     top: 50%;
+     left: 50%;
+     width: 0;
+     height: 0;
+     transform: translate(-50%, -50%);
+
+     border-style: solid;
+     border-width: 8px 8px 0px 8px;
+     border-color: #007bff transparent transparent transparent;
+  }
+}
+
+.stats_item.opened .stats_item__collapse_arrow {
+  transform: rotate(180deg);
 }
 
 .stats_item__item_name,
@@ -125,7 +174,7 @@
 }
 
 .stats_item__item_value {
-  padding-left: 10px;  
+  padding-left: 10px;
   border-left: 2px $blue_main solid;
 
   font-size: 20px;
@@ -137,6 +186,55 @@
 
   font-size: 12px;
   font-weight: 500;
+}
+
+.stats_per_year {
+  background-color: $blue_semitransparent_lightest;
+  margin-bottom: 20px;
+  padding: 5px 0;
+}
+
+.stats_per_year_item {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+}
+
+.stats_per_year_item__left {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  padding-right: 5px;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 14px;
+  text-align: right;
+}
+
+.stats_per_year_item__right {
+  display: flex;
+  align-items:center;
+  width: 50%;
+  padding-left: 5px;
+  border-left: 2px #2e82ff solid;
+  font-weight: 600;
+}
+
+.stats_per_year_item__line {
+  height: 60%;
+  width: 50%;
+  background-color: $blue_main;
+}
+
+.stats_per_year_item__value {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.stats_per_year_item__unit {
+  margin-left: 5px;
+  font-size: 10px;
+  font-weight: normal;
 }
 
 .close_rider_card_btn {

@@ -18,9 +18,11 @@ function App(props) {
   const url = state.nextRenderUrl || props.location.pathname
   const onResise = () => {checkMobile(state.layout.isMobile, dispatch)}
 
+  
   React.useEffect(() => {
     window.addEventListener('resize', onResise)
     return window.removeEventListener('resize', onResise)
+    // eslint-disable-next-line
 }, [])
 
   if (url !== props.location.pathname) {

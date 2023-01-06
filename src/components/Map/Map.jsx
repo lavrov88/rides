@@ -46,6 +46,7 @@ const rerenderMap = (props) => {
 const Map = (props) => {
   React.useEffect(() => {
     rerenderMap(props)
+    // eslint-disable-next-line
   }, [props.map]);
 
   return (

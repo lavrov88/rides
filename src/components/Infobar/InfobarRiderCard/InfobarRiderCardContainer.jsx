@@ -42,9 +42,6 @@ const InfobarRiderCardContainer = ({ allBikers, rides, riderCard, dispatch }) =>
   let ridesWithThisRider = []
   let activeYears = []
   let firstAndLastActiveYears = []
-  let totalDistance = 0
-  let totalCleanTime = 0
-  let averageSpeed = 0
 
   if (activeRiderId) {
     activeRider = allBikers.filter(b => b.id === activeRiderId)[0]
@@ -55,10 +52,6 @@ const InfobarRiderCardContainer = ({ allBikers, rides, riderCard, dispatch }) =>
     ridesWithThisRider = [...rides].filter(r => r.members.includes(name))
     activeYears = [...ridesWithThisRider].map(r => r.id.slice(0, 4)).sort()
     firstAndLastActiveYears = [activeYears[0], activeYears[activeYears.length - 1]]
-
-    totalDistance = Math.round(ridesWithThisRider.reduce((sum, current) => sum + current.distance, 0))
-    totalCleanTime = ridesWithThisRider.reduce((sum, current) => sum + current.cleanTime, 0) / 1000 / 60 / 60
-    averageSpeed = (totalDistance / totalCleanTime).toFixed(1)
   }
 
   return (
@@ -69,9 +62,7 @@ const InfobarRiderCardContainer = ({ allBikers, rides, riderCard, dispatch }) =>
       photoLarge={photoLarge}
       name={name}
       period={[firstAndLastActiveYears[0], firstAndLastActiveYears[1]]}
-      ridesCount={ridesWithThisRider.length}
-      totalDistance={totalDistance}
-      averageSpeed={averageSpeed}
+      ridesWithThisRider={ridesWithThisRider}
       closeRiderCard={closeRiderCard}
       dispatch={dispatch}
       riderCardElement={riderCardElement}
