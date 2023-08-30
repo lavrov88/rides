@@ -1,10 +1,64 @@
 const rides = [
   {
+    name: 'Journey through Volga and the quarry',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5567758106b4df65136b9af55dbb24e3e5547c18f22f3dc700b25c52d1bf9de0&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 32.75 + 29.84 + 17.53,
+    climb: 101 + 93 + 44,
+    startDate: '2023-08-05',
+    startTime: '14:52',
+    fullTime: '09:45:30', // 5:11:52 + 3:13:36 + 1:20:02
+    cleanTime: '05:30:09', // 2:45:36 + 1:42:32 + 1:02:01
+    members: ['Lavr', 'Nick', 'Andy'],
+    stravaLink: 'https://www.strava.com/activities/9647416846',
+    searchWords: `Konakovo Toporok ferry Yuryevo Devichye Edimonovo Volga river swimming Vidogoshchi night camp forest hammock Sudimirka Yuryevskoe Kablukovo Savvatyevo Krasnogorskiy career Savvatyevskoe highway Tver`,
+    photos: [
+      'IMG_20230805_162821_874.jpg',
+      'IMG_20230805_181133_776.jpg',
+      'IMG_20230805_184102_714.jpg',
+      'IMG_20230805_190816_080.jpg',
+      'IMG_20230805_195304_1_Panorama.jpg',
+      'IMG_20230806_180845_186.jpg'
+    ]
+  },
+  {
+    name: 'Moscow parks circle',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9636f53e7970054e188120e600c8bccc1277df13c5ecb4af70ac8857eec7ba88&amp;width=100%25&amp;height=570&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 72.69,
+    climb: 279,
+    startDate: '2023-06-11',
+    startTime: '11:43',
+    fullTime: '8:48:56',
+    cleanTime: '4:58:05',
+    members: ['Lavr', 'Nick', 'Andy'],
+    stravaLink: 'https://www.strava.com/activities/9247698313',
+    searchWords: `Levoberezhnaya Khovrino Grachevskaya Beskudnikovo Altufyevo Sviblovo Yauza river Losiniy ostrov island Belokamennaya Sokolniki park Moskva-3 Rizhskaya Ostankino Timiryazevskaya Timiryazevskiy Pokrovsoe Streshnevo beavers Leningradskoe highway North river station Rechnoy vokzal`,
+    photos: [
+      'IMG_20230611_152315_558.jpg'
+    ]
+  },
+  {
+    name: 'Through Lyalovo to the abandoned bridge',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad6149063fdb585928de84382936a122b6aab0e2d40c2e52a6fe2c4ae67578fa4&amp;width=740&amp;height=618&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 28.47,
+    climb: 186,
+    startDate: '2023-04-22',
+    startTime: '13:28',
+    fullTime: '6:29:41',
+    cleanTime: '2:07:35',
+    members: ['Lavr', 'Nick', 'Andy', 'Paul'],
+    stravaLink: 'https://www.strava.com/activities/8949904204',
+    searchWords: `Zelenograd Rhzavki Lyalovskoe highway Mendeleyevo Lyalovo CKAD Klyazma river railway Leningradskoe Durykino Chashnikovo`,
+    photos: [
+      'IMG_20230422_151212.jpg',
+      'IMG_20230422_191907_1.jpg'
+    ]
+  },
+  {
     name: 'Journey along Volga',
     map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0a70db1f4771f4d6082776e0b82c3172732a69cc1c0d3eda6c5f8278e9dc394a&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
     distance: 43.88 + 30.73,
     climb: 98 + 108,
-    startDate: '2022-06-30',
+    startDate: '2022-07-30',
     startTime: '18:31',
     fullTime: '6:21:06',
     cleanTime: '4:48:03',

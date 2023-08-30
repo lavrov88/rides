@@ -280,7 +280,7 @@ const store = {
             let ride = {
                name: el.name,
                id: `${el.startDate}T${el.startTime}`.match(/[0-9]/gi).join(''),
-               url: '/rides/' + el.startDate,
+               url: '/' + el.startDate,
                map: el.map,
                startDate: convertStrToDate(el.startDate, el.startTime),
                fullTime: convertStrToMs(el.fullTime),

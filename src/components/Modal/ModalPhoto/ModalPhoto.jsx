@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import './ModalPhoto.scss'
 
 const ModalPhoto = (props) => {
   let num, length
+  const src = props.src
   const modalElement = React.useRef(null)
   const spinnerElement = React.useRef(null)
   const imgElement = React.useRef(null)
@@ -49,6 +50,40 @@ const ModalPhoto = (props) => {
     }
   }
 
+  // keyboard actions
+
+  const handleKeyDown = (e) => {
+    console.log('keydown')
+    console.log(e)
+
+    switch (e.key) {
+      case 'ArrowLeft':
+        if (num > 0) {
+          openPrev()
+        }
+        break
+      case 'ArrowRight':
+        if (num < length - 1) {
+          openNext()
+        }
+        break
+      case 'Escape':
+        closeModal()
+        break
+      default:
+        break
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [ src, num ])
+
+  // swipe actions
+
   const swipeActions = useSwipeable({
     onSwiped: (e) => {
       if (e.dir === 'Up' || e.dir === 'Down') {
@@ -74,7 +109,7 @@ const ModalPhoto = (props) => {
 
   return (
     <div 
-      onClick={modalClick} 
+      onClick={modalClick}
       ref={modalElement}
       className={"modal" + (props.isOpened ? " opened" : "")} >
       <div className="modal_photo_container" {...swipeActions} >
