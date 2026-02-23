@@ -1,5 +1,143 @@
 const rides = [
   {
+    name: 'Serpukhov - Kolomna, day 2',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Afdf70bdf25bdea4bcf6f18b9ad60880bb2f9b13c8cd5d07c7f533801a75a7e46&amp;width=659&amp;height=547&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 58.36,
+    climb: 356,
+    startDate: '2025-09-07',
+    startTime: '11:14',
+    fullTime: '5:54:48',
+    cleanTime: '3:45:01',
+    members: ['Lavr', 'Nick', 'Andy'],
+    stravaLink: 'https://www.strava.com/activities/15743823393',
+    searchWords: `Tarbushevo Ozery Ozyory Oka river swimming Kolomna Golutvin railroad train`,
+    photos: [
+      'IMG20250907074030.jpg',
+      'photo_2025-09-08_09-50-15.jpg',
+      'IMG20250907081429.jpg',
+      'IMG_20250907_192124.jpg'
+    ]
+  },
+  {
+    name: 'Serpukhov - Kolomna, day 1',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4245aaeee130c722940d7b7ca1f49a8d61e9ad210cc9606ed38e78b31ae61140&amp;width=798&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 76.07,
+    climb: 497,
+    startDate: '2025-09-06',
+    startTime: '11:54',
+    fullTime: '5:45:50',
+    cleanTime: '3:54:19',
+    members: ['Lavr', 'Nick', 'Andy'],
+    stravaLink: 'https://www.strava.com/activities/15743796961',
+    searchWords: `railroad train Serpukhov Danki Igumnovo Oka river Kashirskoe highway Stupino Staraya Kashira`,
+    photos: [
+      'IMG20250906135316.jpg',
+      'IMG20250906135327.jpg',
+      'IMG20250906153919.jpg',
+    ]
+  },
+  {
+    name: 'Journey to Barvikha',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6ed7a2c277b20f8269349a42ce00dd5215c29acc9a2f90d7b152d80e59d33201&amp;width=749&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 24.36,
+    climb: 122,
+    startDate: '2025-03-09',
+    startTime: '14:09',
+    fullTime: '3:21:04',
+    cleanTime: '2:21:15',
+    members: ['Lavr', 'Nick'],
+    stravaLink: 'https://www.strava.com/activities/14836813836',
+    searchWords: `Moscow Shchukino Strogino Rublevskoe highway Romashkovo Razdory Moscow river Barvikha`,
+    photos: [
+      'IMG20250309163713.jpg',
+      'IMG_20250309_184648.jpg',
+    ]
+  },
+  {
+    name: 'Konakovo - Dubna - Velo-1 - Dmitrov',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A7190c09dc111cecbe0e933c28b3fea92fb1b9c5607eef392db6586f940755a54&amp;width=741&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 79.12,
+    climb: 99,
+    startDate: '2024-09-08',
+    startTime: '11:03',
+    fullTime: '6:55:49',
+    cleanTime: '4:20:55',
+    members: ['Lavr', 'Nick', 'Andy', 'Paul'],
+    stravaLink: 'https://www.strava.com/activities/12700183788',
+    searchWords: `Konakovo Dmitrova Gora Dubna Velo1 Velo-1 Moscow channel Kanal imeni Moskvy Meldino swimming Melchovka Dmitrov`,
+    photos: [
+      'photo_2024-09-07_16-33-49.jpg',
+      'photo_2024-09-08_22-36-00.jpg',
+      'photo_2024-09-08_22-35-58.jpg',
+      'IMG20240908163528.jpg',
+      'IMG_20240908_204841.jpg',
+    ]
+  },
+  {
+    name: 'From Mitino to Firsanovka through the forest',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A2e71f14e28e0d5adcda8847bcc3b73255de3b4c8822da3a69d519c34c3f880e3&amp;width=500&amp;height=574&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 22.2,
+    climb: 149,
+    startDate: '2024-08-18',
+    startTime: '16:49',
+    fullTime: '3:10:36',
+    cleanTime: '1:34:23',
+    members: ['Lavr', 'Nick', 'Andy', 'Paul'],
+    stravaLink: 'https://www.strava.com/activities/12185029618',
+    searchWords: `Moscow Mitino Pyatnitskoe highway Otradnoe Otrada Podolino Firsanovka`,
+    photos: [
+    ]
+  },
+  {
+    name: 'From Solnechnogorsk to Zelenograd',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A82888b2d3e31ec73c21ee0e97ed958bce4c7f810b56dcf064ecf5c512f03812a&amp;width=734&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 37.71,
+    climb: 246,
+    startDate: '2024-08-04',
+    startTime: '14:35',
+    fullTime: '2:50:40',
+    cleanTime: '2:14:54',
+    members: ['Lavr', 'Nick'],
+    stravaLink: 'https://www.strava.com/activities/12700142954',
+    searchWords: `Solnechnogorsk Podsolnechnaya Berezki Povarovo Depo CKAD Dedeshino Alabushevo Zelenograd`,
+    photos: [
+      '2024-08-04-maps-pano.jpg',
+    ]
+  },
+  {
+    name: 'From Klin to Solnechnogorsk',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9e0777755025c1776297cbdc2afd271cc5d04c9468e281422c42b703c997dc12&amp;width=695&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 49.77,
+    climb: 372,
+    startDate: '2024-07-06',
+    startTime: '12:50',
+    fullTime: '5:59:15',
+    cleanTime: '2:46:39',
+    members: ['Lavr', 'Nick', 'Andy'],
+    stravaLink: 'https://www.strava.com/activities/12700083693',
+    searchWords: `Klin Lavrovo Streglovo Frolovskoe Istra reservoir Krivtsovo Pyatnitskoe highway Solnechnogorsk Podsolnechnaya`,
+    photos: [
+      'IMG_20240706_174310_764.jpg',
+    ]
+  },
+  {
+    name: 'Road to Pavlovskaya Sloboda',
+    map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A38ebac4f96ebe93c11ba3e066ac8ae4da720443b07229c2c17ac4861f8b8704d&amp;width=702&amp;height=511&amp;lang=ru_RU&amp;scroll=true"></script>`,
+    distance: 30.39 + 25.89,
+    climb: 158 + 187,
+    startDate: '2024-05-01',
+    startTime: '12:44',
+    fullTime: '05:56:02', // 3:33:48 + 2:22:14
+    cleanTime: '3:33:34', // 1:49:47 + 1:43:47
+    members: ['Lavr', 'Nick', 'Andy', 'Paul'],
+    stravaLink: 'https://www.strava.com/activities/11310400861',
+    searchWords: `Zelenograd Ruzino Brekhovo Brehovo Bryokhovo Pyatnitskoe Pyatnickoe Kozino Nakhabino Volokolamskoe Pavlovskaya sloboda Snegiri Bakeevo Kryukovo`,
+    photos: [
+      'IMG_20240501_144959_598.jpg',
+      'IMG_20240501_161131_304.jpg',
+    ]
+  },
+  {
     name: 'Journey through Volga and the quarry',
     map: `<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5567758106b4df65136b9af55dbb24e3e5547c18f22f3dc700b25c52d1bf9de0&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>`,
     distance: 32.75 + 29.84 + 17.53,
